@@ -1,0 +1,167 @@
+﻿@model ScheduleGameSurveyViewModel
+@using PagedList.Mvc;
+@using LAMP.Utility;
+@{
+    Layout = null;
+}
+@section page_scripts{
+    <script type="text/javascript">
+        $("#msgsuccessgame").hide();
+        $("#DeleteGamePopupConfirmation").hide();
+        $('#spanTotalUser').text(@Model.ScheduleGameListViewModel.TotalRows.ToString());
+    </script>
+}
+
+
+<input type="hidden" name="currentBatchId" id="currentBatchId" />
+<div id="msgsuccessBatch" class="alert alert-success alert-white rounded" style="display:none;"></div>
+<input type="hidden" name="userFunctionalityBatch" id="userFunctionalityBatch" />
+
+@using (Ajax.BeginForm("SearchScheduleBatch", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divBatchList", InsertionMode = InsertionMode.Replace, OnBegin = "OnBeginAjaxCall_User()", OnSuccess = "OnSuccessAjaxCall_User();", OnFailure = "OnFailureAjaxCall_User()" },
+        new { id = "ScheduleBatchListForm", @class = "form-horizontal", pageSize = Model.ScheduleSurveyListViewModel.SortPageOptions.PageSize }))
+{
+    <div class="table-responsive">
+        <table class="table" id="BatchList">
+            <tr>
+                <th class="@(Model.ScheduleBatchListViewModel.SortPageOptions.SortField == "Name" ? "sorting-" + Model.ScheduleBatchListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortScheduleBatchList('BatchName')" width="20%"><span>Batch Name</span></th>
+                <th class="@(Model.ScheduleBatchListViewModel.SortPageOptions.SortField == "CreatedOn" ? "sorting-" + Model.ScheduleBatchListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortScheduleBatchList('CreatedOn')" width="10%"><span>Created On</span></th>
+                <th>Slot Time</th>
+                <th>Repeat Interval</th>
+                <th>Scheduled Date</th>
+                <th>Actions</th>
+            </tr>
+            @if (Model.ScheduleBatchListViewModel.TotalRows > 0)
+            {
+                int i = 0;
+                foreach (AdminScheduleViewModel schedule in Model.ScheduleBatchListViewModel.AdminScheduleViewModelList)
+                {
+                    <tr>
+                        <td>@schedule.BatchName</td>
+                        <td>@(schedule.CreatedOnString == string.Empty ? "Nil" : schedule.CreatedOnString)</td>
+                        @if (schedule.RepeatID == 11)
+                        {
+                            <td>
+                                @{int j = 0;}
+                                @foreach (var item in schedule.SlotTimeOptions)
+                                {
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            @{
+                                            <text>
+
+                                            ConvertToLocalTime('@j', '@schedule.AdminSchID', '@item', 2);
+                                            </text>
+                                         }
+
+                                        });
+                                    </script>
+                                    <span id="schedule-optionGame_@j@schedule.AdminSchID"></span>
+                                    j++;
+                                }
+                            </td>
+                        }
+                        else if (schedule.RepeatID == 2 || schedule.RepeatID == 3 || schedule.RepeatID == 4)
+                        {
+                            <td>
+                                <span>Nil</span>
+
+                            </td>
+                        }
+                        else
+                        {
+
+                            <td>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        @{
+                                            <text>
+
+                                        ConvertToLocalTimeOption('@schedule.AdminSchID', '@schedule.SlotTimeStamp', 1);
+                                        </text>
+                                         }
+
+                                    });
+                                </script>
+                                <span id="schedule-time_@schedule.AdminSchID"></span>
+                            </td>
+                        }
+
+                        <td>@schedule.RepeatInterval</td>
+                        <td>
+                            @if (schedule.RepeatID == 11 || schedule.RepeatID == 2 || schedule.RepeatID == 3 || schedule.RepeatID == 4)
+                            {
+                                <text>  Nil    </text>
+                            }
+                            else
+                            {
+                                @Helper.GetDateString(schedule.ScheduleDate, "MM/dd/yyyy")
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditBatchSchedule", "UserAdmin", new { adminBatchSchID = @schedule.AdminSchID })" title="Edit"><i class="edit"></i></a>
+                            <a href="#" onclick="ShowDeleteScheduleBatchPopupConfirmation('@schedule.AdminSchID','Delete')" title="Delete"><i class="delete"></i></a>
+                        </td>
+                    </tr>
+                            i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div id="divRegquestGridNone" class="" style="">No schedules found.</div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SearchId" name="searchString" id="searchString" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.PageSize" name="PageSize" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.SortField" name="sortColumn" id="SortField" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.CurrentPage" name="page" id="page" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.SortOrder" name="sortOrder" id="SortOrder" />
+        <input type="hidden" id="AdminTotalRows" value="@Model.ScheduleSurveyListViewModel.TotalRows" />
+    </div>
+            
+
+            if (Model.ScheduleBatchListViewModel.PagedAdminScheduleViewModelList != null)
+            {
+                <div class="row col-sm-12">
+                    <div class="pull-right">
+                        <div class="dataTables_paginate paging_bs_normal">
+                            @if (Model.ScheduleBatchListViewModel.PagedAdminScheduleViewModelList.Count != 0)
+                            {
+                                <div>
+                                    @Html.PagedListPager(Model.ScheduleBatchListViewModel.PagedAdminScheduleViewModelList, page => Url.Action("SearchScheduleBatch", new { page, searchString = Model.ScheduleBatchListViewModel.SearchId, sortColumn = Model.ScheduleBatchListViewModel.SortPageOptions.SortField, sortOrder = Model.ScheduleBatchListViewModel.SortPageOptions.SortOrder, pageSize = Model.ScheduleBatchListViewModel.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divBatchList", OnSuccess = "SuccessPaginationUser", OnBegin = "BeginPaginaionUser" }))
+                                </div>
+                            }
+                        </div>
+                    </div><div class="clearfix"></div>
+                </div>
+            }
+}
+<!-- Delete Admin Popup Confirmation-->
+<div id="DeleteScheduleBatchPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 centered text-center">
+                        <p id="confirmMessageBatch"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteScheduleBatch()" class="btn btn-primary" id="btnDelete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

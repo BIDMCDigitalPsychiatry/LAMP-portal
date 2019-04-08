@@ -1,0 +1,81 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@using LAMP.Utility
+@{
+    Layout = null;
+}
+<div class="panel-heading clearfix" role="tab" id="headingOne">
+    <h4>
+        <span>SURVEY</span>
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Symptom Survey
+            <i class="acc-arrow"></i>
+        </a>
+    </h4>
+    <div class="info">
+        <p class="title">LAST SURVEY</p>
+        <p class="status very-good">-</p>
+        <span>@Model.SurveyList.LastSurveyDate</span>
+    </div>
+    <div class="info">
+        <p class="title">OVERALL RATING</p>
+        <p class="status good">-</p>
+        <span><strong>@Model.SurveyList.TotalSurveys</strong> Survey(s)</span>
+    </div>
+    <div class="info">
+        <p class="title">POINTS</p>
+        <span><strong>@Model.SurveyList.SurveyPoints.ToString("#")</strong></span>
+    </div>
+</div>
+<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div class="panel-body">
+        <div class="table-responsive survey cognition acc">
+            @Html.HiddenFor(model => Model.SurveyListSortPageOptions.CurrentPage, new { @id = "CurrentPageForSurvey", @name = "CurrentPageForSurvey" })
+            @Html.HiddenFor(model => Model.SurveyListSortPageOptions.PageSize, new { @id = "PageSizeForSurvey", @name = "PageSizeForSurvey" })
+            <table class="table table-bordered">
+                @if (Model.SurveyList.UserSurveyList != null && Model.SurveyList.UserSurveyList.Count > 0)
+                {
+                    foreach (UserSurvey survey in Model.SurveyList.UserSurveyList)
+                    {
+                        <tr>
+                            <td>@survey.SurveyName</td>
+                            <td><span class="very-good">-</span></td>
+                            <td> @survey.Date_Time</td>
+                            <td>@(survey.Status == 1 ? ExitOrCompleteStatus.Exited : ExitOrCompleteStatus.Completed)</td>
+                            <td> @(survey.IsDistraction == true ? "Distraction" : "Not a Distraction")</td>
+                            <td> @(survey.IsNotificationGame == true ? "Notification Game" : "Not a Notification Game")</td>
+                            <td><button title="View More" class="view" onclick="location.href='@Url.Action("SurveyDetails", "UserAdmin", new { page = Model.SurveyListSortPageOptions.CurrentPage, surveyResultId = @survey.SurveyResultID, studyId = @Model.StudyId, AdminBatchSchID = 0 })';return false;">View More</button></td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            <div class="" style="">No records found.</div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            @if (Model.PagedSurveyList != null)
+            {
+                <div class="row col-sm-12">
+                    <div class="pull-right">
+                        <div class="dataTables_paginate paging_bs_normal">
+                            @if (Model.PagedSurveyList.Count != 0)
+                            {
+                                <div>
+                                    @Html.PagedListPager(Model.PagedSurveyList, page => Url.Action("SearchSurveyList", new { page, userId = Model.UserID, studyId = @Model.StudyId, pageSize = Model.SurveyListSortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divSurveyList" }))
+                                </div>
+                            }
+                        </div>
+                    </div><div class="clearfix"></div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

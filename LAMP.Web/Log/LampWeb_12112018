@@ -1,0 +1,146 @@
+2018-12-11 11:17:54,751 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: huisofi@gmail.com : LAMP2018
+
+2018-12-11 11:17:54,767 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-12-11 11:17:58,365 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-12-11 11:17:59,617 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-12-11 11:41:20,061 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: huisofi@gmail.com : LAMP2018
+
+2018-12-11 11:41:20,078 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-12-11 11:41:20,401 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-12-11 11:41:21,513 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-12-11 11:41:42,028 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: huisofi@gmail.com : LAMP2018
+
+2018-12-11 11:41:42,029 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-12-11 11:41:42,344 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-12-11 11:57:49,314 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - UserActivities: 791
+
+2018-12-11 11:57:49,471 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - GetUserActivities()====================================
+
+2018-12-11 11:57:50,400 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:50,403 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:51,004 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: n-Back New last date: 12-08-2018 05:05:20 new date: 12-04-2018 11:03:26
+
+2018-12-11 11:57:51,005 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:51,601 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Serial 7s last date: 12-08-2018 05:05:20 new date: 12-05-2018 12:27:52
+
+2018-12-11 11:57:51,604 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:52,189 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Simple memory last date: 12-08-2018 05:05:20 new date: 12-08-2018 04:57:38
+
+2018-12-11 11:57:52,190 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:52,782 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Digit Span last date: 12-08-2018 05:05:20 new date: 12-05-2018 12:13:32
+
+2018-12-11 11:57:52,784 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:53,381 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Digit Span last date: 12-08-2018 05:05:20 new date: 12-04-2018 10:59:59
+
+2018-12-11 11:57:53,384 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 05:05:20
+
+2018-12-11 11:57:54,285 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Trails-b New last date: 12-08-2018 05:05:20 new date: 12-08-2018 07:31:13
+
+2018-12-11 11:57:54,286 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:13
+
+2018-12-11 11:57:54,880 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Trails-b DotTouch last date: 12-08-2018 07:31:13 new date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:54,882 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:55,472 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Jewels Trails A last date: 12-08-2018 07:31:40 new date: 12-04-2018 10:50:49
+
+2018-12-11 11:57:55,474 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:56,134 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Jewels Trails B last date: 12-08-2018 07:31:40 new date: 12-03-2018 14:14:44
+
+2018-12-11 11:57:56,136 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:56,756 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Visual Association Task last date: 12-08-2018 07:31:40 new date: 12-08-2018 04:58:11
+
+2018-12-11 11:57:56,757 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:57,733 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: 3D Figure last date: 12-08-2018 07:31:40 new date: 12-04-2018 10:48:56
+
+2018-12-11 11:57:57,735 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:58,342 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Spatial Span last date: 12-08-2018 07:31:40 new date: 12-08-2018 05:04:36
+
+2018-12-11 11:57:58,344 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:59,004 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Cats and Dogs New last date: 12-08-2018 07:31:40 new date: 12-08-2018 04:53:14
+
+2018-12-11 11:57:59,006 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:57:59,620 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Temporal Order last date: 12-08-2018 07:31:40 new date: 12-08-2018 04:55:45
+
+2018-12-11 11:57:59,622 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:58:00,219 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Scratch Image last date: 12-08-2018 07:31:40 new date: 12-03-2018 14:09:41
+
+2018-12-11 11:58:00,220 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 11:58:00,832 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() gameName: Spin Wheel last date: 12-08-2018 07:31:40 new date: 12-03-2018 14:11:22
+
+2018-12-11 11:58:00,834 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - CreateGame() last date: 12-08-2018 07:31:40
+
+2018-12-11 12:07:22,151 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: huisofi@gmail.com : LAMP2018
+
+2018-12-11 12:07:22,173 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-12-11 12:07:22,474 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-12-11 12:07:23,531 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-12-11 12:07:31,227 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - UserAdminService/GetUsers: System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LAMP.DataAccess.GenericRepository`1.SingleOrDefault(Expression`1 predicate) in e:\Working Folder\LAMP\Source\LAMP.DataAccess\Concrete\GenericRepository.cs:line 47
+   at LAMP.Service.UserAdminService.GetUsers(UserListViewModel model) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 3488
+

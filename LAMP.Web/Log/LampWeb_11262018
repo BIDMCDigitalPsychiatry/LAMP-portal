@@ -1,0 +1,290 @@
+2018-11-26 13:21:25,165 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 13:21:25,183 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 13:21:26,918 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 13:21:27,239 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 13:25:53,366 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Object reference not set to an instance of an object.
+----------
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserAdminService.<>c__DisplayClass1aa.<GetUserExportDetailList>b__17c(HealthKitData s) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 3140
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at LAMP.Service.UserAdminService.GetUserExportDetailList(String userIds, String fromDate, String toDate) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 3112
+----------
+
+
+2018-11-26 13:25:55,806 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Value cannot be null.
+Parameter name: source
+----------
+System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1235
+----------
+
+
+2018-11-26 13:26:01,234 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 13:26:01,235 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 13:26:01,238 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 13:26:01,259 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:13:45,489 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:13:45,506 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:13:45,513 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:13:45,661 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:18:28,799 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Object reference not set to an instance of an object.
+----------
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserAdminService.<>c__DisplayClass1aa.<GetUserExportDetailList>b__17c(HealthKitData s) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 3140
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at LAMP.Service.UserAdminService.GetUserExportDetailList(String userIds, String fromDate, String toDate) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 3112
+----------
+
+
+2018-11-26 14:18:32,698 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Value cannot be null.
+Parameter name: source
+----------
+System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1235
+----------
+
+
+2018-11-26 14:24:11,952 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:24:11,968 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:24:11,976 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:24:12,123 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:25:04,381 [5] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Value cannot be null.
+Parameter name: source
+----------
+System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1236
+----------
+
+
+2018-11-26 14:26:52,644 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:26:52,660 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:26:52,667 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:26:52,797 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:28:31,013 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:28:31,029 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:28:31,035 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:28:31,167 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:34:35,241 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:34:35,257 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:34:35,262 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:34:35,392 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:39:51,113 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:39:51,129 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:39:51,136 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:39:51,267 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:48:53,635 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:48:53,651 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:48:53,657 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:48:53,788 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 14:53:28,202 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 14:53:28,218 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 14:53:28,224 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 14:53:28,359 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 16:52:47,506 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 16:52:47,534 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 16:52:47,541 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 16:52:47,672 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 16:53:13,749 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Specified argument was out of the range of valid values.
+Parameter name: Start cell Address must be less or equal to End cell address
+----------
+System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: Start cell Address must be less or equal to End cell address
+   at OfficeOpenXml.ExcelAddressBase.Validate()
+   at OfficeOpenXml.ExcelAddressBase.SetAddress(String address)
+   at OfficeOpenXml.ExcelAddress.set_Address(String value)
+   at OfficeOpenXml.ExcelRange.get_Item(String Address)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1119
+----------
+
+
+2018-11-26 16:53:15,178 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Value cannot be null.
+Parameter name: fileContents
+----------
+System.ArgumentNullException: Value cannot be null.
+Parameter name: fileContents
+   at System.Web.Mvc.FileContentResult..ctor(Byte[] fileContents, String contentType)
+   at System.Web.Mvc.Controller.File(Byte[] fileContents, String contentType, String fileDownloadName)
+   at LAMP.Web.Controllers.UserAdminController.Export(String userIds, String fromDate, String toDate) in e:\Working Folder\LAMP\Source\LAMP.Web\Controllers\UserAdminController.cs:line 569
+----------
+
+
+2018-11-26 16:54:57,748 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 16:54:57,764 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 16:54:57,772 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 16:54:57,908 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 16:55:38,343 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Can't delete/overwrite merged cells. A range is partly merged with the another merged range. A654:C65473
+----------
+System.InvalidOperationException: Can't delete/overwrite merged cells. A range is partly merged with the another merged range. A654:C65473
+   at OfficeOpenXml.ExcelWorksheet.MergeCellsCollection.Clear(ExcelAddressBase Destination)
+   at OfficeOpenXml.ExcelRangeBase.set_Merge(Boolean value)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1162
+----------
+
+
+2018-11-26 16:55:58,108 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Value cannot be null.
+Parameter name: fileContents
+----------
+System.ArgumentNullException: Value cannot be null.
+Parameter name: fileContents
+   at System.Web.Mvc.FileContentResult..ctor(Byte[] fileContents, String contentType)
+   at System.Web.Mvc.Controller.File(Byte[] fileContents, String contentType, String fileDownloadName)
+   at LAMP.Web.Controllers.UserAdminController.Export(String userIds, String fromDate, String toDate) in e:\Working Folder\LAMP\Source\LAMP.Web\Controllers\UserAdminController.cs:line 569
+----------
+
+
+2018-11-26 16:56:50,302 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Can't delete/overwrite merged cells. A range is partly merged with the another merged range. A654:C65473
+----------
+System.InvalidOperationException: Can't delete/overwrite merged cells. A range is partly merged with the another merged range. A654:C65473
+   at OfficeOpenXml.ExcelWorksheet.MergeCellsCollection.Clear(ExcelAddressBase Destination)
+   at OfficeOpenXml.ExcelRangeBase.set_Merge(Boolean value)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1162
+----------
+
+
+2018-11-26 16:57:09,321 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Can't delete/overwrite merged cells. A range is partly merged with the another merged range. A654:C65473
+----------
+System.InvalidOperationException: Can't delete/overwrite merged cells. A range is partly merged with the another merged range. A654:C65473
+   at OfficeOpenXml.ExcelWorksheet.MergeCellsCollection.Clear(ExcelAddressBase Destination)
+   at OfficeOpenXml.ExcelRangeBase.set_Merge(Boolean value)
+   at LAMP.Web.ExcelExportHelper.ExportExcelViewModel(UserDataExportViewModel data, String heading, Boolean showSrNo, String[] ColumnsToTake) in e:\Working Folder\LAMP\Source\LAMP.Web\Helpers\ExcelExportHelper.cs:line 1162
+----------
+
+
+2018-11-26 17:00:34,848 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 17:00:34,864 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 17:00:34,870 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 17:00:35,011 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 17:04:20,160 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 17:04:20,176 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 17:04:20,182 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 17:04:20,310 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 17:07:05,684 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 17:07:05,700 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 17:07:05,706 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 17:07:05,831 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 17:36:15,696 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 17:36:15,713 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 17:36:15,719 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 17:36:15,849 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 17:47:02,138 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 17:47:02,155 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 17:47:02,162 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 17:47:02,295 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 17:58:06,448 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 17:58:06,464 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 17:58:06,472 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 17:58:06,600 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 18:38:36,793 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 18:38:36,809 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 18:38:36,815 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 18:38:36,946 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 18:41:16,160 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 18:41:16,176 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 18:41:16,182 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 18:41:16,313 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 18:43:43,477 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 18:43:43,493 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 18:43:43,499 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 18:43:43,630 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2018-11-26 18:52:13,826 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-26 18:52:13,842 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2018-11-26 18:52:13,849 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-26 18:52:13,980 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+

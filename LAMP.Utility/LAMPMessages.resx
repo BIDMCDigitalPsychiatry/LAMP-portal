@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADMIN_NOT_REGISTERED" xml:space="preserve">
+    <value>This administrator account does not exist in the website.</value>
+  </data>
+  <data name="ADMIN_NOT_SAVED" xml:space="preserve">
+    <value>This administrator account already exists in the website.</value>
+  </data>
+  <data name="ADMIN_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The administrator account has been created successfully.</value>
+  </data>
+  <data name="ADMIN_UPDATED_SUCCESSFULLY" xml:space="preserve">
+    <value>The administrator account has been updated successfully.</value>
+  </data>
+  <data name="APP_HELP_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The app help has been saved successfully.</value>
+  </data>
+  <data name="APP_HELP_UPDATED_SUCCESSFULLY" xml:space="preserve">
+    <value>The app help has been updated successfully.</value>
+  </data>
+  <data name="BLOG_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The article has been saved successfully.</value>
+  </data>
+  <data name="BLOG_UPDATED_SUCCESSFULLY" xml:space="preserve">
+    <value>The article has been updated successfully.</value>
+  </data>
+  <data name="DISTRACTION_SURVEY_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The distraction survey has been saved successfully.</value>
+  </data>
+  <data name="Err_2030" xml:space="preserve">
+    <value>An unexpected error has occurred. Please try again later.</value>
+  </data>
+  <data name="Err_2031" xml:space="preserve">
+    <value>Invalid input data.</value>
+  </data>
+  <data name="Err_2033" xml:space="preserve">
+    <value>An error occurred while updating the session token.</value>
+  </data>
+  <data name="Err_2034" xml:space="preserve">
+    <value>Login failed. Please check the specified credentials.</value>
+  </data>
+  <data name="Err_2035" xml:space="preserve">
+    <value>Invalid User name.</value>
+  </data>
+  <data name="Err_2036" xml:space="preserve">
+    <value>You seem to have already registered.</value>
+  </data>
+  <data name="Err_2037" xml:space="preserve">
+    <value>Your session has expired.</value>
+  </data>
+  <data name="Err_2040" xml:space="preserve">
+    <value>Invalid User.</value>
+  </data>
+  <data name="Err_2041" xml:space="preserve">
+    <value>This email address already exists. Use another one.</value>
+  </data>
+  <data name="Err_2042" xml:space="preserve">
+    <value>Invalid Email ID.</value>
+  </data>
+  <data name="Err_2043" xml:space="preserve">
+    <value>Upload Image.</value>
+  </data>
+  <data name="Err_2044" xml:space="preserve">
+    <value>This user has been deactivated. Please contact the administrator.</value>
+  </data>
+  <data name="Err_2045" xml:space="preserve">
+    <value>Specify Password.</value>
+  </data>
+  <data name="Err_2046" xml:space="preserve">
+    <value>Specify Current Password.</value>
+  </data>
+  <data name="Err_2047" xml:space="preserve">
+    <value>Specify your Old Password correctly.</value>
+  </data>
+  <data name="Err_2048" xml:space="preserve">
+    <value>Invalid User.</value>
+  </data>
+  <data name="Err_2049" xml:space="preserve">
+    <value>Invalid Date Of Birth</value>
+  </data>
+  <data name="Err_2050" xml:space="preserve">
+    <value>User account has been deleted.</value>
+  </data>
+  <data name="Err_2051" xml:space="preserve">
+    <value>This study id already exists. Use another one.</value>
+  </data>
+  <data name="MAIL_CANNOT_SEND" xml:space="preserve">
+    <value>Specify the registered email address correctly.</value>
+  </data>
+  <data name="MSG_CONFIRM_PASSWORD" xml:space="preserve">
+    <value>ConfirmPasswordMessage</value>
+  </data>
+  <data name="MSG_GUEST_USER_REGISTERED_SUCCESSFULLY" xml:space="preserve">
+    <value>Guest user has been registered successfully.</value>
+  </data>
+  <data name="MSG_INVALID_CREDENTIALS" xml:space="preserve">
+    <value>Invalid credentials.</value>
+  </data>
+  <data name="MSG_INVALID_EMAIL" xml:space="preserve">
+    <value>Specify a valid email address.</value>
+  </data>
+  <data name="MSG_NEW_PASSWORD" xml:space="preserve">
+    <value>NewPasswordMessage</value>
+  </data>
+  <data name="MSG_PASSWORD_CHANGED_SUCCESSFULLY" xml:space="preserve">
+    <value>Your password has been changed successfully.</value>
+  </data>
+  <data name="MSG_RESET_PASSWORD_LINK_EMAIL_SEND" xml:space="preserve">
+    <value>A link to reset your password has been sent to your email address.</value>
+  </data>
+  <data name="MSG_SESSIONTOKEN_UPDATED" xml:space="preserve">
+    <value>The session token has been updated successfully.</value>
+  </data>
+  <data name="MSG_SPECIFY_CONFIRM_PASSWORD" xml:space="preserve">
+    <value>Specify Confirm Password.</value>
+  </data>
+  <data name="MSG_SPECIFY_CURRENT_PASSWORD" xml:space="preserve">
+    <value>Specify Current Password.</value>
+  </data>
+  <data name="MSG_SPECIFY_DIFFERENT_PASSWORDS" xml:space="preserve">
+    <value>Old Password and New Password entries must not match.</value>
+  </data>
+  <data name="MSG_SPECIFY_EMAIL_ADDRESS" xml:space="preserve">
+    <value>Specify Email Address.</value>
+  </data>
+  <data name="MSG_SPECIFY_NEW_PASSWORD" xml:space="preserve">
+    <value>Specify New Password.</value>
+  </data>
+  <data name="MSG_SPECIFY_PASSWORD" xml:space="preserve">
+    <value>Specify Password.</value>
+  </data>
+  <data name="MSG_SPECIFY_SAME_PASSWORDS" xml:space="preserve">
+    <value>New Password and Confirm Password entries must be the same.</value>
+  </data>
+  <data name="MSG_SURVEY_QUESTIONS_REQUIRED" xml:space="preserve">
+    <value>This question cannot be deleted as at least one question has to be maintained in the survey.</value>
+  </data>
+  <data name="MSG_SURVEY_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The survey has been saved successfully.</value>
+  </data>
+  <data name="MSG_SURVEY_SAVE_FAILED" xml:space="preserve">
+    <value>The specified Survey Name is already in use. Enter another.</value>
+  </data>
+  <data name="MSG_USER_DETAILS_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user details have been saved successfully.</value>
+  </data>
+  <data name="MSG_USER_DETAILS_SAVED_SUCCESSFULLY_IMAGE_NOT_SAVED" xml:space="preserve">
+    <value>All user details, except the clinical profile image, have been saved successfully.</value>
+  </data>
+  <data name="MSG_USER_LOGGED_IN_SUCCESSFULLY" xml:space="preserve">
+    <value>The user has logged in successfully.</value>
+  </data>
+  <data name="MSG_USER_PASSWORD_SEND_SUCCESSFULLY" xml:space="preserve">
+    <value>Your password has been sent to your registered email address.</value>
+  </data>
+  <data name="MSG_USER_REGISTERED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user has been registered successfully.</value>
+  </data>
+  <data name="MSG_USER_SETTING_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user settings have been saved successfully.</value>
+  </data>
+  <data name="MSG_USER_SURVEY_DETAILS_FETCHED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user's survey details have been saved successfully.</value>
+  </data>
+  <data name="MSG_USER_SURVEY_QUE_ANS_FETCHED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user's survey questions and answers have been fetched successfully.</value>
+  </data>
+  <data name="MSG_USER_SURVEY_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user's survey has been saved successfully.</value>
+  </data>
+  <data name="SCHEDULE_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user survey and game schedule have been saved successfully.</value>
+  </data>
+  <data name="SCHEDULE_UPDATED_SUCCESSFULLY" xml:space="preserve">
+    <value>The user survey and game schedule have been updated successfully.</value>
+  </data>
+  <data name="TIP_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>The tip has been saved successfully.</value>
+  </data>
+  <data name="UN_REGISTERED_ADMIN_MESSAGE" xml:space="preserve">
+    <value>This admin has not yet registered in the website.</value>
+  </data>
+  <data name="UN_REGISTERED_USER_MESSAGE" xml:space="preserve">
+    <value>This user has not yet registered in the mobile app.</value>
+  </data>
+</root>

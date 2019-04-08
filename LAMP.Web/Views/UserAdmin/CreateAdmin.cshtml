@@ -1,0 +1,73 @@
+﻿@model AdminViewModel
+@{
+    ViewBag.Title = "CreateAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Add New Admin</h4>
+        <a href="@Url.Action("BackToAdmins", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @if (Model.IsSaved == true && Model.Status == 0)
+        {
+            <div class="alert alert-success" role="alert" id="divSuccess">@Model.Message</div>
+        }
+        else if (Model.Status > 0)
+        {
+            <div class="alert alert-danger show" role="alert">@Model.Message</div>
+        }
+        @using (Html.BeginForm("CreateAdmin", "UserAdmin", FormMethod.Post, new { id = "userEntryForm" }))
+        {
+            @Html.HiddenFor(model => Model.AdminID, new { @id = "AdminID", @name = "AdminID" })
+            <div class="sec-patient form-user">
+                <h5>Admin General Information</h5>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password", placeholder = "Password", maxlength = 250 })
+                @Html.ValidationMessageFor(m => m.Password)
+                <div class="button-block" style="width:660px;">
+                    <button type="button" data-toggle="Cancel" class="btn btn-default1" onclick="Clear();" title="Cancel">Cancel</button>
+                    <input type="submit" value="Save" title="Save" class="btn btn-primary" style="margin-left: 0px;" />
+                </div>
+            </div>
+           
+        }
+    </div>
+</div>
+@section page_scripts
+{
+@Scripts.Render("~/Content/Default/javascripts")
+<script type="text/javascript">
+     $(document).ready(function () {
+            @if (@Model.IsSaved == true && @Model.Status == 0)
+            {
+            @:$('#divSuccess').show();
+            @:CallTimerForBackToUsers();
+                                            }
+        else
+        {
+             @:$('html,body').scrollTop($document).height(); return true;
+                                }
+        });
+
+        function Clear() {
+            var url = '@Url.Action("BackToAdmins", "UserAdmin")';
+            window.location.href = url;
+        }
+
+        function CallTimerForBackToUsers() {
+            setTimeout(function () { CallBackToUsers(); }, 2000);
+        }
+
+        function CallBackToUsers() {
+            var url = '@Url.Action("BackToAdmins", "UserAdmin")';
+            window.location.href = url;
+        }
+    </script>
+    }
+   

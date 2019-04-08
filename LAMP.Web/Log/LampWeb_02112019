@@ -1,0 +1,34 @@
+2019-02-11 14:36:44,644 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: Superadmin@Lamp.com : User123!
+
+2019-02-11 14:36:44,664 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2019-02-11 14:36:46,468 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2019-02-11 14:36:46,776 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2019-02-11 14:39:02,802 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <web@user.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <web@user.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 122
+----------
+
+
+2019-02-11 14:39:02,826 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <web@user.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <web@user.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 130
+   at LAMP.Utility.Helper.SendEmail(EmailData Edata) in e:\Working Folder\LAMP\Source\LAMP.Utility\Helper.cs:line 202
+   at LAMP.Service.UserAdminService.EmailUserStudyId_Pwd(String email, String user_name, String studyId, String studyCode, String user_password) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 8194
+----------
+
+
+2019-02-11 14:39:05,120 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 1
+
+2019-02-11 14:39:06,565 [10] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+

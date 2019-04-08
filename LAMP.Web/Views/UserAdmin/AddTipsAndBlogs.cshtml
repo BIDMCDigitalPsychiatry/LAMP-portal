@@ -1,0 +1,341 @@
+﻿@model TipsBlogsViewModel
+@using System.Configuration
+@using LAMP.Utility;
+@{
+    ViewBag.Title = "AddTipsAndBlogs";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+@{
+    var backUrl = Url.Action("BackToUsers", "UserAdmin");
+    if (Model.BlogsViewModel.BlogID > 0)
+    {
+        backUrl = Url.Action("BackToBlogs", "UserAdmin");
+    }
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Add Articles &amp; Tips </h4>
+        <a href="@backUrl" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @if (Model.TipsViewModel.Status == 0 && Model.TipsViewModel.IsSaved == true)
+        {
+            <div class="alert alert-success" role="alert" id="divSuccess">@Model.TipsViewModel.Message</div>
+        }
+        else if (Model.TipsViewModel.Status > 0)
+        {
+            <div class="alert alert-danger show" role="alert">@Model.TipsViewModel.Message</div>
+        }
+
+        @using (Html.BeginForm("AddTips", "UserAdmin", FormMethod.Post, new { id = "TipsEntryForm" }))
+        {
+            <div class="add-details tips">
+                <h5>Add Tips</h5>
+                @Html.TextAreaFor(m => m.TipsViewModel.TipText, new { @class = "form-control", placeholder = "Enter your tips...", maxlength = 1000, rows = "4", id = "TipText" })
+                <span class="error-message">@Html.ValidationMessageFor(m => m.TipsViewModel.TipText)</span>
+                <span class="error-message" id="divTipErrorShow"></span>
+                <button type="submit" class="btn btn-primary submit" id="btnTipSubmit" title="Submit">Submit</button>
+            </div>
+        }
+        <hr>
+        @if (TempData["BlogStatus"] != null)
+        {
+            if (TempData["BlogSaveMessage"] != null)
+            {
+                var message = TempData["BlogSaveMessage"] as string;
+                if (((short)TempData["BlogStatus"] == 0))
+                {
+                    <div class="alert alert-success" role="alert" id="divNewSuccess">@message</div>
+                }
+                else if ((short)TempData["BlogStatus"] > 0)
+                {
+                    <div class="alert alert-danger show" role="alert">@message</div>
+                }
+            }
+        }
+
+        @using (Html.BeginForm("AddBlogs", "UserAdmin", FormMethod.Post, new { enctype = "multipart/form-data", id = "BlogEntryForm" }))
+        {
+            @Html.HiddenFor(model => Model.BlogsViewModel.BlogID, new { @id = "BlogID", @name = "BlogID" })
+            @Html.HiddenFor(model => Model.BlogsViewModel.BlogText, new { @id = "BlogText", @name = "BlogText" })
+            <div class="add-details blog">
+                <div class="blog-title clearfix">
+                    <h5>Add Article</h5>
+                    <a role="button" title="View All Articles" href="@Url.Action("ViewAllBlogs", "UserAdmin")" class="btn btn-default">
+                        View All
+                    </a>
+                </div>
+                <div class="blog-form">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.BlogsViewModel.BlogTitle, new { @class = "form-control", placeholder = "Article Title", maxlength = 100, id = "BlogTitle" })
+                        <span class="error-message" id="blogTitleValidation">@Html.ValidationMessageFor(m => m.BlogsViewModel.BlogTitle)</span>
+                        <span class="error-message" id="divErrorMessage"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="upload-block clearfix">
+                            <input id="uploadFile" placeholder="Upload Image" class="form-control" disabled="disabled" />
+                            <div class="fileUpload btn btn-primary">
+                                <span>Upload</span>
+                                <input id="uploadBtn" type="file" name="blogImage" class="upload" />
+                            </div>
+                        </div>
+                        @if (Model.BlogsViewModel.ImageURL != null && Model.BlogsViewModel.BlogID != 0)
+                        {
+                            var filepath = ConfigurationManager.AppSettings["BlogImagePath"] + "\\" + Model.BlogsViewModel.ImageURL;
+                            filepath = filepath.Replace("~", "");
+                            <div class="upload-thumb"><img src="@filepath" alt="" id="blogImageShow"></div>
+                        }
+                        else
+                        {
+                            <div class="upload-thumb"><img src="~/Content/Default/images/default-img.png" alt="" id="blogImageShow"></div>
+                        }
+                        <span class="error-message" id="imageValidation">@Html.ValidationMessageFor(m => m.BlogsViewModel.ImageURL)</span>
+                        <span class="error-message" id="imageSizeValidation"></span>
+                    </div>
+                </div>
+                <div class="editor clearfix">
+                    @{
+                        var Content = Model.BlogsViewModel.Content ?? "";
+                        Content = HttpUtility.HtmlDecode(Content).Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n\n", "</p><p>");
+                        Model.BlogsViewModel.Content = Content;
+                        var c = @Html.Raw(Model.BlogsViewModel.Content);
+                    }
+                    @Html.TextAreaFor(m => m.BlogsViewModel.Content, new { @class = "CKeditor", placeholder = "Blog Content...", id = "Content" })
+                    <span class="error-message" id="showContentError">@Html.ValidationMessageFor(m => m.BlogsViewModel.Content)</span>
+                    <span class="error-message" id="showHtmlErrorMessage"></span>
+                </div>
+                <button type="submit" class="btn btn-primary submit" id="SaveButton" onclick="return GetContent()" title="Submit">Submit</button>
+            </div>
+        }
+    </div>
+</div>
+@section page_scripts
+{
+    <script type="text/javascript">
+        /**For clearing Error Message**/
+        $('#BlogTitle').on("keypress", function (e) {
+            $('#blogTitleValidation').hide();
+        });
+        function validateBlogTitle() {
+            console.log("In article Event");
+            var status = true;
+            var val = $('#BlogTitle').val();
+            if (val != null) {
+                if (val.match(/[<>]/)) {
+                    status = "false";
+                }
+            }
+            if (status == "false") {
+                $("#divErrorMessage").show();
+                $("#divErrorMessage").html("Specify Title without HTML tags.");
+                return false;
+            }
+            else if (status == "true") {
+                $("#divErrorMessage").hide();
+                return true;
+            }
+        }
+        function validateBlogContent() {
+            var status = true;
+            var text = CKEDITOR.instances.Content.document.getBody().getText();//for getting blog text
+            $('#BlogText').val(text);
+            var val = $('#BlogText').val();
+            if (val != null) {
+                if (val.match(/[<>]/)) {
+                    status = "false";
+                }
+            }
+            if (status == "false") {
+                $("#showHtmlErrorMessage").show();
+                $("#showHtmlErrorMessage").html("Specify Content without HTML tags.");
+                return false;
+            }
+            else if (status == "true") {
+                $("#showHtmlErrorMessage").hide();
+                return true;
+            }
+        }
+        $("#TipsEntryForm").submit(function (event) {
+            var status = true;
+            var val = $("#TipText").val();
+            if (val != null) {
+                if (val.match(/[<>]/)) {
+                    status = "false";
+                }
+            }
+            if (status == "false") {
+                $("#divTipErrorShow").html("Specify Tip Text without HTML tags.");
+                $("#divTipErrorShow").show();
+                return false;
+            }
+            else if (status == "true") {
+                $("#divTipErrorShow").hide();
+                return true;
+            }
+        });
+        /*For getting text of ckeditor*/
+        function GetContent() {
+            var text = CKEDITOR.instances.Content.document.getBody().getText();
+            $('#BlogText').val(text);
+            return false;
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#blogImageShow').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        function ValidateFileUpload() {
+            var FileUploadPath = $('#uploadBtn').val();
+            /*To check if user upload any file*/
+            if (FileUploadPath != '') {
+                var Extension = FileUploadPath.substring(
+                        FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+                /*The file uploaded is an image*/
+                if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+                                    || Extension == "jpeg" || Extension == "jpg") {
+                    var fileUpload = document.getElementById("uploadBtn");
+                    if (typeof (fileUpload.files) != "undefined") {
+                        var size = parseFloat(fileUpload.files[0].size / 1024).toFixed(2);
+                        if (size >= 4000) {
+                            $('#imageSizeValidation').text("Specify an image below 4 MB.");
+                            $('#imageSizeValidation').show();
+                            $('#imageValidation').hide();
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+
+                    }
+                    else {
+                        alert("This browser does not support HTML5 and you will miss some features in this website. Update your browser to the latest version.");
+                        return false;
+                    }
+                }
+                    /*The file upload is NOT an image*/
+                else {
+
+                    $('#imageValidation').text('Upload GIF, PNG, JPG, JPEG or BMP image.');
+                    $('#imageValidation').show();
+                    $('#imageSizeValidation').hide();
+                    return false;
+                }
+            }
+        }
+        $(function () {
+            var instance = CKEDITOR.replace("Content", { htmlEncodeOutput: true, toolbar: 'Full' });
+            instance.on('change', function (evt) {
+                $('#showContentError').html('');
+                $('#showContentError').hide();
+            });
+            
+            $('#SaveButton').bind('click', function () {
+                for (instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].updateElement();
+                }
+                var messageLength = CKEDITOR.instances['Content'].getData().replace(/<[^>]*>/gi, '').length;
+                var status = true;
+                if (ValidateFileUpload() == false) {
+                    status = false;
+                }
+                var title = $('#BlogTitle').val();
+                if (title == '') {
+                    status = false;
+                    $('#blogTitleValidation').html("Specify Article Title.");
+                    $('#blogTitleValidation').show();
+                }
+                if (!messageLength) {
+                    $('#showContentError').html("Specify Article Content.");
+                    $('#showContentError').show();
+                    status = false;
+                }
+                if (validateBlogTitle() == false) {
+                    status = false;
+                }
+                else {
+                    $("#divErrorMessage").hide();
+                }
+                if (validateBlogContent() == false) {
+                    status = false;
+                }
+                else {
+                    $("#showHtmlErrorMessage").hide();
+                }
+                if (status == false) {
+                    return false;
+                }
+                else {
+                    $('#BlogEntryForm').submit();
+                }
+            });
+        });
+        $('#uploadBtn').change(function () {
+            $('#uploadFile').attr("placeholder", $(this).val());
+            /*validate  after button click*/
+            var FileUploadPath = $('#uploadBtn').val();
+            if (FileUploadPath != '') {
+                var Extension = FileUploadPath.substring(
+                        FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+                /*The file uploaded is an image*/
+                if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+                                    || Extension == "jpeg" || Extension == "jpg") {
+                    readURL(this);
+                    return true;
+                }
+                else {
+                    $('#blogImageShow').attr('src', '/Content/Default/images/default-img.png');
+                    $('#imageValidation').text('Upload GIF, PNG, JPG, JPEG or BMP image.');
+                    return false;
+                }
+            }
+        });
+        function clearBlogForm() {
+            $('#BlogsViewModel.BlogTitle').val('');
+            $('#Content').val('');
+            $('#uploadFile').val('');
+        }
+        function Clear() {
+            var url = '@Url.Action("AddTipsAndBlogs", "UserAdmin")';
+            window.location.href = url;
+        }
+        function CallTimerForBackToUsers() {
+            setTimeout(function () { CallBackToUsers(); }, 2000);
+        }
+        function CallBackToUsers() {
+            var url = '@Url.Action("AddTipsAndBlogs", "UserAdmin")';
+            window.location.href = url;
+        }
+        $(document).ready(function () {
+            @if (@Model.TipsViewModel.Status == 0 && @Model.TipsViewModel.IsSaved==true)
+        {
+                                        @:$('#divSuccess').show();
+                                                                                                                            @:CallTimerForBackToUsers();
+                                                                                                                                 }
+        else
+        {
+                                                                                    }
+
+            @if (TempData["BlogStatus"]!=null)
+            {
+                if (TempData["IsSaved"] != null)
+                {
+
+                    if (((short)TempData["BlogStatus"] == 0) && (bool)TempData["IsSaved"]==true)
+                    {
+                       @:$('#divNewSuccess').show();
+                                                                                                         @:CallTimerForBackToUsers();
+                                                                            }
+                else
+                    {
+                    }
+            }
+            }
+
+        });
+    </script>
+}

@@ -1,0 +1,6 @@
+2018-09-27 12:42:37,441 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - Helper/UploadImage:- Could not upload image: System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters. 
+   at System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at LAMP.Utility.Helper.UploadImage(String image, String fileName, String userId, String targetLocation) in e:\Working Folder\LAMP\Source\LAMP.Utility\Helper.cs:line 65
+

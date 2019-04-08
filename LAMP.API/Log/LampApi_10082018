@@ -1,0 +1,7 @@
+2018-10-08 11:49:27,383 [8] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Object reference not set to an instance of an object.
+----------
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.SurveyService.SaveLocation(LocationRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\SurveyService.cs:line 294
+----------
+
+

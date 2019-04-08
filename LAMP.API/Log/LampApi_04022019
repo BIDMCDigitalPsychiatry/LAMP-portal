@@ -1,0 +1,20 @@
+2019-04-02 12:36:31,920 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserController/SaveUserHealthKitV2: xxxx1
+
+2019-04-02 12:36:34,063 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx1
+
+2019-04-02 12:36:39,114 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx2
+
+2019-04-02 12:37:13,696 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx3
+
+2019-04-02 12:37:20,586 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx4
+
+2019-04-02 19:22:07,421 [9] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - UserController/SaveUserHealthKitV2: xxxx1
+
+2019-04-02 19:22:13,320 [10] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - UserService/SaveUserHealthKitV2: xxxx1
+
+2019-04-02 19:22:19,143 [10] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - UserService/SaveUserHealthKitV2: xxxx2
+
+2019-04-02 19:22:26,650 [10] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - UserService/SaveUserHealthKitV2: xxxx3
+
+2019-04-02 19:22:32,139 [10] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:114) - UserService/SaveUserHealthKitV2: xxxx4
+

@@ -1,0 +1,116 @@
+﻿@model Cognition3DFigureViewModel
+@using System.Globalization;
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Cognition</h4>
+        <button class="btn btn-primary back" title="Back" onclick="JavaScript: window.history.back(1); return false;">back</button>
+    </div>
+    @using (Ajax.BeginForm("Cognition_3DFigure", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divsurveyCognition", InsertionMode = InsertionMode.Replace }, new { id = "companyListForm", @class = "form-horizontal" }))
+    {
+        <div class="main-content">
+            <h5>3D Figure</h5>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                @if (Model.CTest_3DFigureResultList.Count != 0)
+                {
+                    bool isFirstRow = true;
+                    foreach (Cognition3DFigureDetail CTest in Model.CTest_3DFigureResultList)
+                    {
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading" role="tab" id="heading@(CTest.GameNumber)">
+                                @if (isFirstRow == true)
+                                {
+                                    <h4>
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse@(CTest.GameNumber)" aria-expanded="true" aria-controls="collapse@(CTest.GameNumber)">
+                                            GAME @(CTest.GameNumber)
+                                            <i class="acc-arrow"></i>
+                                        </a>
+                                    </h4>
+                                    <label>Points: @(CTest.Points)</label>
+
+                                }
+                                else
+                                {
+                                    <h4>
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse@(CTest.GameNumber)" aria-expanded="false" aria-controls="collapse@(CTest.GameNumber)">
+                                            GAME @(CTest.GameNumber)
+                                            <i class="acc-arrow"></i>
+                                        </a>
+                                    </h4>
+                                    <label>Points: @(CTest.Points)</label>
+
+                                }
+                            </div>
+
+
+                            @if (isFirstRow == true)
+                            {
+                                <div id="collapse@(CTest.GameNumber)" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading@(CTest.GameNumber)">
+                                    <div class="panel-body">
+                                        <div class="table-responsive survey cognition fig">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Actual Image</th>
+                                                    <th>Drawn Image</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+
+                                                </tr>
+                                                @foreach (Cognition3DFigureGroupDetail CGTest in CTest.CTest_Cognition3DFigureGroupDetailList)
+                                                {
+                                                    <tr>
+                                                        <td><img src="~/Games/Base3DFigures/@(CGTest.FileName)" height="75" alt=""></td>
+                                                        <td><img src="~/Games/User3DFigures/@(CGTest.DrawnFigFileName)" height="75" alt=""></td>
+                                                        <td>@CGTest.StartTime.ToString("MM/dd/yyyy hh:mm:ss tt")</td>
+                                                        <td>@CGTest.DurationString</td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div id="collapse@(CTest.GameNumber)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading@(CTest.GameNumber)">
+                                    <div class="panel-body">
+                                        <div class="table-responsive survey cognition fig">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Actual Image</th>
+                                                    <th>Drawn Image</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                </tr>
+                                                @foreach (Cognition3DFigureGroupDetail CGTest in CTest.CTest_Cognition3DFigureGroupDetailList)
+                                                {
+                                                    <tr>
+                                                        <td><img src="~/Games/Base3DFigures/@(CGTest.FileName)" height="75" alt=""></td>
+                                                        <td><img src="~/Games/User3DFigures/@(CGTest.DrawnFigFileName)" height="75" alt=""></td>
+                                                        <td>@CGTest.StartTime.ToString("MM/dd/yyyy hh:mm:ss tt")</td>
+                                                        <td>@CGTest.DurationString</td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                            isFirstRow = false;
+                    }
+                }
+            </div>
+            <hr>
+            <div class="status-wrap clearfix">
+                <div class="date"><p>last cognition Date: <strong>@Model.LastCognitionDate.ToString("MM/dd/yyyy").Replace('-', '/')</strong></p></div>
+                <div class="time"><p>Last Game Time Taken (Hours): <strong>@Model.DurationString</strong></p></div>
+            </div>
+        </div>
+    }
+</div>

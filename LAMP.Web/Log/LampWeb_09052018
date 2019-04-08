@@ -1,0 +1,48 @@
+2018-09-05 11:28:12,221 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-05 11:28:12,248 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-05 11:28:14,735 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-05 11:28:15,032 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 11:54:49,227 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-05 11:54:49,242 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-05 11:54:49,249 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-05 11:54:49,396 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 12:19:06,074 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-05 12:19:06,075 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-05 12:19:06,077 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-05 12:19:06,096 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 12:19:47,463 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-05 12:19:47,464 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-05 12:19:47,468 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-05 12:19:47,488 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 12:30:07,338 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 12:30:23,594 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 12:32:19,788 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 12:36:36,337 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-05 12:36:36,352 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-05 12:36:36,359 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-05 12:36:36,487 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-05 17:48:39,979 [18] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+

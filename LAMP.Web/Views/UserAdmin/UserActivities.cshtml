@@ -1,0 +1,45 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Surveys";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Surveys</h4>
+        <a href="@Url.Action("BackToUsers", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content">
+        <h5>Study ID: <span>@Model.StudyId</span></h5>
+        <div class="panel-group survey-accord" id="accordion" role="tablist" aria-multiselectable="true">
+            <div id="divSurveyList" class="panel panel-default">
+                @{ Html.RenderPartial("_SurveyListPartial", Model); }
+            </div>
+            <div id="divCognitionList" class="panel panel-default">
+                @{ Html.RenderPartial("_CognitionListPartial", Model); }
+            </div>
+            <div id="divScheduleBatchList_UserActivity" class="panel panel-default">
+                @{ Html.RenderPartial("_ScheduleBatchList_UserActivity_Partial", Model); }
+            </div>
+            <div id="divMindfulnessGameList" class="panel panel-default">
+                @{ Html.RenderPartial("_MindfulnessGameListPartial", Model); }
+            </div>
+
+            <div id="divCallList">
+                @{ Html.RenderPartial("_CallListPartial", Model); }
+            </div>
+            <div id="divLocationList">
+                @{ Html.RenderPartial("_LocationListPartial", Model); }
+            </div>
+            <div id="divEnvironmentList">
+                @{ Html.RenderPartial("_EnvironmentListPartial", Model); }
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section page_scripts{
+    <script src='@Url.Content("~/Scripts/Pages/user.js")' type='text/javascript'></script>
+}

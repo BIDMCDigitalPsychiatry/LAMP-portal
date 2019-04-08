@@ -1,0 +1,77 @@
+﻿@model UserViewModel
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="content-title">
+        <h4>User Profile</h4>
+    </div>
+    <div class="main-content clearfix">
+        <div class="sec-patient form-user">
+            <h5>Patient General Information</h5>
+            <div class="form-group">
+                <label for="">First Name:</label> <span>@Model.FirstName</span>
+            </div>
+            <div class="form-group">
+                <label for="">Last Name:</label> <span>@Model.LastName</span>
+            </div>
+            <div class="form-group">
+                <label for="">Email:</label> <span>@Model.Email</span>
+            </div>
+            <div class="form-group">
+                <label for="">Mobile Number:</label> <span>@(Model.Phone == null || Model.Phone.Length == 0 ? "Nil" : Model.Phone)</span>
+            </div>
+            <div class="form-group">
+                <label for="">Zip Code:</label> <span>@(Model.ZipCode == null || Model.ZipCode.Length == 0 ? "Nil" : Model.ZipCode)</span>
+            </div>
+            <div class="form-group">
+                <label for="">City:</label> <span>@(Model.City == null || Model.City.Length == 0 ? "Nil" : Model.City)</span>
+            </div>
+            <div class="form-group">
+                <label for="">State:</label> <span>@(Model.State == null || Model.State.Length == 0 ? "Nil" : Model.State)</span>
+            </div>
+            <div class="form-group">
+                <label for="">Age:</label> <span>@Model.Age</span>
+            </div>
+            <div class="form-group">
+                <label for="">Date of Birth:</label> <span>@(Model.BirthDateString == null || Model.BirthDateString.Length == 0 ? "Nil" : Model.BirthDateString)</span>
+            </div>
+            <div class="form-group">
+                <label for="">Is Guest User?</label> <span>@(Model.IsGuestUser == true ? "Yes" : "No")</span>
+            </div>
+            <div class="form-group">
+                @if (Model.ClinicalProfileURL == "" || Model.ClinicalProfileURL == null)
+                {
+                    <a href="#" class="disabled" title="Download"><i></i>Download Clinical Profile</a>
+                }
+                else
+                {
+                    <a title="Download" href="@Url.Action("Download", "UserAdmin", new { userId = Model.UserID })" class="download"><i></i>Download Clinical Profile</a>
+                }
+            </div>
+        </div>
+        <div class="sec-physician form-user">
+            <h5>Physician Details</h5>
+            <div class="form-group">
+                <label for="">First Name:</label> <span>@(Model.PhysicianFirstName == null || Model.PhysicianFirstName.Length == 0 ? "Nil" : Model.PhysicianFirstName)</span>
+            </div>
+            <div class="form-group">
+                <label for="">Last Name:</label> <span>@(Model.PhysicianLastName == null || Model.PhysicianLastName.Length == 0 ? "Nil" : Model.PhysicianLastName)</span>
+            </div>
+            <div class="form-group">
+                <label for="">Study Code:</label> <span>@(Model.StudyCode == null || Model.StudyCode.Length == 0 ? "Nil" : Model.StudyCode)</span>
+            </div>
+            <div class="form-group">
+                <label for="">Study ID:</label> <span>@Model.StudyId</span>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        <div class="sec-patient form-user">
+            <div class="button-block margin0">
+                <a title="Back" href="@Url.Action("BackToUsers", "UserAdmin")" class="btn btn-primary back margin0">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+

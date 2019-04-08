@@ -1,0 +1,56 @@
+﻿@model CognitionVisualAssociationViewModel
+@using System.Globalization;
+@using PagedList.Mvc;
+@using LAMP.Utility
+@{
+    Layout = null;
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Total No of Questions</th>
+        <th>Start Time</th>
+        <th>Duration</th>
+        <th>Status</th>
+        <th>Version</th>
+        <th>Exit / Complete</th>
+    </tr>
+    @if (Model.CTest_VisualAssociationResultList.Count > 0)
+    {
+        foreach (CognitionVisualAssociationDetail CTest in Model.CTest_VisualAssociationResultList)
+        {
+            <tr>
+                <td>@CTest.TotalQuestions</td>
+                <td>@CTest.StartTime.ToString("MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)</td>
+                <td>@CTest.DurationString</td>
+                <td><span class="@CTest.Rating.ToLower().Replace(' ','-')">@*@CTest.Rating*@_</span></td>
+                <td>@CTest.Version</td>
+                <td>@(CTest.Status == 1 ? ExitOrCompleteStatus.Exited : ExitOrCompleteStatus.Completed)</td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="6">
+                <div id="divRegquestGridNone" class="" style="">No records found.</div>
+            </td>
+        </tr>
+    }
+</table>
+@Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPage", @name = "CurrentPage" })
+@Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSize", @name = "PageSize" })
+@if (Model.PagedCTest_VisualAssociationDetailList != null)
+{
+    <div class="row col-sm-12">
+        <div class="pull-right">
+            <div class="dataTables_paginate paging_bs_normal">
+                @if (Model.TotalRows > Model.SortPageOptions.PageSize)
+                {
+                    <div>
+                        @Html.PagedListPager(Model.PagedCTest_VisualAssociationDetailList, page => Url.Action("Cognition_Visual_Association", new { page, pageSize = Model.SortPageOptions.PageSize, userId = Model.UserID, adminBatchSchID = 0 }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divCTestVisualAssociation" }))
+                    </div>
+                }
+            </div>
+        </div><div class="clearfix"></div>
+    </div>
+}

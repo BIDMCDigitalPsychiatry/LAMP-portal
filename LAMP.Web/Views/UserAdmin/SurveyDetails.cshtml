@@ -1,0 +1,89 @@
+﻿@model SurveyResultsViewModel
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="table-responsive survey sur-detail" id="divSurveyDetails">
+    @using (Ajax.BeginForm("SurveyDetails", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divSurveyDetails", InsertionMode = InsertionMode.Replace }, new { id = "companyListForm", @class = "form-horizontal" }))
+    {
+        <div class="content-wrapper">
+            <div class="title-sub clearfix">
+                <h4>@Model.SurveyName</h4>
+                <a href="@Url.Action("BackToUserActivities", "UserAdmin", new { userId = @Model.UserID, studyId = @Model.StudyId })" class="btn btn-primary back" title="Back">Back</a>
+            </div>
+            <div class="main-content">
+                <h5>Study ID: <span>@Model.StudyId</span></h5>
+                <div class="table-responsive survey sur-detail" id="divSurveyDetailsList">
+                    <table id=" surveydetailslist" class="table table-bordered">
+                        <tr>
+                            <th>QUESTIONS</th>
+                            <th>ANSWERS</th>
+                            <th>TIME TAKEN <br />(In MilliSeconds)</th>
+                            <th>CLICK RANGE</th>
+                        </tr>
+                        @if (Model.QuestAndAnsList.Count > 0)
+                        {
+                            foreach (SurveyResultsDetail QAndA in Model.QuestAndAnsList)
+                            {
+                                var timeTaken = "";
+                                var clickRange = "";
+
+                                if (@QAndA.TimeTaken.ToString().Length > 0)
+                                {
+                                    timeTaken = @QAndA.TimeTaken.ToString();
+                                }
+
+                                if (@QAndA.ClickRange != null)
+                                {
+                                    clickRange = @QAndA.ClickRange.Replace(",", ", ");
+                                }
+
+                                <tr>
+                                    <td>@QAndA.Question</td>
+                                    <td>@QAndA.CorrectAnswer</td>
+                                    <td>@timeTaken</td>
+                                    <td>@clickRange</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <div class="" style="">No records found.</div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    @Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPage", @name = "CurrentPage" })
+                    @Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSize", @name = "PageSize" })
+                    @Html.HiddenFor(model => Model.SortPageOptions.SortField, new { @id = "SortField", @name = "SortField" })
+                    @Html.HiddenFor(model => Model.SortPageOptions.SortOrder, new { @id = "SortOrder", @name = "SortOrder" })
+
+                    @if (Model.PagedSurveyResultsDetailList != null)
+                    {
+                        <div class="row col-sm-12">
+                            <div class="pull-right">
+                                <div class="dataTables_paginate paging_bs_normal">
+                                    @if (Model.TotalRows > Model.SortPageOptions.PageSize)
+                                    {
+                                        <div>
+                                            @Html.PagedListPager(Model.PagedSurveyResultsDetailList, page => Url.Action("SurveyDetails", new { page, sortColumn = Model.SortPageOptions.SortField, sortOrder = Model.SortPageOptions.SortOrder, pageSize = Model.SortPageOptions.PageSize, surveyResultId = Model.SurveyResultID, studyId = Model.StudyId, AdminBatchSchID = 0 }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divSurveyDetailsList" }))
+                                        </div>
+                                    }
+                                </div>
+                            </div><div class="clearfix"></div>
+                        </div>
+                    }
+                </div>
+                <div class="status-wrap clearfix">
+                    <div class="date"><p>Survey Date: <strong>@Model.SurveyDate.ToString("MM/dd/yyyy").Replace('-', '/')</strong></p></div>
+                    <div class="time"><p>Last Time Taken (Hours): <strong>@Model.Duration</strong></p> <p class="rating">Total Rating: <span>@Model.Rating</span></p></div>
+                </div>
+            </div>
+        </div>
+    }
+    @Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPageForSurvey", @name = "CurrentPageForSurvey" })
+    @Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSizeForSurvey", @name = "PageSizeForSurvey" })
+</div>

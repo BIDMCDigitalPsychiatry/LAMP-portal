@@ -1,0 +1,30 @@
+﻿@model AdminListViewModel
+@{
+    ViewBag.Title = "ManageAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    @using (Ajax.BeginForm("SearchAdmin", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divAdminList", InsertionMode = InsertionMode.Replace }, new { id = "adminListForm", @class = "form-horizontal", pageSize = Model.SortPageOptions.PageSize }))
+    {
+        <div class="user-head clearfix">
+            <h4>Admins <span class="count" id="spanTotalUser">@Model.TotalRows</span></h4>
+            <div class="right-block">
+                <a role="button" title="Add New Admin" href="@Url.Action("CreateAdmin", "UserAdmin")" class="adduser">
+                    <i class="add"></i> Add New Admin
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive" id="divAdminList">
+            @{ Html.RenderPartial("_AdminListPartial", Model); }
+        </div>
+    }
+</div>
+
+@section page_scripts{
+   
+}
+
+
+
+
+

@@ -1,0 +1,36 @@
+2018-11-29 11:31:21,760 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUserRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 909
+
+2018-11-29 11:31:51,371 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUserRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 909
+
+2018-11-29 12:10:44,249 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserController/SaveUserHealthKitV2: xxxx1
+
+2018-11-29 12:10:47,698 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx1
+
+2018-11-29 12:10:50,319 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx2
+
+2018-11-29 12:10:51,647 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx3
+
+2018-11-29 12:10:59,853 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx4
+
+2018-11-29 12:41:24,651 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserController/SaveUserHealthKitV2: xxxx1
+
+2018-11-29 12:41:28,178 [8] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx1
+
+2018-11-29 12:41:28,945 [8] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx2
+
+2018-11-29 12:41:29,764 [8] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx3
+
+2018-11-29 12:41:31,821 [8] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx4
+
+2018-11-29 12:59:47,352 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserController/SaveUserHealthKitV2: xxxx1
+
+2018-11-29 12:59:51,091 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx1
+
+2018-11-29 12:59:54,028 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx2
+
+2018-11-29 13:00:16,941 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx3
+
+2018-11-29 13:00:17,959 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKitV2: xxxx4
+

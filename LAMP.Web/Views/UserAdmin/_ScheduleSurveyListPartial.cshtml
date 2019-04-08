@@ -1,0 +1,170 @@
+﻿@model ScheduleGameSurveyViewModel
+@using System.Collections;
+@using LAMP.Utility;
+@using System.Globalization;
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+@section page_scripts{
+
+    <script type="text/javascript">
+        $("#msgsuccessSurvey").hide();
+        $("#DeleteScheduleSurveyPopupConfirmation").hide();
+        $('#spanTotalUser').text(@Model.ScheduleSurveyListViewModel.TotalRows.ToString());
+    </script>
+}
+<input type="hidden" name="currentSurveyId" id="currentSurveyId" />
+<div id="msgsuccessSurvey" class="alert alert-success alert-white rounded" style="display:none;"></div>
+<input type="hidden" name="userFunctionalitySurvey" id="userFunctionalitySurvey" />
+
+@using (Ajax.BeginForm("SearchScheduleSurvey", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divSurveyList", InsertionMode = InsertionMode.Replace, OnBegin = "OnBeginAjaxCall_User()", OnSuccess = "OnSuccessAjaxCall_User();", OnFailure = "OnFailureAjaxCall_User()" },
+        new { id = "surveyListForm", @class = "form-horizontal", pageSize = Model.ScheduleSurveyListViewModel.SortPageOptions.PageSize }))
+{
+    <div class="table-responsive">
+        <table class="table" id="surveyList">
+            <tr>
+                <th class="@(Model.ScheduleSurveyListViewModel.SortPageOptions.SortField == "SurveyName" ? "sorting-" + Model.ScheduleSurveyListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('SurveyName')" width="20%"><span>Survey Name</span></th>
+                <th class="@(Model.ScheduleSurveyListViewModel.SortPageOptions.SortField == "CreatedOn" ? "sorting-" + Model.ScheduleSurveyListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('CreatedOn')" width="10%"><span>Created On</span></th>
+                <th>Slot Time</th>
+                <th>Repeat Interval</th>
+                <th>Scheduled Date</th>
+                <th>Actions</th>
+            </tr>
+            @if (Model.ScheduleSurveyListViewModel.TotalRows > 0)
+            {
+                int i = 0;
+                foreach (AdminSurveyScheduleViewModel schedule in Model.ScheduleSurveyListViewModel.AdminSurveyScheduleViewModelList)
+                {
+                    <tr>
+                        <td>@schedule.SurveyName</td>
+                        <td>@(schedule.CreatedOnString == string.Empty ? "Nil" : schedule.CreatedOnString)</td>
+                        @if (schedule.RepeatID == 11)
+                        {
+                            <td>
+                                @{int j = 0;}
+                                @foreach (var item in schedule.SlotTimeOptions)
+                                {
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            @{
+                                            <text>
+
+                                            ConvertToLocalTime('@j', '@schedule.AdminSurveySchID', '@item', 1);
+                                            </text>
+                                         }
+
+                                        });
+                                    </script>
+                                    <span id="schedule-option_@j@schedule.AdminSurveySchID"></span>
+
+                                    j++;
+                                }
+                            </td>
+                        }
+                        else if (schedule.RepeatID == 2 || schedule.RepeatID == 3 || schedule.RepeatID == 4)
+                        {
+                            <td>
+                                <span>Nil</span>
+
+                            </td>
+                        }
+                        else
+                        {
+
+                            <td>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        @{
+                                            <text>
+
+                                        ConvertToLocalTimeOption('@schedule.AdminSurveySchID', '@schedule.SlotTimeStamp', 1);
+                                        </text>
+                                         }
+
+                                    });
+                                </script>
+                                <span id="schedule-time_@schedule.AdminSurveySchID"></span>
+                            </td>
+                        }
+
+                        <td>@schedule.RepeatInterval</td>
+                        <td>
+                            @if (schedule.RepeatID == 11 || schedule.RepeatID == 2 || schedule.RepeatID == 3 || schedule.RepeatID == 4)
+                            {
+                                <text>  Nil    </text>
+                            }
+                            else
+                            {
+                                @Helper.GetDateString(schedule.ScheduleDate, "MM/dd/yyyy")
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditSurveySchedule", "UserAdmin", new { adminSurveySchID = @schedule.AdminSurveySchID })" title="Edit"><i class="edit"></i></a>
+                            <a href="#" onclick="ShowDeleteScheduleSurveyPopupConfirmation('@schedule.AdminSurveySchID','Delete')" title="Delete"><i class="delete"></i></a>
+                        </td>
+                    </tr>
+                            i++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div id="divRegquestGridNone" class="" style="">No schedules found.</div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SearchId" name="searchString" id="searchString" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.PageSize" name="PageSize" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.SortField" name="sortColumn" id="SortField" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.CurrentPage" name="page" id="page" />
+        <input type="hidden" value="@Model.ScheduleSurveyListViewModel.SortPageOptions.SortOrder" name="sortOrder" id="SortOrder" />
+        <input type="hidden" id="AdminTotalRows" value="@Model.ScheduleSurveyListViewModel.TotalRows" />
+    </div>
+
+    if (Model.ScheduleSurveyListViewModel.PagedAdminSurveyScheduleViewModel != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.ScheduleSurveyListViewModel.PagedAdminSurveyScheduleViewModel.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.ScheduleSurveyListViewModel.PagedAdminSurveyScheduleViewModel, page => Url.Action("SearchScheduleSurvey", new { page, searchString = Model.ScheduleSurveyListViewModel.SearchId, sortColumn = Model.ScheduleSurveyListViewModel.SortPageOptions.SortField, sortOrder = Model.ScheduleSurveyListViewModel.SortPageOptions.SortOrder, pageSize = Model.ScheduleSurveyListViewModel.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divSurveyList", OnSuccess = "SuccessPaginationUser", OnBegin = "BeginPaginaionUser" }))
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+}
+<!-- Delete Admin Popup Confirmation-->
+<div id="DeleteScheduleSurveyPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    @*<div class="row">*@
+                    <div class="col-md-12 centered text-center">
+                        <p id="confirmMessageSurvey"></p>
+                    </div>
+                    @*</div>*@
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteScheduleSurvey()" class="btn btn-primary" id="btnDelete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- End Modal Popup -->

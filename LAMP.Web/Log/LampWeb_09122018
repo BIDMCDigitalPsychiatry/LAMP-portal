@@ -1,0 +1,74 @@
+2018-09-12 15:04:40,750 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 15:04:40,782 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 15:04:41,313 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 15:04:41,407 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 15:49:17,744 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 15:49:17,763 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 15:49:17,771 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 15:49:17,922 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 16:41:15,195 [13] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 16:41:15,210 [13] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 16:41:16,927 [13] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 16:41:17,190 [13] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 16:42:03,756 [9] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - BatchScheduleService/SaveSheduleGame: System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at LAMP.Service.BatchScheduleService.SaveBatchShedule(ScheduleBatchViewModel scheduleViewModel) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\Schedule\BatchScheduleService.cs:line 225
+
+2018-09-12 16:59:23,064 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 16:59:23,080 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 16:59:23,087 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 16:59:23,235 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 17:32:46,736 [9] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - BatchScheduleService/SaveSheduleGame: System.ArgumentNullException: Value cannot be null.
+Parameter name: source
+   at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at LAMP.Service.BatchScheduleService.SaveBatchShedule(ScheduleBatchViewModel scheduleViewModel) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\Schedule\BatchScheduleService.cs:line 225
+
+2018-09-12 18:16:37,936 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 18:16:37,952 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 18:16:37,958 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 18:16:38,089 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 19:13:22,973 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 19:13:22,989 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 19:13:22,996 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 19:13:23,141 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 19:20:28,232 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 19:20:28,249 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 19:20:28,255 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 19:20:28,387 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-09-12 19:39:40,027 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-09-12 19:39:40,044 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-09-12 19:39:40,050 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-09-12 19:39:40,190 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+

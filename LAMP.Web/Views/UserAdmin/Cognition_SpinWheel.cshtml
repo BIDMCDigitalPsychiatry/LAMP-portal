@@ -1,0 +1,26 @@
+﻿@model CognitionSpinWheelViewModel
+@using System.Globalization;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Cognition</h4>
+        <button class="btn btn-primary back" title="Back" onclick="JavaScript: window.history.back(1); return false;">back</button>
+    </div>
+    @using (Ajax.BeginForm("Cognition_SpinWheel", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divsurveyCognition", InsertionMode = InsertionMode.Replace }, new { id = "companyListForm", @class = "form-horizontal" }))
+    {
+        <div class="main-content">
+            <h5>Spin Wheel</h5>
+            <div class="table-responsive survey cognition" id="divCTestSpinWheel">
+                @{ Html.RenderPartial("_Cognition_SpinWheelListPartial", Model); }
+            </div>
+            <div class="status-wrap clearfix">
+                <div class="date"><p>last cognition Date: <strong>@Model.LastCognitionDate.ToString("MM/dd/yyyy").Replace('-', '/')</strong></p></div>
+                <div class="time" style="display:none;"><p>Last Time Taken (Hours): <strong>@Model.DurationString</strong></p> <p class="rating">Total Rating: <span>_</span></p></div>
+            </div>
+        </div>
+    }
+</div>

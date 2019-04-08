@@ -1,0 +1,546 @@
+﻿@model DistractionSurveyViewModel
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_LayoutSchedule.cshtml";
+
+    string classTab = string.Empty;
+    string classUl1 = string.Empty;
+    string classUl2 = string.Empty;
+    string classUl3 = string.Empty;
+}
+<style type="text/css">
+    .CTestID {
+        display: none;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Settings</h4>
+    </div>
+    <div class="main-content clearfix">
+        <div class="tab-wrapper">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                @if (TempData["IsJewel"] != null)
+                {
+                    classUl1 = "";
+                    classUl2 = "active";
+                    classUl3 = "";
+                }
+                else if (TempData["IsExpiry"] != null)
+                {
+                    classUl1 = "";
+                    classUl2 = "";
+                    classUl3 = "active";
+                }
+                else
+                {
+                    classUl1 = "active";
+                    classUl2 = "";
+                    classUl3 = "";
+                }
+                <li role="presentation" class="@classUl1"><a href="#settings" aria-controls="survey" role="tab" data-toggle="tab">Distraction Surveys</a></li>
+                <li role="presentation" class="@classUl2"><a href="#jewelsettings" aria-controls="game" role="tab" data-toggle="tab">Jewel Trials</a></li>
+                <li role="presentation" class="@classUl3"><a href="#expiryoption" aria-controls="expiry" role="tab" data-toggle="tab">Notification Expiry</a></li>
+            </ul>
+            <div class="tab-content">
+                @if (TempData["IsJewel"] == null && TempData["IsExpiry"] == null)
+                {
+                    classTab = "tab-pane active";
+                }
+                else
+                {
+                    classTab = "tab-pane";
+                }
+                <div role="tabpanel" class="@classTab" id="settings">
+                    <div class="alert alert-success" role="alert" id="divSuccess" style="display:none;">@Model.Message</div>
+                    @if (TempData["DistractionSurveyStatus"] != null)
+                    {
+                        if (TempData["DistractionSurveyMessage"] != null)
+                        {
+                            var message = TempData["DistractionSurveyMessage"] as string;
+                            if (((short)TempData["DistractionSurveyStatus"] == 0))
+                            {
+                                <div class="alert alert-success" role="alert" id="divNewSuccess">@message</div>
+                            }
+                            else if ((short)TempData["DistractionSurveyStatus"] > 0)
+                            {
+                                <div class="alert alert-danger show" role="alert">@message</div>
+                            }
+                        }
+                    }
+                    <span class="error-message" id="surveyValidation" style="display:none">Please select at least one survey for all cognition tests.</span>
+                    <div class="table-responsive list-table setting-table">
+                        <table id="UserList" class="table table-striped">
+                            <tr>
+                                <th width="20%">Cognition Tests</th>
+                                <th width="35%">Distraction Surveys</th>
+                                <th width="45%"></th>
+                            </tr>
+                            @if (Model.CTestViewModelList != null)
+                            {
+                                foreach (CTestViewModel cTest in Model.CTestViewModelList.Where(s => s.IsDistractionSurveyRequired == true).ToList())
+                                {
+                                    <tr>
+                                        <td class="CTestID">@cTest.CTestID</td>
+                                        <td>@cTest.CTestName</td>
+                                        <td>
+                                            @{  var dropdownSelectorId = "ddlSurveyId_" + cTest.CTestID;}
+                                            <div class="form-group">
+                                                @Html.DropDownListFor(m => Model.SurveyId, Model.SurveyList, new { @class = "selectpicker multiple", @id = @dropdownSelectorId, multiple = "multiple" })
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <div id="divRegquestGridNone" class="" style="">No records found.</div>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <button id="btn_save" type="button" class="btn btn-primary submit" onclick="SaveDistractionSurvey();" title="Save">Save</button>
+                </div>
+                @if (TempData["IsJewel"] != null && TempData["IsExpiry"] == null)
+                {
+                    classTab = "tab-pane active";
+                }
+                else
+                {
+                    classTab = "tab-pane";
+                }
+                <div role="tabpanel" class="@classTab" id="jewelsettings">
+
+                    @if (TempData["JewelsMessage"] != null)
+                    {
+                        if (TempData["JewelsMessage"] != null)
+                        {
+                            var message = TempData["JewelsMessage"] as string;
+                            if (((short)TempData["JewelsStatus"] == 0))
+                            {
+                                <div class="alert alert-success" role="alert" id="divNewSuccessSettings">@message</div>
+                            }
+                            else if ((short)TempData["JewelsStatus"] > 0)
+                            {
+                                <div class="alert alert-danger show" role="alert">@message</div>
+                            }
+                        }
+                    }
+                    @using (Html.BeginForm("AddJewelsSettings", "UserAdmin", FormMethod.Post, new { id = "JewelsEntryForm" }))
+                    {
+                        @Html.HiddenFor(model => model.JewelsTrailsSettings.AdminJTASettingID, new { @id = "AdminJTASettingID", @name = "AdminJTASettingID" })
+                        @Html.HiddenFor(model => model.JewelsTrailsSettings.AdminJTBSettingID, new { @id = "AdminJTBSettingID", @name = "AdminJTBSettingID" })
+                        <div class="jewel-settings">
+                            <div class="jewel-sec">
+                                <label class="main-label">Select Jewel Trials Type</label>
+                                <div class="input-wrap">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(m => m.JewelsTrailsSettings.JewelsTrailsSettingsType, new SelectList(Model.JewelsTrailsSettings.JewelsTypeList, "Value", "Text"), new { id = "jewelTypeDropdownId", name = "jewelTypeDropdownId", @class = "form-control", @onchange = "changeJewelsType(this);" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jewel-sec">
+                                <label class="main-label">Number of seconds per option</label>
+                                <div class="input-wrap">
+                                    <div class="form-group">
+                                        <label>Beginner</label>
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfSeconds_Beg, new { @class = "form-control numeric", placeholder = "", maxlength = 3, @id = "txtNoOfSeconds_Beg" })
+                                        <span class="error-message" id="ErrNoOfSeconds_Beg" style="display:none"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Intermediate</label>
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfSeconds_Int, new { @class = "form-control numeric", placeholder = "", maxlength = 3, @id = "txtNoOfSeconds_Int" })
+                                        <span class="error-message" id="ErrNoOfSeconds_Int" style="display:none"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Advanced</label>
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfSeconds_Adv, new { @class = "form-control numeric", placeholder = "", maxlength = 3, @id = "txtNoOfSeconds_Adv" })
+                                        <span class="error-message" id="ErrNoOfSeconds_Adv" style="display:none"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Expert</label>
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfSeconds_Exp, new { @class = "form-control numeric", placeholder = "", maxlength = 3, @id = "txtNoOfSeconds_Exp" })
+                                        <span class="error-message" id="ErrNoOfSeconds_Exp" style="display:none"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jewel-sec">
+                                <label class="main-label">Number of diamond targets on the screen</label>
+                                <div class="input-wrap">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfDiamonds, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtNoOfDiamonds" })
+                                        <span class="error-message" id="ErrNoOfDiamonds" style="display:none"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jewel-sec">
+                                <label class="main-label">Number of different shapes</label>
+                                <div class="input-wrap">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfShapes, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtNoOfShapes" })
+                                        <span class="error-message" id="ErrNoOfShapes" style="display:none"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jewel-sec">
+                                <label class="main-label">Number of bonus point participants need to collect to reach the next level </label>
+                                <div class="input-wrap">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.JewelsTrailsSettings.NoOfBonusPoints, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtNoOfBonusPoints" })
+                                        <span class="error-message" id="ErrNoOfBonusPoints" style="display:none"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jewel-sec">
+                                <h4>When participants reach the number of points for the next level</h4>
+                                <div class="multiple">
+                                    <label class="main-label">number of changes in level needed</label>
+                                    <div class="input-wrap">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.JewelsTrailsSettings.X_NoOfChangesInLevel, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtX_NoOfChangesInLevel" })
+                                            <span class="error-message" id="ErrX_NoOfChangesInLevel" style="display:none"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple">
+                                    <label class="main-label">Number of diamonds on the screen that are added</label>
+                                    <div class="input-wrap">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.JewelsTrailsSettings.X_NoOfDiamonds, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtX_NoOfDiamonds" })
+                                            <span class="error-message" id="ErrX_NoOfDiamonds" style="display:none"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jewel-sec">
+                                <h4>When participants reach the number of points for the next level</h4>
+                                <div class="multiple">
+                                    <label class="main-label">number of changes in level needed</label>
+                                    <div class="input-wrap">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.JewelsTrailsSettings.Y_NoOfChangesInLevel, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtY_NoOfChangesInLevel" })
+                                            <span class="error-message" id="ErrY_NoOfChangesInLevel" style="display:none"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multiple">
+                                    <label class="main-label">Number of different shapes that can be displayed at the same time</label>
+                                    <div class="input-wrap">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.JewelsTrailsSettings.Y_NoOfShapes, new { @class = "form-control numeric", placeholder = "", maxlength = 2, @id = "txtY_NoOfShapes" })
+                                            <span class="error-message" id="ErrY_NoOfShapes" style="display:none"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="SaveButton" title="Submit">Submit</button>
+                        </div>
+                    }
+                </div>
+                @if (TempData["IsJewel"] == null && TempData["IsExpiry"] != null)
+                {
+                    classTab = "tab-pane active";
+                }
+                else
+                {
+                    classTab = "tab-pane";
+                }
+                @if (TempData["ExpiryMessage"] != null)
+                {
+                    if (TempData["ExpiryMessage"] != null)
+                    {
+                        var message = TempData["ExpiryMessage"] as string;
+                        if (((short)TempData["ExpiryStatus"] == 0))
+                        {
+                            <div class="alert alert-success" role="alert" id="divExpirySucess">@message</div>
+                        }
+                        else if ((short)TempData["ExpiryStatus"] > 0)
+                        {
+                            <div class="alert alert-danger show" role="alert">@message</div>
+                        }
+                    }
+                }
+                <div role="tabpanel" class="@classTab" id="expiryoption">
+                    <div class="expiry-wrap">
+                        @using (Html.BeginForm("AddExpiryOption", "UserAdmin", FormMethod.Post, new { id = "ExpiryEntryForm" }))
+                        {
+                            <div class="form-group">
+                                @Html.DropDownListFor(m => m.ExpiryOptionId, new SelectList(Model.ExpiryOptions, "Value", "Text"), new { id = "expiryOptionDropdownId", name = "expiryOptionDropdownId", @class = "selectpicker" })
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section page_scripts
+{
+    <script src="~/Scripts/Pages/settings.js"></script>
+    <script type="text/javascript">
+        var objArray = '@Html.Raw(Json.Encode(Model.CTestViewModelList.Where(s=>s.IsDistractionSurveyRequired==true).ToList()))';
+        var jsonObj = $.parseJSON(objArray);
+        $(document).ready(function () {
+            $(document).on("input", ".numeric", function () {
+                this.value = this.value.replace(/\D/g, '');
+            });
+
+            $('#surveyValidation').hide();
+            @if (@Model.Status == 0 && @Model.IsSaved==true)
+          {
+            @:$('#divSuccess').show();
+                                     @:CallTimerForBackToUsers();
+                                   }
+            @if (TempData["DistractionSurveyStatus"] != null)
+          {
+              if (TempData["IsSaved"] != null)
+              {
+
+                  if (((short)TempData["DistractionSurveyStatus"] == 0) && (bool)TempData["IsSaved"] == true)
+                  {
+                      @:$('#divNewSuccess').show();
+                                              @:CallTimerForBackToUsers();
+                                           }
+              }
+          }
+            @if (@Model.JewelsTrailsSettings.Status == 0 && @Model.JewelsTrailsSettings.IsSaved == true)
+        {
+                       @:$('#jewelsettings').addClass('active');
+                                    @:$('#divNewSuccessSettings').show();
+                                    @:CallTimerForBackToUsers();
+                                }
+            @if (TempData["JewelsStatus"] != null)
+            {
+                if (TempData["IsSaved"] != null)
+                {
+                    if (((short)TempData["JewelsStatus"] == 0) && (bool)TempData["IsSaved"] == true)
+                    {
+                        @:$('#divNewSuccessSettings').show();
+                                                @:CallTimerForBackToUsers();
+                                            }
+                }
+            }
+            @if (@Model.AdminSettings.Status == 0 && @Model.AdminSettings.IsSaved == true)
+              {
+                  @:$('#expiryoption').addClass('active');
+                              @:$('#divExpirySucess').show();
+                              @:CallTimerForBackToUsers();
+                          }
+            @if (TempData["ExpiryStatus"] != null)
+             {
+                 if (TempData["IsSaved"] != null)
+                 {
+                     if (((short)TempData["ExpiryStatus"] == 0) && (bool)TempData["IsSaved"] == true)
+                     {
+                         @:$('#divExpirySucess').show();
+                                     @:CallTimerForBackToUsers();
+                                 }
+                 }
+             }
+
+
+            function Clear() {
+                var url = '@Url.Action("Settings", "UserAdmin")';
+                window.location.href = url;
+            }
+
+            function CallTimerForBackToUsers() {
+                setTimeout(function () { CallBackToUsers(); }, 2000);
+            }
+
+            function CallBackToUsers() {
+                var url = '@Url.Action("Settings", "UserAdmin")';
+                window.location.href = url;
+            }
+        });
+
+
+        var surveyArray = [];
+        var dropDownId;
+        @foreach(CTestViewModel cTest in Model.CTestViewModelList.Where(i=>i.IsDistractionSurveyRequired==true))
+        {
+            @: dropDownId = @cTest.CTestID.ToString()
+                foreach(var value in @cTest.SurveyArray)
+            {
+               @:surveyArray.push(@value);
+                                        }
+            @:$('#ddlSurveyId_' + dropDownId).val(surveyArray);
+                                    @:surveyArray = [];
+                                    }
+
+        $('#SaveButton').click(function () {
+            var flag = true;
+
+            if ($('#txtNoOfSeconds_Beg').val() == '') {
+                flag = false;
+                $('#ErrNoOfSeconds_Beg').html("required").show();
+            }
+            else {
+                $('#ErrNoOfSeconds_Beg').html("").hide();
+            }
+
+            if ($('#txtNoOfSeconds_Int').val() == '') {
+                flag = false;
+                $('#ErrNoOfSeconds_Int').html("required").show();
+            }
+            else {
+                $('#ErrNoOfSeconds_Int').html("").hide();
+            }
+
+            if ($('#txtNoOfSeconds_Adv').val() == '') {
+                flag = false;
+                $('#ErrNoOfSeconds_Adv').html("required").show();
+            }
+            else {
+                $('#ErrNoOfSeconds_Adv').html("").hide();
+            }
+
+            if ($('#txtNoOfSeconds_Exp').val() == '') {
+                flag = false;
+                $('#ErrNoOfSeconds_Exp').html("required").show();
+            }
+            else {
+                $('#ErrNoOfSeconds_Exp').html("").hide();
+            }
+
+            /***Number of diamond targets on the screen***/
+            if ($('#txtNoOfDiamonds').val() == '') {
+                flag = false;
+                $('#ErrNoOfDiamonds').html("required").show();
+            }
+            else if (parseInt($('#txtNoOfDiamonds').val()) > 25) {
+                flag = false;
+                $('#ErrNoOfDiamonds').html("Value could not be greater than 25").show();
+            }
+            else if (parseInt($('#txtNoOfDiamonds').val()) < 2) {
+                flag = false;
+                $('#ErrNoOfDiamonds').html("Value could not be lesser than 2").show();
+            }
+            else {
+                $('#ErrNoOfDiamonds').html("").hide();
+            }
+
+            if ($('#jewelTypeDropdownId').val() == 2) {
+                if ($('#txtNoOfShapes').val() == '') {
+                    flag = false;
+                    $('#ErrNoOfShapes').html("required").show();
+                }
+                else if (parseInt($('#txtNoOfShapes').val()) > 4) {
+                    flag = false;
+                    $('#ErrNoOfShapes').html("Value could not be greater than 4").show();
+                }
+                else if (parseInt($('#txtNoOfShapes').val()) < 2) {
+                    flag = false;
+                    $('#ErrNoOfShapes').html("Value could not be lesser than 2").show();
+                }
+                else {
+                    $('#ErrNoOfShapes').html("").hide();
+                }
+            }
+            else if ($('#jewelTypeDropdownId').val() == 1) {
+                if ($('#txtNoOfShapes').val() == '') {
+                    flag = false;
+                    $('#ErrNoOfShapes').html("required").show();
+                }
+                else if (parseInt($('#txtNoOfShapes').val()) != 1) {
+                    flag = false;
+                    $('#ErrNoOfShapes').html("Value should be 1.").show();
+                }
+                else {
+                    $('#ErrNoOfShapes').html("").hide();
+                }
+            }
+
+
+            if ($('#txtNoOfBonusPoints').val() == '') {
+                flag = false;
+                $('#ErrNoOfBonusPoints').html("required").show();
+            }
+            else {
+                $('#ErrNoOfBonusPoints').html("").hide();
+            }
+
+
+            if ($('#txtX_NoOfChangesInLevel').val() == '') {
+                flag = false;
+                $('#ErrX_NoOfChangesInLevel').html("required").show();
+            }
+            else {
+                $('#ErrX_NoOfChangesInLevel').html("").hide();
+            }
+
+            if ($('#txtX_NoOfDiamonds').val() == '') {
+                flag = false;
+                $('#ErrX_NoOfDiamonds').html("required").show();
+            }
+            else if (parseInt($('#txtX_NoOfDiamonds').val()) > 10) {
+                flag = false;
+                $('#ErrX_NoOfDiamonds').html("Value could not be greater than 10").show();
+            }
+            else if (parseInt($('#txtX_NoOfDiamonds').val()) < 0) {
+                flag = false;
+                $('#ErrX_NoOfDiamonds').html("Value could not be greater than 0").show();
+            }
+            else {
+                $('#ErrX_NoOfDiamonds').html("").hide();
+            }
+
+
+            if ($('#txtY_NoOfChangesInLevel').val() == '') {
+                flag = false;
+                $('#ErrY_NoOfChangesInLevel').html("required").show();
+            }
+            else {
+                $('#ErrY_NoOfChangesInLevel').html("").hide();
+            }
+
+
+            if ($('#jewelTypeDropdownId').val() == 2) {
+                //  alert();
+
+                if ($('#txtY_NoOfShapes').val() == '') {
+                    flag = false;
+                    $('#ErrY_NoOfShapes').html("required").show();
+                }
+                else if (parseInt($('#txtY_NoOfShapes').val()) > 4) {
+                    flag = false;
+                    $('#ErrY_NoOfShapes').html("Value could not be greater than 4").show();
+                }
+                else if (parseInt($('#txtY_NoOfShapes').val()) < 2) {
+                    flag = false;
+                    $('#ErrY_NoOfShapes').html("Value could not be lesser than 2").show();
+                }
+                else {
+                    $('#ErrY_NoOfShapes').html("").hide();
+                }
+            }
+            else if ($('#jewelTypeDropdownId').val() == 1) {
+                if ($('#txtY_NoOfShapes').val() == '') {
+                    flag = false;
+                    $('#ErrY_NoOfShapes').html("required").show();
+                }
+                else if (parseInt($('#txtY_NoOfShapes').val()) != 1) {
+                    flag = false;
+                    $('#ErrY_NoOfShapes').html("Value should be 1.").show();
+                }
+                else {
+                    $('#ErrY_NoOfShapes').html("").hide();
+                }
+
+            }
+
+            if (flag == false) {
+                return false;
+            }
+            else {
+                $('#JewelsEntryForm').submit();
+            }
+        });
+    </script>
+}

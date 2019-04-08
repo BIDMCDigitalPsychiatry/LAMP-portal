@@ -1,0 +1,114 @@
+﻿@model TipsBlogsViewModel
+@using PagedList.Mvc;
+@using System.Configuration;
+@using LAMP.Utility
+@{
+    Layout = null;
+}
+<input type="hidden" name="currentUserId" id="currentUserId" />
+<div id="msgsuccess" class="alert alert-success alert-white rounded" style="display:none;"></div>
+@if (Model.TotalRows > 0)
+{
+    foreach (BlogsViewModel blog in Model.BlogList)
+    {
+        string fileName = blog.ImageURL;
+        var filepath = ConfigurationManager.AppSettings["BlogImagePath"] + "\\" + fileName;
+        filepath = filepath.Replace("~", "");
+        var Content = blog.Content ?? "";
+        Content = HttpUtility.HtmlDecode(Content).Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n\n", "</p><p>");
+        blog.Content = Content;
+        <div class="blog-sec">
+            <div class="blog-actions">
+                @if (Model.LoggedInAdminId == 1)
+                {
+                    /*Super Admin can edit and delete their own articles and also delele other articles.*/
+                    if (Model.LoggedInAdminId == blog.AdminId)
+                    {
+                        <a href="@Url.Action("EditBlog", "UserAdmin", new { blogId = @blog.BlogID })" title="Edit"><i class="edit"></i></a>
+                        <a href="#" onclick="ShowDeleteUserConfirmationPopup('@blog.BlogID','Delete')" title="Delete"><i class="delete"></i></a>
+                    }
+                    else
+                    {
+                        <a href="#" onclick="ShowDeleteUserConfirmationPopup('@blog.BlogID','Delete')" title="Delete"><i class="delete"></i></a>
+                    }
+
+                }
+                else
+                {
+                    /*normal admins  can edit and delete their own articles*/
+                    if (Model.LoggedInAdminId == blog.AdminId)
+                    {
+                        <a href="@Url.Action("EditBlog", "UserAdmin", new { blogId = @blog.BlogID })" title="Edit"><i class="edit"></i></a>
+                        <a href="#" onclick="ShowDeleteUserConfirmationPopup('@blog.BlogID','Delete')" title="Delete"><i class="delete"></i></a>
+                    }                    
+                }
+            </div>
+            <h5>@blog.CreatedAdminName : @(blog.CreatedOnString == string.Empty ? "Nil" : blog.CreatedOnString)</h5>
+            <h5>@blog.BlogTitle</h5>
+            @if (blog.ImageURL != null)
+            {
+                <div class="blog-img clearfix"><div class="img-block"><img src="@filepath" alt=""></div></div>
+            }
+            else
+            {
+                <div class="blog-img clearfix"><div class="img-block"><img src="~/Content/Default/images/no-image.png" alt=""></div></div>
+            }
+            <p>@Html.Raw(blog.Content)</p>
+        </div>
+    }
+}
+else
+{
+    <div id="divUserList" class="" style="">No articles to display.</div>
+}
+@Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPage", @name = "CurrentPage" })
+@Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSize", @name = "PageSize" })
+@Html.HiddenFor(model => Model.SortPageOptions.SortField, new { @id = "SortField", @name = "SortField" })
+@Html.HiddenFor(model => Model.SortPageOptions.SortOrder, new { @id = "SortOrder", @name = "SortOrder" })
+@if (Model.PagedBlogList != null)
+{
+    <div class="row col-sm-12">
+        <div class="pull-right">
+            <div class="dataTables_paginate paging_bs_normal">
+                @if (Model.PagedBlogList.Count != 0)
+                {
+                    <div>
+                        @Html.PagedListPager(Model.PagedBlogList, page => Url.Action("SearchAllBlogs", new { page, sortColumn = Model.SortPageOptions.SortField, sortOrder = Model.SortPageOptions.SortOrder, pageSize = Model.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divUserList", OnSuccess = "PagerScrollTop", OnBegin = "BeginPaginaionBlogs" }))
+                    </div>
+                }
+            </div>
+        </div><div class="clearfix"></div>
+    </div>
+}
+<!-- Start DeleteUserPopupConfirmation -->
+<div id="DeleteUserPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 centered text-center">
+                            <p id="confirmMessage"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteUser()" class="btn btn-primary" id="btnDelete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End DeleteUserPopupConfirmation -->
+@section page_scripts{
+    <script type="text/javascript">
+        function OnSuccessPagination() {
+            
+        }
+    </script>
+}

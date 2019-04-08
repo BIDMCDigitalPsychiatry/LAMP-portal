@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AFB7F94-A15C-44F6-8B69-E1399D8855EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LAMP.DataAccess</RootNamespace>
+    <AssemblyName>LAMP.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IGenericRepository.cs" />
+    <Compile Include="Abstract\IUnitOfWork.cs" />
+    <Compile Include="DataAccessBase.cs" />
+    <Compile Include="Concrete\GenericRepository.cs" />
+    <Compile Include="Concrete\UnitOfWork.cs" />
+    <Compile Include="Entities\Admin.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_BatchSchedule.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_BatchScheduleCTest.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_BatchScheduleCustomTime.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_BatchScheduleSurvey.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_CTestSchedule.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_CTestScheduleCustomTime.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_CTestSurveySettings.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_GetBatchSchedule_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_GetUserDataToExport_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_JewelsTrailsASettings.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_JewelsTrailsBSettings.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_SaveBatchSchedule_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_SaveCTestSchedule_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_SaveSurveySchedule_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_Settings.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_SurveySchedule.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Admin_SurveyScheduleCustomTime.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AppHelp.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Blog.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_3DFigure.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_3DFigureResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_CatAndDogNewResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_CatAndDogNewResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_CatAndDogResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_DigitSpanResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_JewelsTrailsAResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_JewelsTrailsAResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_JewelsTrailsBResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_JewelsTrailsBResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_NBackNewResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_NBackResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_ScratchImage.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_ScratchImageResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_Serial7Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_SimpleMemoryResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_SpatialResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_SpatialResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_SpinWheelResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TemporalOrderResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TrailsBDotTouchResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TrailsBDotTouchResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TrailsBNewResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TrailsBNewResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TrailsBResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_TrailsBResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CTest_VisualAssociationResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetAdminBatchScheduleByUserID_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetAdminCTestScheduleByUserID_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetAdminSurveyScheduleByUserID_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetJewelsTrailsAResult_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetJewelsTrailsBResult_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HealthKit_BasicInfo.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HealthKit_DailyValues.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HealthKit_Parameters.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HealthKit_ParamValues.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HelpCall.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LAMP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAMP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LAMP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LAMP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAMP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Location.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Repeat.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SaveHealthKitData_sp_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SaveHealthKitData_sp_v2_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Slot.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Survey.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SurveyQuestion.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SurveyQuestionOption.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SurveyResult.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SurveyResultDtl.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Tip.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\User.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserDevice.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserSetting.cs">
+      <DependentUpon>LAMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entities\LAMP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LAMP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\LAMP.edmx.diagram">
+      <DependentUpon>LAMP.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\LAMP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LAMP.edmx</DependentUpon>
+      <LastGenOutput>LAMP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\LAMP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LAMP.edmx</DependentUpon>
+      <LastGenOutput>LAMP.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

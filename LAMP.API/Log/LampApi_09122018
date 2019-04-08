@@ -1,0 +1,7 @@
+2018-09-12 13:56:18,077 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:126) - Object reference not set to an instance of an object.
+----------
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserService.GetBatchScheduleDetails(BatchScheduleRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 1396
+----------
+
+

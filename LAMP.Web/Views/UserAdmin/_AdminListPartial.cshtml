@@ -1,0 +1,109 @@
+﻿@model AdminandUserListViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+@section page_scripts{
+    <script type="text/javascript">
+        $("#msgsuccess").hide();
+        $("#DeleteUserPopupConfirmation").hide();
+        $('#spanTotalUser').text(@Model.UserListViewModel.TotalRows.ToString());
+    </script>
+}
+<input type="hidden" name="currentUserId" id="currentUserId" />
+<div id="msgsuccess" class="alert alert-success alert-white rounded" style="display:none;"></div>
+<input type="hidden" name="userFunctionality" id="userFunctionality" />
+
+@using (Ajax.BeginForm("SearchAdmin", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divUserList", InsertionMode = InsertionMode.Replace, OnBegin = "OnBeginAjaxCall_Admin()", OnSuccess = "OnSuccessAjaxCall_Admin();", OnFailure = "OnFailureAjaxCall_Admin()" },
+        new { id = "userListForm", @class = "form-horizontal", pageSize = Model.UserListViewModel.SortPageOptions.PageSize }))
+{
+    <div class="table-responsive list-table">
+        <table id="AdminList" class="table table-striped">
+            <tr>
+                <th class="@(Model.AdminListViewModel.SortPageOptions.SortField == "Email" ? "sorting-" + Model.AdminListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('Email')" width="20%"><span>Email</span></th>
+                <th class="@(Model.AdminListViewModel.SortPageOptions.SortField == "FirstName" ? "sorting-" + Model.AdminListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('FirstName')" width="15%"><span>First Name</span></th>
+                <th class="@(Model.AdminListViewModel.SortPageOptions.SortField == "LastName" ? "sorting-" + Model.AdminListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('LastName')" width="15%"><span>Last Name</span></th>
+                <th class="@(Model.AdminListViewModel.SortPageOptions.SortField == "CreatedOn" ? "sorting-" + Model.AdminListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('CreatedOn')" width="10%"><span>Created On</span></th>
+                <th></th>
+            </tr>
+            @if (Model.AdminListViewModel.TotalRows > 0)
+            {
+                foreach (Admins user in Model.AdminListViewModel.AdminList)
+                {
+                    <tr>
+                        <td>@user.Email </td>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@(user.CreatedOnString == string.Empty ? "Nil" : user.CreatedOnString)</td>
+                        <td>
+                            <a href="@Url.Action("EditAdmin", "UserAdmin", new { adminId = @user.AdminID })" title="Edit"><i class="edit"></i></a>
+                            @if (Model.LoggedInAdminId != @user.AdminID)
+                            {
+                                <a href="#" onclick="ShowDeleteAdminConfirmationPopup(' @user.AdminID','Delete')" title="Delete"><i class="delete"></i></a>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div id="divRegquestGridNone" class="" style="">No administrators found.</div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <input type="hidden" value="@Model.AdminListViewModel.SearchId" name="searchString" id="searchString" />
+        <input type="hidden" value="@Model.AdminListViewModel.SortPageOptions.PageSize" name="PageSize" />
+        <input type="hidden" value="@Model.AdminListViewModel.SortPageOptions.SortField" name="sortColumn" id="SortField" />
+        <input type="hidden" value="@Model.AdminListViewModel.SortPageOptions.CurrentPage" name="page" id="page" />
+        <input type="hidden" value="@Model.AdminListViewModel.SortPageOptions.SortOrder" name="sortOrder" id="SortOrder" />
+        <input type="hidden" id="AdminTotalRows" value="@Model.AdminListViewModel.TotalRows" />
+    </div>
+    if (Model.AdminListViewModel.PagedAdminList != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.AdminListViewModel.PagedAdminList.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.AdminListViewModel.PagedAdminList, page => Url.Action("SearchAdmin", new { page, searchString = Model.AdminListViewModel.SearchId, sortColumn = Model.AdminListViewModel.SortPageOptions.SortField, sortOrder = Model.AdminListViewModel.SortPageOptions.SortOrder, pageSize = Model.AdminListViewModel.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divUserList", OnSuccess = "SuccessPaginationAdmin", OnBegin = "BeginPaginaionAdmin" }))
+
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+}
+<!-- Delete Admin Popup Confirmation-->
+<div id="DeleteAdminPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 centered text-center">
+                            <p id="confirmMessageAdmin"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteAdmin()" class="btn btn-primary" id="btnDelete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Popup -->

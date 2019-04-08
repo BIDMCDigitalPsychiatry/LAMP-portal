@@ -1,0 +1,34 @@
+﻿@model CognitionJewelsTrailsBViewModel
+@using System.Globalization;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Cognition_JewelsTrailsB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Cognition</h4>
+        <button class="btn btn-primary back" title="Back" onclick="JavaScript: window.history.back(1); return false;">back</button>
+    </div>
+    @using (Ajax.BeginForm("Cognition_JewelsTrailsB", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divsurveyCognition", InsertionMode = InsertionMode.Replace }, new { id = "companyListForm", @class = "form-horizontal" }))
+    {
+        <div class="main-content">
+            <h5>Jewels Trails B</h5>
+            <div class="table-responsive survey cognition" id="divCTestTrailB">
+                @{ Html.RenderPartial("_Cognition_JewelsTrailsBListPartial", Model); }
+            </div>
+            <div class="status-wrap clearfix">
+                <div class="date game-detail">
+                    <p>last cognition Date: <strong>@Model.LastCognitionDate.ToString("MM/dd/yyyy").Replace('-', '/')</strong></p>
+                    <p>Total Bonus Collected: <strong>@Model.TotalBonusCollected</strong></p>
+                    <p>Total Jewels Collected: <strong>@Model.TotalJewelsCollected</strong></p>
+                </div>
+                <div class="time"><p>Last Time Taken (Hours): <strong>@Model.DurationString</strong></p> <p class="rating">Total Rating: <span>_</span></p></div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+

@@ -1,0 +1,13 @@
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\LAMP.Utility.dll
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\LAMP.Utility.pdb
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\LAMP.ViewModel.dll
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\log4net.dll
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\PagedList.dll
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\LAMP.ViewModel.pdb
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\log4net.xml
+E:\Working Folder\LAMP\Source\LAMP.Utility\bin\Debug\PagedList.xml
+E:\Working Folder\LAMP\Source\LAMP.Utility\obj\Debug\LAMP.Utility.csprojResolveAssemblyReference.cache
+E:\Working Folder\LAMP\Source\LAMP.Utility\obj\Debug\LAMP.Utility.LAMPMessages.resources
+E:\Working Folder\LAMP\Source\LAMP.Utility\obj\Debug\LAMP.Utility.csproj.GenerateResource.Cache
+E:\Working Folder\LAMP\Source\LAMP.Utility\obj\Debug\LAMP.Utility.dll
+E:\Working Folder\LAMP\Source\LAMP.Utility\obj\Debug\LAMP.Utility.pdb

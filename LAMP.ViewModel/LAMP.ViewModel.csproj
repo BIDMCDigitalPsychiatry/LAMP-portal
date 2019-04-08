@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4BC69FE-2FC0-4712-9036-3C2C5F7FC90C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LAMP.ViewModel</RootNamespace>
+    <AssemblyName>LAMP.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ResponseStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceModel\AppHelpResponse.cs" />
+    <Compile Include="ServiceModel\BlogResponse.cs" />
+    <Compile Include="ServiceModel\CatAndDogNewGameRequest.cs" />
+    <Compile Include="ServiceModel\DistractionSurveyRequest.cs" />
+    <Compile Include="ServiceModel\DistractionSurveyResponse.cs" />
+    <Compile Include="ServiceModel\GetBlogRequest.cs" />
+    <Compile Include="ServiceModel\GetUserReportRequest.cs" />
+    <Compile Include="ServiceModel\GraphRequest.cs" />
+    <Compile Include="ServiceModel\GraphResponse.cs" />
+    <Compile Include="ServiceModel\HelpCallRequest.cs" />
+    <Compile Include="ServiceModel\LogRequest.cs" />
+    <Compile Include="ServiceModel\ProtocolDateRequest.cs" />
+    <Compile Include="ServiceModel\ProtocolDateResponse.cs" />
+    <Compile Include="ServiceModel\ScratchImageGameRequest.cs" />
+    <Compile Include="ServiceModel\SpatialSpanGameRequest.cs" />
+    <Compile Include="ServiceModel\SpinWheelGameRequest.cs" />
+    <Compile Include="ServiceModel\SurveyAndGameSchedule.cs" />
+    <Compile Include="ServiceModel\SurveyQuestionsRequest.cs" />
+    <Compile Include="ServiceModel\SurveyQuestionsResponse.cs" />
+    <Compile Include="ServiceModel\TemporalOrderGameRequest.cs" />
+    <Compile Include="ServiceModel\TipsResponse.cs" />
+    <Compile Include="ServiceModel\UserHealthKitRequest.cs" />
+    <Compile Include="ServiceModel\_3DFigureGameRequest.cs" />
+    <Compile Include="ServiceModel\CatAndDogGameRequest.cs" />
+    <Compile Include="ServiceModel\CompletedSurveyRequest.cs" />
+    <Compile Include="ServiceModel\DigitSpanGameRequest.cs" />
+    <Compile Include="ServiceModel\ForgotPasswordRequest.cs" />
+    <Compile Include="ServiceModel\GuestUserSignUpRequest.cs" />
+    <Compile Include="ServiceModel\LocationRequest.cs" />
+    <Compile Include="ServiceModel\NBackGameRequest.cs" />
+    <Compile Include="ServiceModel\ResponseBase.cs" />
+    <Compile Include="ServiceModel\Serial7GameRequest.cs" />
+    <Compile Include="ServiceModel\SimpleMemoryGameRequest.cs" />
+    <Compile Include="ServiceModel\SurveyQueAndAnsRequest.cs" />
+    <Compile Include="ServiceModel\SurveyRequest.cs" />
+    <Compile Include="ServiceModel\SurveyResponse.cs" />
+    <Compile Include="ServiceModel\TrailsBGameRequest.cs" />
+    <Compile Include="ServiceModel\UserAuthenticateRequest.cs" />
+    <Compile Include="ServiceModel\UserDeleteRequest.cs" />
+    <Compile Include="ServiceModel\UserProfileRequest.cs" />
+    <Compile Include="ServiceModel\UserProfileResponse.cs" />
+    <Compile Include="ServiceModel\UserResponse.cs" />
+    <Compile Include="ServiceModel\UserSettingRequest.cs" />
+    <Compile Include="ServiceModel\UserSettingResponse.cs" />
+    <Compile Include="ServiceModel\UserSignInRequest.cs" />
+    <Compile Include="ServiceModel\UserSignUpRequest.cs" />
+    <Compile Include="ServiceModel\UserTokenRequest.cs" />
+    <Compile Include="ServiceModel\VisualAssociationGameRequest.cs" />
+    <Compile Include="ViewModel\AccountViewModel.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\AppHelpViewModel.cs" />
+    <Compile Include="ViewModel\BaseModel.cs" />
+    <Compile Include="ViewModel\CognitionCatAndDogNewViewModel.cs" />
+    <Compile Include="ViewModel\Cognition3DFigureViewModel.cs" />
+    <Compile Include="ViewModel\CognitionCatDogViewModel.cs" />
+    <Compile Include="ViewModel\CognitionDigitSpanViewModel.cs" />
+    <Compile Include="ViewModel\CognitionJewelsTrailsAViewModel.cs" />
+    <Compile Include="ViewModel\CognitionJewelsTrailsBViewModel.cs" />
+    <Compile Include="ViewModel\CognitionNBackNewViewModel.cs" />
+    <Compile Include="ViewModel\CognitionNBackViewModel.cs" />
+    <Compile Include="ViewModel\CognitionScratchImageViewModel.cs" />
+    <Compile Include="ViewModel\CognitionSerial7ViewModel.cs" />
+    <Compile Include="ViewModel\CognitionSimpleMemoryViewModel.cs" />
+    <Compile Include="ViewModel\CognitionSpatialSpanViewModel.cs" />
+    <Compile Include="ViewModel\CognitionSpinWheelViewModel.cs" />
+    <Compile Include="ViewModel\CognitionTrailsBDotTouchViewModel.cs" />
+    <Compile Include="ViewModel\CognitionTrailsBNewViewModel.cs" />
+    <Compile Include="ViewModel\CognitionTrailsBViewModel.cs" />
+    <Compile Include="ViewModel\CognitionVisualAssociationViewModel.cs" />
+    <Compile Include="ViewModel\CognTestViewModel.cs" />
+    <Compile Include="ViewModel\DistractionSurveyViewModel.cs" />
+    <Compile Include="ViewModel\EmailViewModel.cs" />
+    <Compile Include="ViewModel\LAMPError.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ProtocolViewModel.cs" />
+    <Compile Include="ViewModel\ScheduleViewModel.cs" />
+    <Compile Include="ViewModel\SurveyResultsViewModel.cs" />
+    <Compile Include="ViewModel\CognitionTemporalOrderViewModel.cs" />
+    <Compile Include="ViewModel\SurveyViewModel.cs" />
+    <Compile Include="ViewModel\TipsBlogsViewModel.cs" />
+    <Compile Include="ViewModel\UserActivitiesViewModel.cs" />
+    <Compile Include="ViewModel\UserDataExportViewModel.cs" />
+    <Compile Include="ViewModel\UserListViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="Model\ViewModelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LAMP.DataAccess\LAMP.DataAccess.csproj">
+      <Project>{4afb7f94-a15c-44f6-8b69-e1399d8855ec}</Project>
+      <Name>LAMP.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+2018-11-21 16:22:37,014 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKit_sp: System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Xml.XmlNode.RemoveChild(XmlNode oldChild)
+   at LAMP.Service.UserService.ToXML(Object oObject) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 880
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUsersRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 891
+
+2018-11-21 16:39:18,325 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKit_sp: System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Xml.XmlNode.RemoveChild(XmlNode oldChild)
+   at LAMP.Service.UserService.ToXML(Object oObject) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 881
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUsersRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 894
+
+2018-11-21 16:45:20,990 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKit_sp: System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Xml.XmlNode.RemoveChild(XmlNode oldChild)
+   at LAMP.Service.UserService.ToXML(Object oObject) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 880
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUsersRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 897
+
+2018-11-21 16:48:03,882 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKit_sp: System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Xml.XmlNode.RemoveChild(XmlNode oldChild)
+   at LAMP.Service.UserService.ToXML(Object oObject) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 881
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUsersRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 897
+
+2018-11-21 17:09:12,817 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - UserService/SaveUserHealthKit_sp: System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserService.ToXML(Object oObject) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 887
+   at LAMP.Service.UserService.SaveUserHealthKitV2(HealthKitUsersRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 901
+

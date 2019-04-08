@@ -1,0 +1,96 @@
+2017-07-03 16:18:06,463 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: admin@lamp.com : User123!
+
+2017-07-03 16:18:06,507 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2017-07-03 16:18:07,330 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /
+
+2017-07-03 16:18:18,463 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: admin@lamp.com : User123!
+
+2017-07-03 16:18:18,464 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2017-07-03 16:18:18,468 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /
+
+2017-07-03 16:22:31,048 [18] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login: admin@lamp.com : User123!
+
+2017-07-03 16:22:31,048 [18] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - AuthenticateUser...
+
+2017-07-03 16:22:31,095 [18] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Login Error: 0 :  : /UserAdmin/Users
+
+2017-07-03 16:22:31,344 [18] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2017-07-03 16:23:33,499 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 122
+----------
+
+
+2017-07-03 16:23:33,530 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 130
+   at LAMP.Utility.Helper.SendEmail(EmailData Edata) in e:\Working Folder\LAMP\Source\LAMP.Utility\Helper.cs:line 202
+   at LAMP.Service.UserAdminService.EmailUserStudyId_Pwd(String email, String user_name, String studyId, String studyCode, String user_password) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 2043
+----------
+
+
+2017-07-03 16:23:35,965 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 1
+
+2017-07-03 16:24:47,452 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 122
+----------
+
+
+2017-07-03 16:24:47,474 [12] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 130
+   at LAMP.Utility.Helper.SendEmail(EmailData Edata) in e:\Working Folder\LAMP\Source\LAMP.Utility\Helper.cs:line 202
+   at LAMP.Service.UserAdminService.EmailUserStudyId_Pwd(String email, String user_name, String studyId, String studyCode, String user_password) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 2043
+----------
+
+
+2017-07-03 16:24:49,601 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2017-07-03 16:24:51,430 [12] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 1
+
+2017-07-03 17:11:20,641 [39] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 
+
+2017-07-03 17:11:55,706 [32] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 122
+----------
+
+
+2017-07-03 17:11:55,737 [32] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+----------
+System.Net.Mail.SmtpException: Transaction failed. The server response was: 5.7.1 <jul03@test.com>: Relay access denied
+   at System.Net.Mail.RecipientCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at LAMP.Utility.ResourceHelper.SendEmailUsingSMTP(String mailTo, String mailSubject, String mailBody) in e:\Working Folder\LAMP\Source\LAMP.Utility\ResourceHelper.cs:line 130
+   at LAMP.Utility.Helper.SendEmail(EmailData Edata) in e:\Working Folder\LAMP\Source\LAMP.Utility\Helper.cs:line 202
+   at LAMP.Service.UserAdminService.EmailUserStudyId_Pwd(String email, String user_name, String studyId, String studyCode, String user_password) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\UserAdminService.cs:line 2043
+----------
+
+
+2017-07-03 17:11:58,167 [37] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:61) - Users: 1
+

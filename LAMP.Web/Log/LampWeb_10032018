@@ -1,0 +1,274 @@
+2018-10-03 11:54:31,177 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-10-03 11:54:31,313 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-10-03 11:54:32,976 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-10-03 11:54:33,269 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-10-03 11:54:55,283 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 11:54:55,404 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 11:54:55,494 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 11:54:55,495 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 11:54:55,528 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 11:54:55,529 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 11:54:55,567 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 11:54:55,568 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 11:54:55,569 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 11:54:55,570 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 11:54:55,695 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 11:54:55,696 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 11:55:42,048 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 11:55:42,049 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 11:55:42,059 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 11:55:42,060 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 11:55:42,070 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 11:55:42,071 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 11:55:42,085 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 11:55:42,086 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 11:55:42,086 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 11:55:42,087 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 11:55:42,111 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 11:55:42,112 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:08:36,848 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-10-03 15:08:36,864 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-10-03 15:08:36,870 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-10-03 15:08:37,028 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-10-03 15:08:51,485 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:08:51,611 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:08:51,679 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:08:51,680 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:08:51,698 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:08:51,698 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:08:51,723 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:08:51,724 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:08:51,725 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:08:51,726 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:09:42,896 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:09:42,897 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:12:48,753 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:12:48,754 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:12:48,765 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:12:48,766 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:12:48,778 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:12:48,779 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:12:48,795 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:12:48,796 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:12:48,797 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:12:48,797 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:12:50,348 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:12:50,349 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:13:34,869 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:13:34,869 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:13:34,880 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:13:34,881 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:13:34,891 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:13:34,891 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:13:34,905 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:13:34,906 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:13:34,906 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:13:34,907 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:13:49,045 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:13:49,047 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:14:08,617 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:14:08,617 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:14:08,627 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:14:08,627 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:14:08,637 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:14:08,638 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:14:08,652 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:14:08,653 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:14:08,653 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:14:08,654 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:15:02,416 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:15:02,416 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:15:49,831 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-10-03 15:15:49,848 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-10-03 15:15:49,855 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-10-03 15:15:49,987 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-10-03 15:16:06,635 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:16:06,761 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:16:06,833 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:16:06,834 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:16:06,853 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:16:06,853 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:16:06,880 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:16:06,881 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:16:06,882 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:16:06,883 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:16:08,889 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:16:08,890 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:21:00,117 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:21:04,059 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-10-03 15:21:04,062 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-10-03 15:21:04,070 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-10-03 15:21:04,202 [16] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-10-03 15:21:11,410 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:21:11,541 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:21:11,601 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:21:11,602 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:21:11,619 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:21:11,620 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:21:11,645 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:21:11,646 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:21:11,647 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:21:11,648 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:21:20,111 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:21:20,112 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:21:29,168 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:21:29,169 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:21:29,179 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:21:29,180 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:21:29,190 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:21:29,191 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:21:29,204 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:21:29,205 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:21:29,206 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:21:29,206 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:21:29,228 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:21:29,229 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+
+2018-10-03 15:22:02,726 [16] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 290
+
+2018-10-03 15:22:02,726 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-10-03 15:22:02,737 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:00:31
+
+2018-10-03 15:22:02,738 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:00:31
+
+2018-10-03 15:22:02,747 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 09-27-2018 06:00:31 new date: 09-27-2018 06:02:10
+
+2018-10-03 15:22:02,748 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:22:02,761 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 09-27-2018 06:02:10 new date: 09-27-2018 06:01:50
+
+2018-10-03 15:22:02,762 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:02:10
+
+2018-10-03 15:22:02,762 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 01-01-1900 00:00:00 new date: 09-27-2018 06:03:30
+
+2018-10-03 15:22:02,763 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:03:30
+
+2018-10-03 15:22:02,784 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Scratch Image last date: 09-27-2018 06:03:30 new date: 09-27-2018 06:04:02
+
+2018-10-03 15:22:02,785 [16] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 09-27-2018 06:04:02
+

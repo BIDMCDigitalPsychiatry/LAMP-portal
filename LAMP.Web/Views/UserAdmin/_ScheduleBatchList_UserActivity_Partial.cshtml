@@ -1,0 +1,159 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+<div class="panel-heading clearfix" role="tab" id="headingThree">
+    <h4>
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Batch Schedule<i class="acc-arrow"></i></a>
+    </h4>
+</div>
+<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div class="panel-body">
+        <div class="panel-group survey-accord acc-inner" id="inner_accord" role="tablist" aria-multiselectable="true">
+
+            @if (Model.BatchScheduleList != null && Model.BatchScheduleList.BatchList != null && Model.BatchScheduleList.BatchList.Count > 0)
+            {
+                Int16 count = 1;
+                foreach (Batch_UA batch in Model.BatchScheduleList.BatchList)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix" role="tab" id="Innerheadone">
+                            <h4>
+                                <a role="button" data-toggle="collapse" data-parent="#inner_accord" href=@String.Format("#collapseinnerOne{0}", @count ) aria-expanded="true" aria-controls="collapseinnerOne@count">@batch.BatchDetails.Name<i class="acc-arrow hidden"></i></a>
+                            </h4>
+                            <div class="info">
+                                <span><strong>@batch.BatchDetails.SurveyCount</strong> Survey(s)</span>
+                            </div>
+                            <div class="info">
+                                <span><strong>@batch.BatchDetails.GameCount</strong> Game(s)</span>
+                            </div>
+                        </div>
+                        <div id=@String.Format("#collapseinnerOne{0}", @count ) class="panel-collapse collapse in" role="tabpanel" aria-labelledby="Innerheadone">
+                            <div class="panel-body">
+                                <div class="table-responsive survey cognition acc">
+                                    <table class="table table-bordered">
+                                        @foreach (BatchScheduleItem_UA item in @batch.BatchScheduleItemList)
+                                        {
+                                            <tr>
+                                                <td>@item.Name</td>
+                                                <td><span class="very-good">-</span></td>
+                                                <td> @item.Date_Games </td>
+                                                <td>@item.Status_Point </td>
+                                                @if (item.Type == 1)
+                                                {
+                                                    <td> @(item.IsDistraction == true ? "Distraction" : "Not a Distraction")</td>
+                                                    <td> @(item.IsNotificationGame == true ? "Notification Game" : "Not a Notification Game")</td>
+                                                }
+                                                else
+                                                {
+                                                    <td> -</td>
+                                                    <td> @(item.IsNotificationGame == true ? "Notification Game" : "Not a Notification Game")</td>
+                                                }
+                                                @if (item.Type == 1)
+                                                {
+                                                    <td><button title="View More" class="view" onclick="location.href='@Url.Action("SurveyDetails", "UserAdmin", new { page = Model.SurveyListSortPageOptions.CurrentPage, surveyResultId = @item.SurveyResultID, studyId = @Model.StudyId, AdminBatchSchID=@item.AdminBatchSchID })';return false;">View More</button></td>
+                                                }
+                                                else
+                                                {
+                                                    if (@item.CognitionType == Convert.ToInt16(1))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_N_Back", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(2))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_TrailsB", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(3))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_SpatialSpan", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+
+                                                    else if (@item.CognitionType == Convert.ToInt16(5))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_Simple_Memory", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(6))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_Serial7", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(7))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_Cat_Dog", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(8))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_3DFigure", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(9))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_Visual_Association", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(10))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_DigitSpan", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(11))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_NewCatAndDog", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(12))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_TemporalOrder", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(13))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_DigitSpan", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(14))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_N_BackNew", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(15))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_TrailsBNew", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(16))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_TrailsBDotTouch", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(17))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_JewelsTrailsA", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(18))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_JewelsTrailsB", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                    else if (@item.CognitionType == Convert.ToInt16(19))
+                                                    {
+                                                        <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_ScratchImage", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = @item.AdminBatchSchID })';return false;">View More</button></td>
+                                                    }
+                                                }
+
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        count++;
+                }
+            }
+            else
+            {
+                <div class="table-responsive survey cognition acc">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>
+                                <div class="" style="">No records found.</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>

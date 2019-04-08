@@ -1,0 +1,2732 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LAMPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LAMPEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Admin_GetUserDataToExport_sp" ReturnType="Collection(LAMPModel.Admin_GetUserDataToExport_sp_Result)">
+      <Parameter Name="p_UserIDsXML" Mode="In" Type="String" />
+      <Parameter Name="p_DateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="p_DateTo" Mode="In" Type="DateTime" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_SaveCTestSchedule_sp" ReturnType="Collection(LAMPModel.Admin_SaveCTestSchedule_sp_Result)">
+      <Parameter Name="p_AdminCTestSchID" Mode="In" Type="Int64" />
+      <Parameter Name="p_AdminID" Mode="In" Type="Int64" />
+      <Parameter Name="p_CTestID" Mode="In" Type="Int64" />
+      <Parameter Name="p_Version" Mode="In" Type="Int32" />
+      <Parameter Name="p_ScheduleDate" Mode="In" Type="DateTime" />
+      <Parameter Name="p_SlotID" Mode="In" Type="Int64" />
+      <Parameter Name="p_Time" Mode="In" Type="DateTime" />
+      <Parameter Name="p_RepeatID" Mode="In" Type="Int64" />
+      <Parameter Name="p_CustomTimeXML" Mode="In" Type="String" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_SaveSurveySchedule_sp" ReturnType="Collection(LAMPModel.Admin_SaveSurveySchedule_sp_Result)">
+      <Parameter Name="p_AdminSurveySchID" Mode="In" Type="Int64" />
+      <Parameter Name="p_AdminID" Mode="In" Type="Int64" />
+      <Parameter Name="p_SurveyID" Mode="In" Type="Int64" />
+      <Parameter Name="p_ScheduleDate" Mode="In" Type="DateTime" />
+      <Parameter Name="p_SlotID" Mode="In" Type="Int64" />
+      <Parameter Name="p_Time" Mode="In" Type="DateTime" />
+      <Parameter Name="p_RepeatID" Mode="In" Type="Int64" />
+      <Parameter Name="p_CustomTimeXML" Mode="In" Type="String" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetAdminCTestScheduleByUserID_sp" ReturnType="Collection(LAMPModel.GetAdminCTestScheduleByUserID_sp_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_LastFetchedTS" Mode="In" Type="DateTime" />
+      <Parameter Name="p_LastUpdatedTS" Mode="InOut" Type="DateTime" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetAdminSurveyScheduleByUserID_sp" ReturnType="Collection(LAMPModel.GetAdminSurveyScheduleByUserID_sp_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_LastFetchedTS" Mode="In" Type="DateTime" />
+      <Parameter Name="p_LastUpdatedTS" Mode="InOut" Type="DateTime" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetJewelsTrailsAResult_sp" ReturnType="Collection(LAMPModel.GetJewelsTrailsAResult_sp_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetJewelsTrailsBResult_sp" ReturnType="Collection(LAMPModel.GetJewelsTrailsBResult_sp_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SaveHealthKitData_sp" ReturnType="Collection(LAMPModel.SaveHealthKitData_sp_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="p_Sex" Mode="In" Type="String" />
+      <Parameter Name="p_BloodType" Mode="In" Type="String" />
+      <Parameter Name="p_Height" Mode="In" Type="String" />
+      <Parameter Name="p_Weight" Mode="In" Type="String" />
+      <Parameter Name="p_HeartRate" Mode="In" Type="String" />
+      <Parameter Name="p_BloodPressure" Mode="In" Type="String" />
+      <Parameter Name="p_RespiratoryRate" Mode="In" Type="String" />
+      <Parameter Name="p_Sleep" Mode="In" Type="String" />
+      <Parameter Name="p_Steps" Mode="In" Type="String" />
+      <Parameter Name="p_FlightClimbed" Mode="In" Type="String" />
+      <Parameter Name="p_Segment" Mode="In" Type="String" />
+      <Parameter Name="p_Distance" Mode="In" Type="String" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LAMPModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LAMPModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ShowTableData">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Admin_SaveBatchSchedule_sp" ReturnType="Collection(LAMPModel.Admin_SaveBatchSchedule_sp_Result)">
+      <Parameter Name="p_AdminBatchSchID" Mode="In" Type="Int64" />
+      <Parameter Name="p_AdminID" Mode="In" Type="Int64" />
+      <Parameter Name="p_BatchName" Mode="In" Type="String" />
+      <Parameter Name="p_ScheduleDate" Mode="In" Type="DateTime" />
+      <Parameter Name="p_SlotID" Mode="In" Type="Int64" />
+      <Parameter Name="p_Time" Mode="In" Type="DateTime" />
+      <Parameter Name="p_RepeatID" Mode="In" Type="Int64" />
+      <Parameter Name="p_CTestXML" Mode="In" Type="String" />
+      <Parameter Name="p_SurveyXML" Mode="In" Type="String" />
+      <Parameter Name="p_CustomTimeXML" Mode="In" Type="String" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_GetBatchSchedule_sp" ReturnType="Collection(LAMPModel.Admin_GetBatchSchedule_sp_Result)">
+      <Parameter Name="p_AdminBatchSchID" Mode="In" Type="Int64" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetAdminBatchScheduleByUserID_sp" ReturnType="Collection(LAMPModel.GetAdminBatchScheduleByUserID_sp_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_LastFetchedTS" Mode="In" Type="DateTime" />
+      <Parameter Name="p_LastUpdatedTS" Mode="InOut" Type="DateTime" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="Admins" EntityType="LAMPModel.Admin" />
+    <EntitySet Name="Admin_BatchSchedule" EntityType="LAMPModel.Admin_BatchSchedule" />
+    <EntitySet Name="Admin_BatchScheduleCTest" EntityType="LAMPModel.Admin_BatchScheduleCTest" />
+    <EntitySet Name="Admin_BatchScheduleCustomTime" EntityType="LAMPModel.Admin_BatchScheduleCustomTime" />
+    <EntitySet Name="Admin_BatchScheduleSurvey" EntityType="LAMPModel.Admin_BatchScheduleSurvey" />
+    <EntitySet Name="Admin_CTestSchedule" EntityType="LAMPModel.Admin_CTestSchedule" />
+    <EntitySet Name="Admin_CTestScheduleCustomTime" EntityType="LAMPModel.Admin_CTestScheduleCustomTime" />
+    <EntitySet Name="Admin_CTestSurveySettings" EntityType="LAMPModel.Admin_CTestSurveySettings" />
+    <EntitySet Name="Admin_JewelsTrailsASettings" EntityType="LAMPModel.Admin_JewelsTrailsASettings" />
+    <EntitySet Name="Admin_JewelsTrailsBSettings" EntityType="LAMPModel.Admin_JewelsTrailsBSettings" />
+    <EntitySet Name="Admin_Settings" EntityType="LAMPModel.Admin_Settings" />
+    <EntitySet Name="Admin_SurveySchedule" EntityType="LAMPModel.Admin_SurveySchedule" />
+    <EntitySet Name="Admin_SurveyScheduleCustomTime" EntityType="LAMPModel.Admin_SurveyScheduleCustomTime" />
+    <EntitySet Name="AppHelps" EntityType="LAMPModel.AppHelp" />
+    <EntitySet Name="Blogs" EntityType="LAMPModel.Blog" />
+    <EntitySet Name="CTests" EntityType="LAMPModel.CTest" />
+    <EntitySet Name="CTest_3DFigure" EntityType="LAMPModel.CTest_3DFigure" />
+    <EntitySet Name="CTest_3DFigureResult" EntityType="LAMPModel.CTest_3DFigureResult" />
+    <EntitySet Name="CTest_CatAndDogNewResult" EntityType="LAMPModel.CTest_CatAndDogNewResult" />
+    <EntitySet Name="CTest_CatAndDogNewResultDtl" EntityType="LAMPModel.CTest_CatAndDogNewResultDtl" />
+    <EntitySet Name="CTest_CatAndDogResult" EntityType="LAMPModel.CTest_CatAndDogResult" />
+    <EntitySet Name="CTest_DigitSpanResult" EntityType="LAMPModel.CTest_DigitSpanResult" />
+    <EntitySet Name="CTest_JewelsTrailsAResult" EntityType="LAMPModel.CTest_JewelsTrailsAResult" />
+    <EntitySet Name="CTest_JewelsTrailsAResultDtl" EntityType="LAMPModel.CTest_JewelsTrailsAResultDtl" />
+    <EntitySet Name="CTest_JewelsTrailsBResult" EntityType="LAMPModel.CTest_JewelsTrailsBResult" />
+    <EntitySet Name="CTest_JewelsTrailsBResultDtl" EntityType="LAMPModel.CTest_JewelsTrailsBResultDtl" />
+    <EntitySet Name="CTest_NBackNewResult" EntityType="LAMPModel.CTest_NBackNewResult" />
+    <EntitySet Name="CTest_NBackResult" EntityType="LAMPModel.CTest_NBackResult" />
+    <EntitySet Name="CTest_ScratchImage" EntityType="LAMPModel.CTest_ScratchImage" />
+    <EntitySet Name="CTest_ScratchImageResult" EntityType="LAMPModel.CTest_ScratchImageResult" />
+    <EntitySet Name="CTest_Serial7Result" EntityType="LAMPModel.CTest_Serial7Result" />
+    <EntitySet Name="CTest_SimpleMemoryResult" EntityType="LAMPModel.CTest_SimpleMemoryResult" />
+    <EntitySet Name="CTest_SpatialResult" EntityType="LAMPModel.CTest_SpatialResult" />
+    <EntitySet Name="CTest_SpatialResultDtl" EntityType="LAMPModel.CTest_SpatialResultDtl" />
+    <EntitySet Name="CTest_SpinWheelResult" EntityType="LAMPModel.CTest_SpinWheelResult" />
+    <EntitySet Name="CTest_TemporalOrderResult" EntityType="LAMPModel.CTest_TemporalOrderResult" />
+    <EntitySet Name="CTest_TrailsBDotTouchResult" EntityType="LAMPModel.CTest_TrailsBDotTouchResult" />
+    <EntitySet Name="CTest_TrailsBDotTouchResultDtl" EntityType="LAMPModel.CTest_TrailsBDotTouchResultDtl" />
+    <EntitySet Name="CTest_TrailsBNewResult" EntityType="LAMPModel.CTest_TrailsBNewResult" />
+    <EntitySet Name="CTest_TrailsBNewResultDtl" EntityType="LAMPModel.CTest_TrailsBNewResultDtl" />
+    <EntitySet Name="CTest_TrailsBResult" EntityType="LAMPModel.CTest_TrailsBResult" />
+    <EntitySet Name="CTest_TrailsBResultDtl" EntityType="LAMPModel.CTest_TrailsBResultDtl" />
+    <EntitySet Name="CTest_VisualAssociationResult" EntityType="LAMPModel.CTest_VisualAssociationResult" />
+    <EntitySet Name="HealthKit_BasicInfo" EntityType="LAMPModel.HealthKit_BasicInfo" />
+    <EntitySet Name="HealthKit_DailyValues" EntityType="LAMPModel.HealthKit_DailyValues" />
+    <EntitySet Name="HealthKit_Parameters" EntityType="LAMPModel.HealthKit_Parameters" />
+    <EntitySet Name="HealthKit_ParamValues" EntityType="LAMPModel.HealthKit_ParamValues" />
+    <EntitySet Name="HelpCalls" EntityType="LAMPModel.HelpCall" />
+    <EntitySet Name="Locations" EntityType="LAMPModel.Location" />
+    <EntitySet Name="Repeats" EntityType="LAMPModel.Repeat" />
+    <EntitySet Name="Slots" EntityType="LAMPModel.Slot" />
+    <EntitySet Name="Surveys" EntityType="LAMPModel.Survey" />
+    <EntitySet Name="SurveyQuestionOptions" EntityType="LAMPModel.SurveyQuestionOption" />
+    <EntitySet Name="SurveyQuestions" EntityType="LAMPModel.SurveyQuestion" />
+    <EntitySet Name="SurveyResults" EntityType="LAMPModel.SurveyResult" />
+    <EntitySet Name="SurveyResultDtls" EntityType="LAMPModel.SurveyResultDtl" />
+    <EntitySet Name="Tips" EntityType="LAMPModel.Tip" />
+    <EntitySet Name="UserDevices" EntityType="LAMPModel.UserDevice" />
+    <EntitySet Name="Users" EntityType="LAMPModel.User" />
+    <EntitySet Name="UserSettings" EntityType="LAMPModel.UserSetting" />
+    <AssociationSet Name="FK_Admin_BatchSchedule_Admin" Association="LAMPModel.FK_Admin_BatchSchedule_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSchedule_Admin" Association="LAMPModel.FK_Admin_CTestSchedule_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_CTestSchedule" EntitySet="Admin_CTestSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSurveySettings_Admin" Association="LAMPModel.FK_Admin_CTestSurveySettings_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_CTestSurveySettings" EntitySet="Admin_CTestSurveySettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_JewelsTrailsASettings_Admin" Association="LAMPModel.FK_Admin_JewelsTrailsASettings_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_JewelsTrailsASettings" EntitySet="Admin_JewelsTrailsASettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_JewelsTrailsBSettings_Admin" Association="LAMPModel.FK_Admin_JewelsTrailsBSettings_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_JewelsTrailsBSettings" EntitySet="Admin_JewelsTrailsBSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_Settings_Admin" Association="LAMPModel.FK_Admin_Settings_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_Settings" EntitySet="Admin_Settings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_SurveySchedule_Admin" Association="LAMPModel.FK_Admin_SurveySchedule_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Admin_SurveySchedule" EntitySet="Admin_SurveySchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppHelp_Admin" Association="LAMPModel.FK_AppHelp_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="AppHelp" EntitySet="AppHelps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blogs_Admin" Association="LAMPModel.FK_Blogs_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Blog" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tips_Admin" Association="LAMPModel.FK_Tips_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Tip" EntitySet="Tips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Admin" Association="LAMPModel.FK_Users_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_BatchSchedule_Repeat" Association="LAMPModel.FK_Admin_BatchSchedule_Repeat">
+      <End Role="Repeat" EntitySet="Repeats" />
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_BatchSchedule_Slot" Association="LAMPModel.FK_Admin_BatchSchedule_Slot">
+      <End Role="Slot" EntitySet="Slots" />
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_BatchScheduleCTest_Admin_BatchSchedule" Association="LAMPModel.FK_Admin_BatchScheduleCTest_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="Admin_BatchScheduleCTest" EntitySet="Admin_BatchScheduleCTest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_BatchScheduleCustomTime_Admin_BatchSchedule" Association="LAMPModel.FK_Admin_BatchScheduleCustomTime_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="Admin_BatchScheduleCustomTime" EntitySet="Admin_BatchScheduleCustomTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_BatchScheduleSurvey_Admin_BatchSchedule" Association="LAMPModel.FK_Admin_BatchScheduleSurvey_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="Admin_BatchScheduleSurvey" EntitySet="Admin_BatchScheduleSurvey" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_3DFigureResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_3DFigureResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_3DFigureResult" EntitySet="CTest_3DFigureResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_CatAndDogNewResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_CatAndDogNewResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_CatAndDogNewResult" EntitySet="CTest_CatAndDogNewResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_CatAndDogResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_CatAndDogResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_CatAndDogResult" EntitySet="CTest_CatAndDogResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_DigitSpanResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_DigitSpanResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_DigitSpanResult" EntitySet="CTest_DigitSpanResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_JewelsTrailsAResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_JewelsTrailsAResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_JewelsTrailsAResult" EntitySet="CTest_JewelsTrailsAResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_JewelsTrailsBResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_JewelsTrailsBResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_JewelsTrailsBResult" EntitySet="CTest_JewelsTrailsBResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_NBackNewResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_NBackNewResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_NBackNewResult" EntitySet="CTest_NBackNewResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_NBackResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_NBackResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_NBackResult" EntitySet="CTest_NBackResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_ScratchImageResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_ScratchImageResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_ScratchImageResult" EntitySet="CTest_ScratchImageResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_Serial7Result_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_Serial7Result_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_Serial7Result" EntitySet="CTest_Serial7Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_SimpleMemoryResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_SimpleMemoryResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_SimpleMemoryResult" EntitySet="CTest_SimpleMemoryResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_SpatialResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_SpatialResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_SpatialResult" EntitySet="CTest_SpatialResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_SurveyResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_SurveyResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="SurveyResult" EntitySet="SurveyResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TemporalOrderResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_TemporalOrderResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_TemporalOrderResult" EntitySet="CTest_TemporalOrderResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBDotTouchResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_TrailsBDotTouchResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_TrailsBDotTouchResult" EntitySet="CTest_TrailsBDotTouchResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBNewResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_TrailsBNewResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_TrailsBNewResult" EntitySet="CTest_TrailsBNewResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_TrailsBResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_TrailsBResult" EntitySet="CTest_TrailsBResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_VisualAssociationResult_Admin_BatchSchedule" Association="LAMPModel.FK_CTest_VisualAssociationResult_Admin_BatchSchedule">
+      <End Role="Admin_BatchSchedule" EntitySet="Admin_BatchSchedule" />
+      <End Role="CTest_VisualAssociationResult" EntitySet="CTest_VisualAssociationResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSchedule_CTest" Association="LAMPModel.FK_Admin_CTestSchedule_CTest">
+      <End Role="CTest" EntitySet="CTests" />
+      <End Role="Admin_CTestSchedule" EntitySet="Admin_CTestSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSchedule_Repeat" Association="LAMPModel.FK_Admin_CTestSchedule_Repeat">
+      <End Role="Repeat" EntitySet="Repeats" />
+      <End Role="Admin_CTestSchedule" EntitySet="Admin_CTestSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSchedule_Slot" Association="LAMPModel.FK_Admin_CTestSchedule_Slot">
+      <End Role="Slot" EntitySet="Slots" />
+      <End Role="Admin_CTestSchedule" EntitySet="Admin_CTestSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestScheduleCustomTime_Admin_CTestSchedule" Association="LAMPModel.FK_Admin_CTestScheduleCustomTime_Admin_CTestSchedule">
+      <End Role="Admin_CTestSchedule" EntitySet="Admin_CTestSchedule" />
+      <End Role="Admin_CTestScheduleCustomTime" EntitySet="Admin_CTestScheduleCustomTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSurveySettings_CTest" Association="LAMPModel.FK_Admin_CTestSurveySettings_CTest">
+      <End Role="CTest" EntitySet="CTests" />
+      <End Role="Admin_CTestSurveySettings" EntitySet="Admin_CTestSurveySettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_CTestSurveySettings_Survey" Association="LAMPModel.FK_Admin_CTestSurveySettings_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Admin_CTestSurveySettings" EntitySet="Admin_CTestSurveySettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_SurveySchedule_Repeat" Association="LAMPModel.FK_Admin_SurveySchedule_Repeat">
+      <End Role="Repeat" EntitySet="Repeats" />
+      <End Role="Admin_SurveySchedule" EntitySet="Admin_SurveySchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_SurveySchedule_Slot" Association="LAMPModel.FK_Admin_SurveySchedule_Slot">
+      <End Role="Slot" EntitySet="Slots" />
+      <End Role="Admin_SurveySchedule" EntitySet="Admin_SurveySchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_SurveySchedule_Survey" Association="LAMPModel.FK_Admin_SurveySchedule_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Admin_SurveySchedule" EntitySet="Admin_SurveySchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_SurveyScheduleCustomTime_Admin_SurveySchedule" Association="LAMPModel.FK_Admin_SurveyScheduleCustomTime_Admin_SurveySchedule">
+      <End Role="Admin_SurveySchedule" EntitySet="Admin_SurveySchedule" />
+      <End Role="Admin_SurveyScheduleCustomTime" EntitySet="Admin_SurveyScheduleCustomTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_3DFigureResult_CTest_3DFigure" Association="LAMPModel.FK_CTest_3DFigureResult_CTest_3DFigure">
+      <End Role="CTest_3DFigure" EntitySet="CTest_3DFigure" />
+      <End Role="CTest_3DFigureResult" EntitySet="CTest_3DFigureResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_3DFigureResult_Users" Association="LAMPModel.FK_CTest_3DFigureResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_3DFigureResult" EntitySet="CTest_3DFigureResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_CatAndDogNewResult_Users" Association="LAMPModel.FK_CTest_CatAndDogNewResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_CatAndDogNewResult" EntitySet="CTest_CatAndDogNewResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_CatAndDogNewResultDtl_CTest_CatAndDogNewResult" Association="LAMPModel.FK_CTest_CatAndDogNewResultDtl_CTest_CatAndDogNewResult">
+      <End Role="CTest_CatAndDogNewResult" EntitySet="CTest_CatAndDogNewResult" />
+      <End Role="CTest_CatAndDogNewResultDtl" EntitySet="CTest_CatAndDogNewResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_CatAndDogResult_Users" Association="LAMPModel.FK_CTest_CatAndDogResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_CatAndDogResult" EntitySet="CTest_CatAndDogResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_DigitSpanResult_Users" Association="LAMPModel.FK_CTest_DigitSpanResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_DigitSpanResult" EntitySet="CTest_DigitSpanResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_JewelsTrailsAResult_Users" Association="LAMPModel.FK_CTest_JewelsTrailsAResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_JewelsTrailsAResult" EntitySet="CTest_JewelsTrailsAResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_JewelsTrailsAResultDtl_CTest_JewelsTrailsAResult" Association="LAMPModel.FK_CTest_JewelsTrailsAResultDtl_CTest_JewelsTrailsAResult">
+      <End Role="CTest_JewelsTrailsAResult" EntitySet="CTest_JewelsTrailsAResult" />
+      <End Role="CTest_JewelsTrailsAResultDtl" EntitySet="CTest_JewelsTrailsAResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_JewelsTrailsBResult_Users" Association="LAMPModel.FK_CTest_JewelsTrailsBResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_JewelsTrailsBResult" EntitySet="CTest_JewelsTrailsBResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_JewelsTrailsBResultDtl_CTest_JewelsTrailsBResult" Association="LAMPModel.FK_CTest_JewelsTrailsBResultDtl_CTest_JewelsTrailsBResult">
+      <End Role="CTest_JewelsTrailsBResult" EntitySet="CTest_JewelsTrailsBResult" />
+      <End Role="CTest_JewelsTrailsBResultDtl" EntitySet="CTest_JewelsTrailsBResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_NBackNewResult_Users" Association="LAMPModel.FK_CTest_NBackNewResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_NBackNewResult" EntitySet="CTest_NBackNewResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_NBackResult_Users" Association="LAMPModel.FK_CTest_NBackResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_NBackResult" EntitySet="CTest_NBackResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_ScratchImageResult_CTest_ScratchImage" Association="LAMPModel.FK_CTest_ScratchImageResult_CTest_ScratchImage">
+      <End Role="CTest_ScratchImage" EntitySet="CTest_ScratchImage" />
+      <End Role="CTest_ScratchImageResult" EntitySet="CTest_ScratchImageResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_ScratchImageResult_Users" Association="LAMPModel.FK_CTest_ScratchImageResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_ScratchImageResult" EntitySet="CTest_ScratchImageResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_Serial7Result_Users" Association="LAMPModel.FK_CTest_Serial7Result_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_Serial7Result" EntitySet="CTest_Serial7Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_SimpleMemoryResult_Users" Association="LAMPModel.FK_CTest_SimpleMemoryResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_SimpleMemoryResult" EntitySet="CTest_SimpleMemoryResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_SpatialResult_Users" Association="LAMPModel.FK_CTest_SpatialResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_SpatialResult" EntitySet="CTest_SpatialResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_SpatialResultDtl_CTest_SpatialResult" Association="LAMPModel.FK_CTest_SpatialResultDtl_CTest_SpatialResult">
+      <End Role="CTest_SpatialResult" EntitySet="CTest_SpatialResult" />
+      <End Role="CTest_SpatialResultDtl" EntitySet="CTest_SpatialResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TemporalOrderResult_Users" Association="LAMPModel.FK_CTest_TemporalOrderResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_TemporalOrderResult" EntitySet="CTest_TemporalOrderResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBDotTouchResult_Users" Association="LAMPModel.FK_CTest_TrailsBDotTouchResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_TrailsBDotTouchResult" EntitySet="CTest_TrailsBDotTouchResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBDotTouchResultDtl_CTest_TrailsBDotTouchResult" Association="LAMPModel.FK_CTest_TrailsBDotTouchResultDtl_CTest_TrailsBDotTouchResult">
+      <End Role="CTest_TrailsBDotTouchResult" EntitySet="CTest_TrailsBDotTouchResult" />
+      <End Role="CTest_TrailsBDotTouchResultDtl" EntitySet="CTest_TrailsBDotTouchResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBNewResult_Users" Association="LAMPModel.FK_CTest_TrailsBNewResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_TrailsBNewResult" EntitySet="CTest_TrailsBNewResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBNewResultDtl_CTest_TrailsBNewResult" Association="LAMPModel.FK_CTest_TrailsBNewResultDtl_CTest_TrailsBNewResult">
+      <End Role="CTest_TrailsBNewResult" EntitySet="CTest_TrailsBNewResult" />
+      <End Role="CTest_TrailsBNewResultDtl" EntitySet="CTest_TrailsBNewResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBResult_Users" Association="LAMPModel.FK_CTest_TrailsBResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_TrailsBResult" EntitySet="CTest_TrailsBResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_TrailsBResultDtl_CTest_TrailsBResult" Association="LAMPModel.FK_CTest_TrailsBResultDtl_CTest_TrailsBResult">
+      <End Role="CTest_TrailsBResult" EntitySet="CTest_TrailsBResult" />
+      <End Role="CTest_TrailsBResultDtl" EntitySet="CTest_TrailsBResultDtl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTest_VisualAssociationResult_Users" Association="LAMPModel.FK_CTest_VisualAssociationResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CTest_VisualAssociationResult" EntitySet="CTest_VisualAssociationResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthKit_BasicInfo_Users" Association="LAMPModel.FK_HealthKit_BasicInfo_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HealthKit_BasicInfo" EntitySet="HealthKit_BasicInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthKit_DailyValues_Users" Association="LAMPModel.FK_HealthKit_DailyValues_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HealthKit_DailyValues" EntitySet="HealthKit_DailyValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthKit_ParamValues_HealthKit_Parameters" Association="LAMPModel.FK_HealthKit_ParamValues_HealthKit_Parameters">
+      <End Role="HealthKit_Parameters" EntitySet="HealthKit_Parameters" />
+      <End Role="HealthKit_ParamValues" EntitySet="HealthKit_ParamValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HealthKit_ParamValues_Users" Association="LAMPModel.FK_HealthKit_ParamValues_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HealthKit_ParamValues" EntitySet="HealthKit_ParamValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HelpCalls_Users" Association="LAMPModel.FK_HelpCalls_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HelpCall" EntitySet="HelpCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Users" Association="LAMPModel.FK_Locations_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSettings_CognTest_Repeat" Association="LAMPModel.FK_UserSettings_CognTest_Repeat">
+      <End Role="Repeat" EntitySet="Repeats" />
+      <End Role="UserSetting" EntitySet="UserSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSettings_SympSurvey_Repeat" Association="LAMPModel.FK_UserSettings_SympSurvey_Repeat">
+      <End Role="Repeat" EntitySet="Repeats" />
+      <End Role="UserSetting" EntitySet="UserSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSettings_CognTest_Slot" Association="LAMPModel.FK_UserSettings_CognTest_Slot">
+      <End Role="Slot" EntitySet="Slots" />
+      <End Role="UserSetting" EntitySet="UserSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSettings_SympSurvey_Slot" Association="LAMPModel.FK_UserSettings_SympSurvey_Slot">
+      <End Role="Slot" EntitySet="Slots" />
+      <End Role="UserSetting" EntitySet="UserSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestions_Survey" Association="LAMPModel.FK_SurveyQuestions_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="SurveyQuestion" EntitySet="SurveyQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyResult_Survey" Association="LAMPModel.FK_SurveyResult_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="SurveyResult" EntitySet="SurveyResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestionOptions_SurveyQuestions" Association="LAMPModel.FK_SurveyQuestionOptions_SurveyQuestions">
+      <End Role="SurveyQuestion" EntitySet="SurveyQuestions" />
+      <End Role="SurveyQuestionOption" EntitySet="SurveyQuestionOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyResult_Users" Association="LAMPModel.FK_SurveyResult_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SurveyResult" EntitySet="SurveyResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyResultDtl_SurveyResult" Association="LAMPModel.FK_SurveyResultDtl_SurveyResult">
+      <End Role="SurveyResult" EntitySet="SurveyResults" />
+      <End Role="SurveyResultDtl" EntitySet="SurveyResultDtls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDevices_Users" Association="LAMPModel.FK_UserDevices_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserDevice" EntitySet="UserDevices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSettings_Users" Association="LAMPModel.FK_UserSettings_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserSetting" EntitySet="UserSettings" />
+    </AssociationSet>
+    <FunctionImport Name="SaveHealthKitData_sp_v2" ReturnType="Collection(LAMPModel.SaveHealthKitData_sp_v2_Result)">
+      <Parameter Name="p_UserID" Mode="In" Type="Int64" />
+      <Parameter Name="p_DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="p_Sex" Mode="In" Type="String" />
+      <Parameter Name="p_BloodType" Mode="In" Type="String" />
+      <Parameter Name="p_ValuesXML" Mode="In" Type="String" />
+      <Parameter Name="p_ErrID" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Admin_GetUserDataToExport_sp_Result">
+    <Property Type="Int64" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="StudyId" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" />
+    <Property Type="DateTime" Name="RegisteredOn" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastSurveyDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Points" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Admin_SaveCTestSchedule_sp_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="Admin_SaveSurveySchedule_sp_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="GetAdminCTestScheduleByUserID_sp_Result">
+    <Property Type="Int64" Name="GameScheduleID" Nullable="true" />
+    <Property Type="Int64" Name="CTestId" Nullable="true" />
+    <Property Type="String" Name="CTestName" Nullable="true" />
+    <Property Type="Int32" Name="Version" Nullable="true" />
+    <Property Type="DateTime" Name="ScheduleDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Time" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="RepeatID" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAdminSurveyScheduleByUserID_sp_Result">
+    <Property Type="Int64" Name="SurveyScheduleID" Nullable="true" />
+    <Property Type="Int64" Name="SurveyId" Nullable="true" />
+    <Property Type="String" Name="SurveyName" Nullable="true" />
+    <Property Type="DateTime" Name="ScheduleDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Time" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="RepeatID" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetJewelsTrailsAResult_sp_Result">
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="TotalJewelsCollected" Nullable="true" />
+    <Property Type="String" Name="TotalBonusCollected" Nullable="true" />
+    <Property Type="String" Name="Score" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetJewelsTrailsBResult_sp_Result">
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="TotalJewelsCollected" Nullable="true" />
+    <Property Type="String" Name="TotalBonusCollected" Nullable="true" />
+    <Property Type="String" Name="Score" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SaveHealthKitData_sp_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Admin_SaveBatchSchedule_sp_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="Admin_GetBatchSchedule_sp_Result">
+    <Property Type="Int64" Name="AdminBatchSchID" Nullable="false" />
+    <Property Type="Int64" Name="AdminID" Nullable="true" />
+    <Property Type="String" Name="BatchName" Nullable="true" />
+    <Property Type="DateTime" Name="ScheduleDate" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="SlotID" Nullable="true" />
+    <Property Type="DateTime" Name="Time" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="RepeatID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAdminBatchScheduleByUserID_sp_Result">
+    <Property Type="Int64" Name="ScheduleID" Nullable="true" />
+    <Property Type="String" Name="BatchName" Nullable="true" />
+    <Property Type="DateTime" Name="ScheduleDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Time" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="RepeatID" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="AdminType" Type="Byte" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_Admin_BatchSchedule_Admin" FromRole="Admin" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="Admin_CTestSchedule" Relationship="LAMPModel.FK_Admin_CTestSchedule_Admin" FromRole="Admin" ToRole="Admin_CTestSchedule" />
+    <NavigationProperty Name="Admin_CTestSurveySettings" Relationship="LAMPModel.FK_Admin_CTestSurveySettings_Admin" FromRole="Admin" ToRole="Admin_CTestSurveySettings" />
+    <NavigationProperty Name="Admin_JewelsTrailsASettings" Relationship="LAMPModel.FK_Admin_JewelsTrailsASettings_Admin" FromRole="Admin" ToRole="Admin_JewelsTrailsASettings" />
+    <NavigationProperty Name="Admin_JewelsTrailsBSettings" Relationship="LAMPModel.FK_Admin_JewelsTrailsBSettings_Admin" FromRole="Admin" ToRole="Admin_JewelsTrailsBSettings" />
+    <NavigationProperty Name="Admin_Settings" Relationship="LAMPModel.FK_Admin_Settings_Admin" FromRole="Admin" ToRole="Admin_Settings" />
+    <NavigationProperty Name="Admin_SurveySchedule" Relationship="LAMPModel.FK_Admin_SurveySchedule_Admin" FromRole="Admin" ToRole="Admin_SurveySchedule" />
+    <NavigationProperty Name="AppHelps" Relationship="LAMPModel.FK_AppHelp_Admin" FromRole="Admin" ToRole="AppHelp" />
+    <NavigationProperty Name="Blogs" Relationship="LAMPModel.FK_Blogs_Admin" FromRole="Admin" ToRole="Blog" />
+    <NavigationProperty Name="Tips" Relationship="LAMPModel.FK_Tips_Admin" FromRole="Admin" ToRole="Tip" />
+    <NavigationProperty Name="Users" Relationship="LAMPModel.FK_Users_Admin" FromRole="Admin" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Admin_BatchSchedule">
+    <Key>
+      <PropertyRef Name="AdminBatchSchID" />
+    </Key>
+    <Property Name="AdminBatchSchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="BatchName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduleDate" Type="DateTime" Precision="3" />
+    <Property Name="SlotID" Type="Int64" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="RepeatID" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_BatchSchedule_Admin" FromRole="Admin_BatchSchedule" ToRole="Admin" />
+    <NavigationProperty Name="Repeat" Relationship="LAMPModel.FK_Admin_BatchSchedule_Repeat" FromRole="Admin_BatchSchedule" ToRole="Repeat" />
+    <NavigationProperty Name="Slot" Relationship="LAMPModel.FK_Admin_BatchSchedule_Slot" FromRole="Admin_BatchSchedule" ToRole="Slot" />
+    <NavigationProperty Name="Admin_BatchScheduleCTest" Relationship="LAMPModel.FK_Admin_BatchScheduleCTest_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="Admin_BatchScheduleCTest" />
+    <NavigationProperty Name="Admin_BatchScheduleCustomTime" Relationship="LAMPModel.FK_Admin_BatchScheduleCustomTime_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="Admin_BatchScheduleCustomTime" />
+    <NavigationProperty Name="Admin_BatchScheduleSurvey" Relationship="LAMPModel.FK_Admin_BatchScheduleSurvey_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="Admin_BatchScheduleSurvey" />
+    <NavigationProperty Name="CTest_3DFigureResult" Relationship="LAMPModel.FK_CTest_3DFigureResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_3DFigureResult" />
+    <NavigationProperty Name="CTest_CatAndDogNewResult" Relationship="LAMPModel.FK_CTest_CatAndDogNewResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_CatAndDogNewResult" />
+    <NavigationProperty Name="CTest_CatAndDogResult" Relationship="LAMPModel.FK_CTest_CatAndDogResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_CatAndDogResult" />
+    <NavigationProperty Name="CTest_DigitSpanResult" Relationship="LAMPModel.FK_CTest_DigitSpanResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_DigitSpanResult" />
+    <NavigationProperty Name="CTest_JewelsTrailsAResult" Relationship="LAMPModel.FK_CTest_JewelsTrailsAResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_JewelsTrailsAResult" />
+    <NavigationProperty Name="CTest_JewelsTrailsBResult" Relationship="LAMPModel.FK_CTest_JewelsTrailsBResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_JewelsTrailsBResult" />
+    <NavigationProperty Name="CTest_NBackNewResult" Relationship="LAMPModel.FK_CTest_NBackNewResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_NBackNewResult" />
+    <NavigationProperty Name="CTest_NBackResult" Relationship="LAMPModel.FK_CTest_NBackResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_NBackResult" />
+    <NavigationProperty Name="CTest_ScratchImageResult" Relationship="LAMPModel.FK_CTest_ScratchImageResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_ScratchImageResult" />
+    <NavigationProperty Name="CTest_Serial7Result" Relationship="LAMPModel.FK_CTest_Serial7Result_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_Serial7Result" />
+    <NavigationProperty Name="CTest_SimpleMemoryResult" Relationship="LAMPModel.FK_CTest_SimpleMemoryResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_SimpleMemoryResult" />
+    <NavigationProperty Name="CTest_SpatialResult" Relationship="LAMPModel.FK_CTest_SpatialResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_SpatialResult" />
+    <NavigationProperty Name="SurveyResults" Relationship="LAMPModel.FK_CTest_SurveyResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="SurveyResult" />
+    <NavigationProperty Name="CTest_TemporalOrderResult" Relationship="LAMPModel.FK_CTest_TemporalOrderResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_TemporalOrderResult" />
+    <NavigationProperty Name="CTest_TrailsBDotTouchResult" Relationship="LAMPModel.FK_CTest_TrailsBDotTouchResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_TrailsBDotTouchResult" />
+    <NavigationProperty Name="CTest_TrailsBNewResult" Relationship="LAMPModel.FK_CTest_TrailsBNewResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_TrailsBNewResult" />
+    <NavigationProperty Name="CTest_TrailsBResult" Relationship="LAMPModel.FK_CTest_TrailsBResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_TrailsBResult" />
+    <NavigationProperty Name="CTest_VisualAssociationResult" Relationship="LAMPModel.FK_CTest_VisualAssociationResult_Admin_BatchSchedule" FromRole="Admin_BatchSchedule" ToRole="CTest_VisualAssociationResult" />
+  </EntityType>
+  <EntityType Name="Admin_BatchScheduleCTest">
+    <Key>
+      <PropertyRef Name="AdminBatchSchCTestID" />
+    </Key>
+    <Property Name="AdminBatchSchCTestID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="CTestID" Type="Int64" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Order" Type="Int32" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_Admin_BatchScheduleCTest_Admin_BatchSchedule" FromRole="Admin_BatchScheduleCTest" ToRole="Admin_BatchSchedule" />
+  </EntityType>
+  <EntityType Name="Admin_BatchScheduleCustomTime">
+    <Key>
+      <PropertyRef Name="AdminBatchSchCustTimID" />
+    </Key>
+    <Property Name="AdminBatchSchCustTimID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_Admin_BatchScheduleCustomTime_Admin_BatchSchedule" FromRole="Admin_BatchScheduleCustomTime" ToRole="Admin_BatchSchedule" />
+  </EntityType>
+  <EntityType Name="Admin_BatchScheduleSurvey">
+    <Key>
+      <PropertyRef Name="AdminBatchSchSurveyID" />
+    </Key>
+    <Property Name="AdminBatchSchSurveyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SurveyID" Type="Int64" />
+    <Property Name="Order" Type="Int32" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_Admin_BatchScheduleSurvey_Admin_BatchSchedule" FromRole="Admin_BatchScheduleSurvey" ToRole="Admin_BatchSchedule" />
+  </EntityType>
+  <EntityType Name="Admin_CTestSchedule">
+    <Key>
+      <PropertyRef Name="AdminCTestSchID" />
+    </Key>
+    <Property Name="AdminCTestSchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="CTestID" Type="Int64" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="ScheduleDate" Type="DateTime" Precision="3" />
+    <Property Name="SlotID" Type="Int64" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="RepeatID" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_CTestSchedule_Admin" FromRole="Admin_CTestSchedule" ToRole="Admin" />
+    <NavigationProperty Name="CTest" Relationship="LAMPModel.FK_Admin_CTestSchedule_CTest" FromRole="Admin_CTestSchedule" ToRole="CTest" />
+    <NavigationProperty Name="Repeat" Relationship="LAMPModel.FK_Admin_CTestSchedule_Repeat" FromRole="Admin_CTestSchedule" ToRole="Repeat" />
+    <NavigationProperty Name="Slot" Relationship="LAMPModel.FK_Admin_CTestSchedule_Slot" FromRole="Admin_CTestSchedule" ToRole="Slot" />
+    <NavigationProperty Name="Admin_CTestScheduleCustomTime" Relationship="LAMPModel.FK_Admin_CTestScheduleCustomTime_Admin_CTestSchedule" FromRole="Admin_CTestSchedule" ToRole="Admin_CTestScheduleCustomTime" />
+  </EntityType>
+  <EntityType Name="Admin_CTestScheduleCustomTime">
+    <Key>
+      <PropertyRef Name="AdminCTstSchCustTimID" />
+    </Key>
+    <Property Name="AdminCTstSchCustTimID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminCTestSchID" Type="Int64" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Admin_CTestSchedule" Relationship="LAMPModel.FK_Admin_CTestScheduleCustomTime_Admin_CTestSchedule" FromRole="Admin_CTestScheduleCustomTime" ToRole="Admin_CTestSchedule" />
+  </EntityType>
+  <EntityType Name="Admin_CTestSurveySettings">
+    <Key>
+      <PropertyRef Name="AdminCTestSurveySettingID" />
+    </Key>
+    <Property Name="AdminCTestSurveySettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="CTestID" Type="Int64" />
+    <Property Name="SurveyID" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_CTestSurveySettings_Admin" FromRole="Admin_CTestSurveySettings" ToRole="Admin" />
+    <NavigationProperty Name="CTest" Relationship="LAMPModel.FK_Admin_CTestSurveySettings_CTest" FromRole="Admin_CTestSurveySettings" ToRole="CTest" />
+    <NavigationProperty Name="Survey" Relationship="LAMPModel.FK_Admin_CTestSurveySettings_Survey" FromRole="Admin_CTestSurveySettings" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Admin_JewelsTrailsASettings">
+    <Key>
+      <PropertyRef Name="AdminJTASettingID" />
+    </Key>
+    <Property Name="AdminJTASettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="NoOfSeconds_Beg" Type="Int32" />
+    <Property Name="NoOfSeconds_Int" Type="Int32" />
+    <Property Name="NoOfSeconds_Adv" Type="Int32" />
+    <Property Name="NoOfSeconds_Exp" Type="Int32" />
+    <Property Name="NoOfDiamonds" Type="Int32" />
+    <Property Name="NoOfShapes" Type="Int32" />
+    <Property Name="NoOfBonusPoints" Type="Int32" />
+    <Property Name="X_NoOfChangesInLevel" Type="Int32" />
+    <Property Name="X_NoOfDiamonds" Type="Int32" />
+    <Property Name="Y_NoOfChangesInLevel" Type="Int32" />
+    <Property Name="Y_NoOfShapes" Type="Int32" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_JewelsTrailsASettings_Admin" FromRole="Admin_JewelsTrailsASettings" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="Admin_JewelsTrailsBSettings">
+    <Key>
+      <PropertyRef Name="AdminJTBSettingID" />
+    </Key>
+    <Property Name="AdminJTBSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="NoOfSeconds_Beg" Type="Int32" />
+    <Property Name="NoOfSeconds_Int" Type="Int32" />
+    <Property Name="NoOfSeconds_Adv" Type="Int32" />
+    <Property Name="NoOfSeconds_Exp" Type="Int32" />
+    <Property Name="NoOfDiamonds" Type="Int32" />
+    <Property Name="NoOfShapes" Type="Int32" />
+    <Property Name="NoOfBonusPoints" Type="Int32" />
+    <Property Name="X_NoOfChangesInLevel" Type="Int32" />
+    <Property Name="X_NoOfDiamonds" Type="Int32" />
+    <Property Name="Y_NoOfChangesInLevel" Type="Int32" />
+    <Property Name="Y_NoOfShapes" Type="Int32" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_JewelsTrailsBSettings_Admin" FromRole="Admin_JewelsTrailsBSettings" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="Admin_Settings">
+    <Key>
+      <PropertyRef Name="AdminSettingID" />
+    </Key>
+    <Property Name="AdminSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="ReminderClearInterval" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_Settings_Admin" FromRole="Admin_Settings" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="Admin_SurveySchedule">
+    <Key>
+      <PropertyRef Name="AdminSurveySchID" />
+    </Key>
+    <Property Name="AdminSurveySchID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="SurveyID" Type="Int64" />
+    <Property Name="ScheduleDate" Type="DateTime" Precision="3" />
+    <Property Name="SlotID" Type="Int64" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="RepeatID" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Admin_SurveySchedule_Admin" FromRole="Admin_SurveySchedule" ToRole="Admin" />
+    <NavigationProperty Name="Repeat" Relationship="LAMPModel.FK_Admin_SurveySchedule_Repeat" FromRole="Admin_SurveySchedule" ToRole="Repeat" />
+    <NavigationProperty Name="Slot" Relationship="LAMPModel.FK_Admin_SurveySchedule_Slot" FromRole="Admin_SurveySchedule" ToRole="Slot" />
+    <NavigationProperty Name="Survey" Relationship="LAMPModel.FK_Admin_SurveySchedule_Survey" FromRole="Admin_SurveySchedule" ToRole="Survey" />
+    <NavigationProperty Name="Admin_SurveyScheduleCustomTime" Relationship="LAMPModel.FK_Admin_SurveyScheduleCustomTime_Admin_SurveySchedule" FromRole="Admin_SurveySchedule" ToRole="Admin_SurveyScheduleCustomTime" />
+  </EntityType>
+  <EntityType Name="Admin_SurveyScheduleCustomTime">
+    <Key>
+      <PropertyRef Name="AdminSurvSchCustTimID" />
+    </Key>
+    <Property Name="AdminSurvSchCustTimID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminSurveySchID" Type="Int64" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Admin_SurveySchedule" Relationship="LAMPModel.FK_Admin_SurveyScheduleCustomTime_Admin_SurveySchedule" FromRole="Admin_SurveyScheduleCustomTime" ToRole="Admin_SurveySchedule" />
+  </EntityType>
+  <EntityType Name="AppHelp">
+    <Key>
+      <PropertyRef Name="HelpID" />
+    </Key>
+    <Property Name="HelpID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HelpTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HelpText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="AdminID" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_AppHelp_Admin" FromRole="AppHelp" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BlogText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="AdminID" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Blogs_Admin" FromRole="Blog" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="CTest">
+    <Key>
+      <PropertyRef Name="CTestID" />
+    </Key>
+    <Property Name="CTestID" Type="Int64" Nullable="false" />
+    <Property Name="CTestName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsDistractionSurveyRequired" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="MaxVersions" Type="Int32" />
+    <NavigationProperty Name="Admin_CTestSchedule" Relationship="LAMPModel.FK_Admin_CTestSchedule_CTest" FromRole="CTest" ToRole="Admin_CTestSchedule" />
+    <NavigationProperty Name="Admin_CTestSurveySettings" Relationship="LAMPModel.FK_Admin_CTestSurveySettings_CTest" FromRole="CTest" ToRole="Admin_CTestSurveySettings" />
+  </EntityType>
+  <EntityType Name="CTest_3DFigure">
+    <Key>
+      <PropertyRef Name="C3DFigureID" />
+    </Key>
+    <Property Name="C3DFigureID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FigureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_3DFigureResult" Relationship="LAMPModel.FK_CTest_3DFigureResult_CTest_3DFigure" FromRole="CTest_3DFigure" ToRole="CTest_3DFigureResult" />
+  </EntityType>
+  <EntityType Name="CTest_3DFigureResult">
+    <Key>
+      <PropertyRef Name="C3DFigureResultID" />
+    </Key>
+    <Property Name="C3DFigureResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="C3DFigureID" Type="Int64" Nullable="false" />
+    <Property Name="DrawnFigFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="GameName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_3DFigureResult_Admin_BatchSchedule" FromRole="CTest_3DFigureResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="CTest_3DFigure" Relationship="LAMPModel.FK_CTest_3DFigureResult_CTest_3DFigure" FromRole="CTest_3DFigureResult" ToRole="CTest_3DFigure" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_3DFigureResult_Users" FromRole="CTest_3DFigureResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_CatAndDogNewResult">
+    <Key>
+      <PropertyRef Name="CatAndDogNewResultID" />
+    </Key>
+    <Property Name="CatAndDogNewResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_CatAndDogNewResult_Admin_BatchSchedule" FromRole="CTest_CatAndDogNewResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_CatAndDogNewResult_Users" FromRole="CTest_CatAndDogNewResult" ToRole="User" />
+    <NavigationProperty Name="CTest_CatAndDogNewResultDtl" Relationship="LAMPModel.FK_CTest_CatAndDogNewResultDtl_CTest_CatAndDogNewResult" FromRole="CTest_CatAndDogNewResult" ToRole="CTest_CatAndDogNewResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_CatAndDogNewResultDtl">
+    <Key>
+      <PropertyRef Name="CatAndDogNewResultDtlID" />
+    </Key>
+    <Property Name="CatAndDogNewResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatAndDogNewResultID" Type="Int64" Nullable="false" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="TimeTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_CatAndDogNewResult" Relationship="LAMPModel.FK_CTest_CatAndDogNewResultDtl_CTest_CatAndDogNewResult" FromRole="CTest_CatAndDogNewResultDtl" ToRole="CTest_CatAndDogNewResult" />
+  </EntityType>
+  <EntityType Name="CTest_CatAndDogResult">
+    <Key>
+      <PropertyRef Name="CatAndDogResultID" />
+    </Key>
+    <Property Name="CatAndDogResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalQuestions" Type="Int32" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_CatAndDogResult_Admin_BatchSchedule" FromRole="CTest_CatAndDogResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_CatAndDogResult_Users" FromRole="CTest_CatAndDogResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_DigitSpanResult">
+    <Key>
+      <PropertyRef Name="DigitSpanResultID" />
+    </Key>
+    <Property Name="DigitSpanResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_DigitSpanResult_Admin_BatchSchedule" FromRole="CTest_DigitSpanResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_DigitSpanResult_Users" FromRole="CTest_DigitSpanResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_JewelsTrailsAResult">
+    <Key>
+      <PropertyRef Name="JewelsTrailsAResultID" />
+    </Key>
+    <Property Name="JewelsTrailsAResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TotalJewelsCollected" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalBonusCollected" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_JewelsTrailsAResult_Admin_BatchSchedule" FromRole="CTest_JewelsTrailsAResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_JewelsTrailsAResult_Users" FromRole="CTest_JewelsTrailsAResult" ToRole="User" />
+    <NavigationProperty Name="CTest_JewelsTrailsAResultDtl" Relationship="LAMPModel.FK_CTest_JewelsTrailsAResultDtl_CTest_JewelsTrailsAResult" FromRole="CTest_JewelsTrailsAResult" ToRole="CTest_JewelsTrailsAResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_JewelsTrailsAResultDtl">
+    <Key>
+      <PropertyRef Name="JewelsTrailsAResultDtlID" />
+    </Key>
+    <Property Name="JewelsTrailsAResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JewelsTrailsAResultID" Type="Int64" Nullable="false" />
+    <Property Name="Alphabet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_JewelsTrailsAResult" Relationship="LAMPModel.FK_CTest_JewelsTrailsAResultDtl_CTest_JewelsTrailsAResult" FromRole="CTest_JewelsTrailsAResultDtl" ToRole="CTest_JewelsTrailsAResult" />
+  </EntityType>
+  <EntityType Name="CTest_JewelsTrailsBResult">
+    <Key>
+      <PropertyRef Name="JewelsTrailsBResultID" />
+    </Key>
+    <Property Name="JewelsTrailsBResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TotalJewelsCollected" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalBonusCollected" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_JewelsTrailsBResult_Admin_BatchSchedule" FromRole="CTest_JewelsTrailsBResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_JewelsTrailsBResult_Users" FromRole="CTest_JewelsTrailsBResult" ToRole="User" />
+    <NavigationProperty Name="CTest_JewelsTrailsBResultDtl" Relationship="LAMPModel.FK_CTest_JewelsTrailsBResultDtl_CTest_JewelsTrailsBResult" FromRole="CTest_JewelsTrailsBResult" ToRole="CTest_JewelsTrailsBResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_JewelsTrailsBResultDtl">
+    <Key>
+      <PropertyRef Name="JewelsTrailsBResultDtlID" />
+    </Key>
+    <Property Name="JewelsTrailsBResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JewelsTrailsBResultID" Type="Int64" Nullable="false" />
+    <Property Name="Alphabet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_JewelsTrailsBResult" Relationship="LAMPModel.FK_CTest_JewelsTrailsBResultDtl_CTest_JewelsTrailsBResult" FromRole="CTest_JewelsTrailsBResultDtl" ToRole="CTest_JewelsTrailsBResult" />
+  </EntityType>
+  <EntityType Name="CTest_NBackNewResult">
+    <Key>
+      <PropertyRef Name="NBackNewResultID" />
+    </Key>
+    <Property Name="NBackNewResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalQuestions" Type="Int32" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_NBackNewResult_Admin_BatchSchedule" FromRole="CTest_NBackNewResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_NBackNewResult_Users" FromRole="CTest_NBackNewResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_NBackResult">
+    <Key>
+      <PropertyRef Name="NBackResultID" />
+    </Key>
+    <Property Name="NBackResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalQuestions" Type="Int32" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_NBackResult_Admin_BatchSchedule" FromRole="CTest_NBackResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_NBackResult_Users" FromRole="CTest_NBackResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_ScratchImage">
+    <Key>
+      <PropertyRef Name="ScratchImageID" />
+    </Key>
+    <Property Name="ScratchImageID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FigureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_ScratchImageResult" Relationship="LAMPModel.FK_CTest_ScratchImageResult_CTest_ScratchImage" FromRole="CTest_ScratchImage" ToRole="CTest_ScratchImageResult" />
+  </EntityType>
+  <EntityType Name="CTest_ScratchImageResult">
+    <Key>
+      <PropertyRef Name="ScratchImageResultID" />
+    </Key>
+    <Property Name="ScratchImageResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="ScratchImageID" Type="Int64" Nullable="false" />
+    <Property Name="DrawnFigFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="GameName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_ScratchImageResult_Admin_BatchSchedule" FromRole="CTest_ScratchImageResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="CTest_ScratchImage" Relationship="LAMPModel.FK_CTest_ScratchImageResult_CTest_ScratchImage" FromRole="CTest_ScratchImageResult" ToRole="CTest_ScratchImage" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_ScratchImageResult_Users" FromRole="CTest_ScratchImageResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_Serial7Result">
+    <Key>
+      <PropertyRef Name="Serial7ResultID" />
+    </Key>
+    <Property Name="Serial7ResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalQuestions" Type="Int32" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_Serial7Result_Admin_BatchSchedule" FromRole="CTest_Serial7Result" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_Serial7Result_Users" FromRole="CTest_Serial7Result" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_SimpleMemoryResult">
+    <Key>
+      <PropertyRef Name="SimpleMemoryResultID" />
+    </Key>
+    <Property Name="SimpleMemoryResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalQuestions" Type="Int32" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_SimpleMemoryResult_Admin_BatchSchedule" FromRole="CTest_SimpleMemoryResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_SimpleMemoryResult_Users" FromRole="CTest_SimpleMemoryResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_SpatialResult">
+    <Key>
+      <PropertyRef Name="SpatialResultID" />
+    </Key>
+    <Property Name="SpatialResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_SpatialResult_Admin_BatchSchedule" FromRole="CTest_SpatialResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_SpatialResult_Users" FromRole="CTest_SpatialResult" ToRole="User" />
+    <NavigationProperty Name="CTest_SpatialResultDtl" Relationship="LAMPModel.FK_CTest_SpatialResultDtl_CTest_SpatialResult" FromRole="CTest_SpatialResult" ToRole="CTest_SpatialResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_SpatialResultDtl">
+    <Key>
+      <PropertyRef Name="SpatialResultDtlID" />
+    </Key>
+    <Property Name="SpatialResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpatialResultID" Type="Int64" Nullable="false" />
+    <Property Name="GameIndex" Type="Byte" />
+    <Property Name="TimeTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Level" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+    <NavigationProperty Name="CTest_SpatialResult" Relationship="LAMPModel.FK_CTest_SpatialResultDtl_CTest_SpatialResult" FromRole="CTest_SpatialResultDtl" ToRole="CTest_SpatialResult" />
+  </EntityType>
+  <EntityType Name="CTest_SpinWheelResult">
+    <Key>
+      <PropertyRef Name="SpinWheelResultID" />
+    </Key>
+    <Property Name="SpinWheelResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="CollectedStars" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DayStreak" Type="Int32" />
+    <Property Name="StrakSpin" Type="Byte" />
+    <Property Name="GameDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CTest_TemporalOrderResult">
+    <Key>
+      <PropertyRef Name="TemporalOrderResultID" />
+    </Key>
+    <Property Name="TemporalOrderResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="CorrectAnswers" Type="Int32" />
+    <Property Name="WrongAnswers" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_TemporalOrderResult_Admin_BatchSchedule" FromRole="CTest_TemporalOrderResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_TemporalOrderResult_Users" FromRole="CTest_TemporalOrderResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CTest_TrailsBDotTouchResult">
+    <Key>
+      <PropertyRef Name="TrailsBDotTouchResultID" />
+    </Key>
+    <Property Name="TrailsBDotTouchResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_TrailsBDotTouchResult_Admin_BatchSchedule" FromRole="CTest_TrailsBDotTouchResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_TrailsBDotTouchResult_Users" FromRole="CTest_TrailsBDotTouchResult" ToRole="User" />
+    <NavigationProperty Name="CTest_TrailsBDotTouchResultDtl" Relationship="LAMPModel.FK_CTest_TrailsBDotTouchResultDtl_CTest_TrailsBDotTouchResult" FromRole="CTest_TrailsBDotTouchResult" ToRole="CTest_TrailsBDotTouchResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_TrailsBDotTouchResultDtl">
+    <Key>
+      <PropertyRef Name="TrailsBDotTouchResultDtlID" />
+    </Key>
+    <Property Name="TrailsBDotTouchResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrailsBDotTouchResultID" Type="Int64" Nullable="false" />
+    <Property Name="Alphabet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_TrailsBDotTouchResult" Relationship="LAMPModel.FK_CTest_TrailsBDotTouchResultDtl_CTest_TrailsBDotTouchResult" FromRole="CTest_TrailsBDotTouchResultDtl" ToRole="CTest_TrailsBDotTouchResult" />
+  </EntityType>
+  <EntityType Name="CTest_TrailsBNewResult">
+    <Key>
+      <PropertyRef Name="TrailsBNewResultID" />
+    </Key>
+    <Property Name="TrailsBNewResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_TrailsBNewResult_Admin_BatchSchedule" FromRole="CTest_TrailsBNewResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_TrailsBNewResult_Users" FromRole="CTest_TrailsBNewResult" ToRole="User" />
+    <NavigationProperty Name="CTest_TrailsBNewResultDtl" Relationship="LAMPModel.FK_CTest_TrailsBNewResultDtl_CTest_TrailsBNewResult" FromRole="CTest_TrailsBNewResult" ToRole="CTest_TrailsBNewResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_TrailsBNewResultDtl">
+    <Key>
+      <PropertyRef Name="TrailsBNewResultDtlID" />
+    </Key>
+    <Property Name="TrailsBNewResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrailsBNewResultID" Type="Int64" Nullable="false" />
+    <Property Name="Alphabet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_TrailsBNewResult" Relationship="LAMPModel.FK_CTest_TrailsBNewResultDtl_CTest_TrailsBNewResult" FromRole="CTest_TrailsBNewResultDtl" ToRole="CTest_TrailsBNewResult" />
+  </EntityType>
+  <EntityType Name="CTest_TrailsBResult">
+    <Key>
+      <PropertyRef Name="TrailsBResultID" />
+    </Key>
+    <Property Name="TrailsBResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_TrailsBResult_Admin_BatchSchedule" FromRole="CTest_TrailsBResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_TrailsBResult_Users" FromRole="CTest_TrailsBResult" ToRole="User" />
+    <NavigationProperty Name="CTest_TrailsBResultDtl" Relationship="LAMPModel.FK_CTest_TrailsBResultDtl_CTest_TrailsBResult" FromRole="CTest_TrailsBResult" ToRole="CTest_TrailsBResultDtl" />
+  </EntityType>
+  <EntityType Name="CTest_TrailsBResultDtl">
+    <Key>
+      <PropertyRef Name="TrailsBResultDtlID" />
+    </Key>
+    <Property Name="TrailsBResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrailsBResultID" Type="Int64" Nullable="false" />
+    <Property Name="Alphabet" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="TimeTaken" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Sequence" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTest_TrailsBResult" Relationship="LAMPModel.FK_CTest_TrailsBResultDtl_CTest_TrailsBResult" FromRole="CTest_TrailsBResultDtl" ToRole="CTest_TrailsBResult" />
+  </EntityType>
+  <EntityType Name="CTest_VisualAssociationResult">
+    <Key>
+      <PropertyRef Name="VisualAssocResultID" />
+    </Key>
+    <Property Name="VisualAssocResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="TotalQuestions" Type="Int32" />
+    <Property Name="TotalAttempts" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Byte" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_VisualAssociationResult_Admin_BatchSchedule" FromRole="CTest_VisualAssociationResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_CTest_VisualAssociationResult_Users" FromRole="CTest_VisualAssociationResult" ToRole="User" />
+  </EntityType>
+  <EntityType Name="HealthKit_BasicInfo">
+    <Key>
+      <PropertyRef Name="HKBasicInfoID" />
+    </Key>
+    <Property Name="HKBasicInfoID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BloodType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_HealthKit_BasicInfo_Users" FromRole="HealthKit_BasicInfo" ToRole="User" />
+  </EntityType>
+  <EntityType Name="HealthKit_DailyValues">
+    <Key>
+      <PropertyRef Name="HKDailyValueID" />
+    </Key>
+    <Property Name="HKDailyValueID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="Height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeartRate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BloodPressure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RespiratoryRate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sleep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Steps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FlightClimbed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="Segment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Distance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_HealthKit_DailyValues_Users" FromRole="HealthKit_DailyValues" ToRole="User" />
+  </EntityType>
+  <EntityType Name="HealthKit_Parameters">
+    <Key>
+      <PropertyRef Name="HKParamID" />
+    </Key>
+    <Property Name="HKParamID" Type="Int64" Nullable="false" />
+    <Property Name="HKParamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HealthKit_ParamValues" Relationship="LAMPModel.FK_HealthKit_ParamValues_HealthKit_Parameters" FromRole="HealthKit_Parameters" ToRole="HealthKit_ParamValues" />
+  </EntityType>
+  <EntityType Name="HealthKit_ParamValues">
+    <Key>
+      <PropertyRef Name="HKParamValueID" />
+    </Key>
+    <Property Name="HKParamValueID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="HKParamID" Type="Int64" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="HealthKit_Parameters" Relationship="LAMPModel.FK_HealthKit_ParamValues_HealthKit_Parameters" FromRole="HealthKit_ParamValues" ToRole="HealthKit_Parameters" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_HealthKit_ParamValues_Users" FromRole="HealthKit_ParamValues" ToRole="User" />
+  </EntityType>
+  <EntityType Name="HelpCall">
+    <Key>
+      <PropertyRef Name="HelpCallID" />
+    </Key>
+    <Property Name="HelpCallID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="CalledNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CallDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CallDuraion" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Type" Type="Byte" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_HelpCalls_Users" FromRole="HelpCall" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="LocationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="Latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_Locations_Users" FromRole="Location" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Repeat">
+    <Key>
+      <PropertyRef Name="RepeatID" />
+    </Key>
+    <Property Name="RepeatID" Type="Int64" Nullable="false" />
+    <Property Name="RepeatInterval" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_Admin_BatchSchedule_Repeat" FromRole="Repeat" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="Admin_CTestSchedule" Relationship="LAMPModel.FK_Admin_CTestSchedule_Repeat" FromRole="Repeat" ToRole="Admin_CTestSchedule" />
+    <NavigationProperty Name="Admin_SurveySchedule" Relationship="LAMPModel.FK_Admin_SurveySchedule_Repeat" FromRole="Repeat" ToRole="Admin_SurveySchedule" />
+    <NavigationProperty Name="UserSettings" Relationship="LAMPModel.FK_UserSettings_CognTest_Repeat" FromRole="Repeat" ToRole="UserSetting" />
+    <NavigationProperty Name="UserSettings1" Relationship="LAMPModel.FK_UserSettings_SympSurvey_Repeat" FromRole="Repeat" ToRole="UserSetting" />
+  </EntityType>
+  <EntityType Name="Slot">
+    <Key>
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="SlotID" Type="Int64" Nullable="false" />
+    <Property Name="SlotName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_Admin_BatchSchedule_Slot" FromRole="Slot" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="Admin_CTestSchedule" Relationship="LAMPModel.FK_Admin_CTestSchedule_Slot" FromRole="Slot" ToRole="Admin_CTestSchedule" />
+    <NavigationProperty Name="Admin_SurveySchedule" Relationship="LAMPModel.FK_Admin_SurveySchedule_Slot" FromRole="Slot" ToRole="Admin_SurveySchedule" />
+    <NavigationProperty Name="UserSettings" Relationship="LAMPModel.FK_UserSettings_CognTest_Slot" FromRole="Slot" ToRole="UserSetting" />
+    <NavigationProperty Name="UserSettings1" Relationship="LAMPModel.FK_UserSettings_SympSurvey_Slot" FromRole="Slot" ToRole="UserSetting" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="SurveyID" />
+    </Key>
+    <Property Name="SurveyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurveyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin_CTestSurveySettings" Relationship="LAMPModel.FK_Admin_CTestSurveySettings_Survey" FromRole="Survey" ToRole="Admin_CTestSurveySettings" />
+    <NavigationProperty Name="Admin_SurveySchedule" Relationship="LAMPModel.FK_Admin_SurveySchedule_Survey" FromRole="Survey" ToRole="Admin_SurveySchedule" />
+    <NavigationProperty Name="SurveyQuestions" Relationship="LAMPModel.FK_SurveyQuestions_Survey" FromRole="Survey" ToRole="SurveyQuestion" />
+    <NavigationProperty Name="SurveyResults" Relationship="LAMPModel.FK_SurveyResult_Survey" FromRole="Survey" ToRole="SurveyResult" />
+  </EntityType>
+  <EntityType Name="SurveyQuestionOption">
+    <Key>
+      <PropertyRef Name="OptionID" />
+    </Key>
+    <Property Name="OptionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionID" Type="Int64" Nullable="false" />
+    <Property Name="OptionText" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SurveyQuestion" Relationship="LAMPModel.FK_SurveyQuestionOptions_SurveyQuestions" FromRole="SurveyQuestionOption" ToRole="SurveyQuestion" />
+  </EntityType>
+  <EntityType Name="SurveyQuestion">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="QuestionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurveyID" Type="Int64" Nullable="false" />
+    <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerType" Type="Byte" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Survey" Relationship="LAMPModel.FK_SurveyQuestions_Survey" FromRole="SurveyQuestion" ToRole="Survey" />
+    <NavigationProperty Name="SurveyQuestionOptions" Relationship="LAMPModel.FK_SurveyQuestionOptions_SurveyQuestions" FromRole="SurveyQuestion" ToRole="SurveyQuestionOption" />
+  </EntityType>
+  <EntityType Name="SurveyResult">
+    <Key>
+      <PropertyRef Name="SurveyResultID" />
+    </Key>
+    <Property Name="SurveyResultID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="SurveyType" Type="Byte" Nullable="false" />
+    <Property Name="SurveyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Point" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsDistraction" Type="Boolean" />
+    <Property Name="IsNotificationGame" Type="Boolean" />
+    <Property Name="AdminBatchSchID" Type="Int64" />
+    <Property Name="SpinWheelScore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SurveyID" Type="Int64" />
+    <NavigationProperty Name="Admin_BatchSchedule" Relationship="LAMPModel.FK_CTest_SurveyResult_Admin_BatchSchedule" FromRole="SurveyResult" ToRole="Admin_BatchSchedule" />
+    <NavigationProperty Name="Survey" Relationship="LAMPModel.FK_SurveyResult_Survey" FromRole="SurveyResult" ToRole="Survey" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_SurveyResult_Users" FromRole="SurveyResult" ToRole="User" />
+    <NavigationProperty Name="SurveyResultDtls" Relationship="LAMPModel.FK_SurveyResultDtl_SurveyResult" FromRole="SurveyResult" ToRole="SurveyResultDtl" />
+  </EntityType>
+  <EntityType Name="SurveyResultDtl">
+    <Key>
+      <PropertyRef Name="SurveyResultDtlID" />
+    </Key>
+    <Property Name="SurveyResultDtlID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurveyResultID" Type="Int64" Nullable="false" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CorrectAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnteredAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="TimeTaken" Type="Int32" />
+    <Property Name="ClickRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SurveyResult" Relationship="LAMPModel.FK_SurveyResultDtl_SurveyResult" FromRole="SurveyResultDtl" ToRole="SurveyResult" />
+  </EntityType>
+  <EntityType Name="Tip">
+    <Key>
+      <PropertyRef Name="TipID" />
+    </Key>
+    <Property Name="TipID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="AdminID" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Tips_Admin" FromRole="Tip" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="UserDevice">
+    <Key>
+      <PropertyRef Name="UserDeviceID" />
+    </Key>
+    <Property Name="UserDeviceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="DeviceType" Type="Byte" Nullable="false" />
+    <Property Name="DeviceID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastLoginOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_UserDevices_Users" FromRole="UserDevice" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Byte" />
+    <Property Name="Age" Type="Byte" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="ClinicalProfileURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsGuestUser" Type="Boolean" />
+    <Property Name="PhysicianFirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhysicianLastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Race" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ethucity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="RegisteredOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="StatusEditedOn" Type="DateTime" Precision="3" />
+    <Property Name="SessionToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="APPVersion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdminID" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="LAMPModel.FK_Users_Admin" FromRole="User" ToRole="Admin" />
+    <NavigationProperty Name="CTest_3DFigureResult" Relationship="LAMPModel.FK_CTest_3DFigureResult_Users" FromRole="User" ToRole="CTest_3DFigureResult" />
+    <NavigationProperty Name="CTest_CatAndDogNewResult" Relationship="LAMPModel.FK_CTest_CatAndDogNewResult_Users" FromRole="User" ToRole="CTest_CatAndDogNewResult" />
+    <NavigationProperty Name="CTest_CatAndDogResult" Relationship="LAMPModel.FK_CTest_CatAndDogResult_Users" FromRole="User" ToRole="CTest_CatAndDogResult" />
+    <NavigationProperty Name="CTest_DigitSpanResult" Relationship="LAMPModel.FK_CTest_DigitSpanResult_Users" FromRole="User" ToRole="CTest_DigitSpanResult" />
+    <NavigationProperty Name="CTest_JewelsTrailsAResult" Relationship="LAMPModel.FK_CTest_JewelsTrailsAResult_Users" FromRole="User" ToRole="CTest_JewelsTrailsAResult" />
+    <NavigationProperty Name="CTest_JewelsTrailsBResult" Relationship="LAMPModel.FK_CTest_JewelsTrailsBResult_Users" FromRole="User" ToRole="CTest_JewelsTrailsBResult" />
+    <NavigationProperty Name="CTest_NBackNewResult" Relationship="LAMPModel.FK_CTest_NBackNewResult_Users" FromRole="User" ToRole="CTest_NBackNewResult" />
+    <NavigationProperty Name="CTest_NBackResult" Relationship="LAMPModel.FK_CTest_NBackResult_Users" FromRole="User" ToRole="CTest_NBackResult" />
+    <NavigationProperty Name="CTest_ScratchImageResult" Relationship="LAMPModel.FK_CTest_ScratchImageResult_Users" FromRole="User" ToRole="CTest_ScratchImageResult" />
+    <NavigationProperty Name="CTest_Serial7Result" Relationship="LAMPModel.FK_CTest_Serial7Result_Users" FromRole="User" ToRole="CTest_Serial7Result" />
+    <NavigationProperty Name="CTest_SimpleMemoryResult" Relationship="LAMPModel.FK_CTest_SimpleMemoryResult_Users" FromRole="User" ToRole="CTest_SimpleMemoryResult" />
+    <NavigationProperty Name="CTest_SpatialResult" Relationship="LAMPModel.FK_CTest_SpatialResult_Users" FromRole="User" ToRole="CTest_SpatialResult" />
+    <NavigationProperty Name="CTest_TemporalOrderResult" Relationship="LAMPModel.FK_CTest_TemporalOrderResult_Users" FromRole="User" ToRole="CTest_TemporalOrderResult" />
+    <NavigationProperty Name="CTest_TrailsBDotTouchResult" Relationship="LAMPModel.FK_CTest_TrailsBDotTouchResult_Users" FromRole="User" ToRole="CTest_TrailsBDotTouchResult" />
+    <NavigationProperty Name="CTest_TrailsBNewResult" Relationship="LAMPModel.FK_CTest_TrailsBNewResult_Users" FromRole="User" ToRole="CTest_TrailsBNewResult" />
+    <NavigationProperty Name="CTest_TrailsBResult" Relationship="LAMPModel.FK_CTest_TrailsBResult_Users" FromRole="User" ToRole="CTest_TrailsBResult" />
+    <NavigationProperty Name="CTest_VisualAssociationResult" Relationship="LAMPModel.FK_CTest_VisualAssociationResult_Users" FromRole="User" ToRole="CTest_VisualAssociationResult" />
+    <NavigationProperty Name="HealthKit_BasicInfo" Relationship="LAMPModel.FK_HealthKit_BasicInfo_Users" FromRole="User" ToRole="HealthKit_BasicInfo" />
+    <NavigationProperty Name="HealthKit_DailyValues" Relationship="LAMPModel.FK_HealthKit_DailyValues_Users" FromRole="User" ToRole="HealthKit_DailyValues" />
+    <NavigationProperty Name="HealthKit_ParamValues" Relationship="LAMPModel.FK_HealthKit_ParamValues_Users" FromRole="User" ToRole="HealthKit_ParamValues" />
+    <NavigationProperty Name="HelpCalls" Relationship="LAMPModel.FK_HelpCalls_Users" FromRole="User" ToRole="HelpCall" />
+    <NavigationProperty Name="Locations" Relationship="LAMPModel.FK_Locations_Users" FromRole="User" ToRole="Location" />
+    <NavigationProperty Name="SurveyResults" Relationship="LAMPModel.FK_SurveyResult_Users" FromRole="User" ToRole="SurveyResult" />
+    <NavigationProperty Name="UserDevices" Relationship="LAMPModel.FK_UserDevices_Users" FromRole="User" ToRole="UserDevice" />
+    <NavigationProperty Name="UserSettings" Relationship="LAMPModel.FK_UserSettings_Users" FromRole="User" ToRole="UserSetting" />
+  </EntityType>
+  <EntityType Name="UserSetting">
+    <Key>
+      <PropertyRef Name="UserSettingID" />
+    </Key>
+    <Property Name="UserSettingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="AppColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SympSurvey_SlotID" Type="Int64" />
+    <Property Name="SympSurvey_Time" Type="DateTime" Precision="3" />
+    <Property Name="SympSurvey_RepeatID" Type="Int64" />
+    <Property Name="CognTest_SlotID" Type="Int64" />
+    <Property Name="CognTest_Time" Type="DateTime" Precision="3" />
+    <Property Name="CognTest_RepeatID" Type="Int64" />
+    <Property Name="C24By7ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PersonalHelpline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrefferedSurveys" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrefferedCognitions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EditedOn" Type="DateTime" Precision="3" />
+    <Property Name="Protocol" Type="Boolean" />
+    <Property Name="BlogsViewedOn" Type="DateTime" Precision="3" />
+    <Property Name="TipsViewedOn" Type="DateTime" Precision="3" />
+    <Property Name="ProtocolDate" Type="DateTime" Precision="3" />
+    <Property Name="Language" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Repeat" Relationship="LAMPModel.FK_UserSettings_CognTest_Repeat" FromRole="UserSetting" ToRole="Repeat" />
+    <NavigationProperty Name="Repeat1" Relationship="LAMPModel.FK_UserSettings_SympSurvey_Repeat" FromRole="UserSetting" ToRole="Repeat" />
+    <NavigationProperty Name="Slot" Relationship="LAMPModel.FK_UserSettings_CognTest_Slot" FromRole="UserSetting" ToRole="Slot" />
+    <NavigationProperty Name="Slot1" Relationship="LAMPModel.FK_UserSettings_SympSurvey_Slot" FromRole="UserSetting" ToRole="Slot" />
+    <NavigationProperty Name="User" Relationship="LAMPModel.FK_UserSettings_Users" FromRole="UserSetting" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Admin_BatchSchedule_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSchedule_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSchedule" Role="Admin_CTestSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSchedule">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSurveySettings_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSurveySettings" Role="Admin_CTestSurveySettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSurveySettings">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_JewelsTrailsASettings_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_JewelsTrailsASettings" Role="Admin_JewelsTrailsASettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_JewelsTrailsASettings">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_JewelsTrailsBSettings_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_JewelsTrailsBSettings" Role="Admin_JewelsTrailsBSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_JewelsTrailsBSettings">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_Settings_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_Settings" Role="Admin_Settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_Settings">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_SurveySchedule_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_SurveySchedule" Role="Admin_SurveySchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Admin_SurveySchedule">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppHelp_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.AppHelp" Role="AppHelp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="AppHelp">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blogs_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Blog" Role="Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tips_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.Tip" Role="Tip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Tip">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Admin">
+    <End Type="LAMPModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="LAMPModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_BatchSchedule_Repeat">
+    <End Type="LAMPModel.Repeat" Role="Repeat" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repeat">
+        <PropertyRef Name="RepeatID" />
+      </Principal>
+      <Dependent Role="Admin_BatchSchedule">
+        <PropertyRef Name="RepeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_BatchSchedule_Slot">
+    <End Type="LAMPModel.Slot" Role="Slot" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="Admin_BatchSchedule">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_BatchScheduleCTest_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_BatchScheduleCTest" Role="Admin_BatchScheduleCTest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="Admin_BatchScheduleCTest">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_BatchScheduleCustomTime_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_BatchScheduleCustomTime" Role="Admin_BatchScheduleCustomTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="Admin_BatchScheduleCustomTime">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_BatchScheduleSurvey_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_BatchScheduleSurvey" Role="Admin_BatchScheduleSurvey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="Admin_BatchScheduleSurvey">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_3DFigureResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_3DFigureResult" Role="CTest_3DFigureResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_3DFigureResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_CatAndDogNewResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_CatAndDogNewResult" Role="CTest_CatAndDogNewResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_CatAndDogNewResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_CatAndDogResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_CatAndDogResult" Role="CTest_CatAndDogResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_CatAndDogResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_DigitSpanResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_DigitSpanResult" Role="CTest_DigitSpanResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_DigitSpanResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_JewelsTrailsAResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_JewelsTrailsAResult" Role="CTest_JewelsTrailsAResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_JewelsTrailsAResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_JewelsTrailsBResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_JewelsTrailsBResult" Role="CTest_JewelsTrailsBResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_JewelsTrailsBResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_NBackNewResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_NBackNewResult" Role="CTest_NBackNewResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_NBackNewResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_NBackResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_NBackResult" Role="CTest_NBackResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_NBackResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_ScratchImageResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_ScratchImageResult" Role="CTest_ScratchImageResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_ScratchImageResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_Serial7Result_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_Serial7Result" Role="CTest_Serial7Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_Serial7Result">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_SimpleMemoryResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_SimpleMemoryResult" Role="CTest_SimpleMemoryResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_SimpleMemoryResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_SpatialResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_SpatialResult" Role="CTest_SpatialResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_SpatialResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_SurveyResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.SurveyResult" Role="SurveyResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="SurveyResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TemporalOrderResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_TemporalOrderResult" Role="CTest_TemporalOrderResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_TemporalOrderResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBDotTouchResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_TrailsBDotTouchResult" Role="CTest_TrailsBDotTouchResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBDotTouchResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBNewResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_TrailsBNewResult" Role="CTest_TrailsBNewResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBNewResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_TrailsBResult" Role="CTest_TrailsBResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_VisualAssociationResult_Admin_BatchSchedule">
+    <End Type="LAMPModel.Admin_BatchSchedule" Role="Admin_BatchSchedule" Multiplicity="0..1" />
+    <End Type="LAMPModel.CTest_VisualAssociationResult" Role="CTest_VisualAssociationResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_BatchSchedule">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Principal>
+      <Dependent Role="CTest_VisualAssociationResult">
+        <PropertyRef Name="AdminBatchSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSchedule_CTest">
+    <End Type="LAMPModel.CTest" Role="CTest" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSchedule" Role="Admin_CTestSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest">
+        <PropertyRef Name="CTestID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSchedule">
+        <PropertyRef Name="CTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSchedule_Repeat">
+    <End Type="LAMPModel.Repeat" Role="Repeat" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSchedule" Role="Admin_CTestSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repeat">
+        <PropertyRef Name="RepeatID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSchedule">
+        <PropertyRef Name="RepeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSchedule_Slot">
+    <End Type="LAMPModel.Slot" Role="Slot" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSchedule" Role="Admin_CTestSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSchedule">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestScheduleCustomTime_Admin_CTestSchedule">
+    <End Type="LAMPModel.Admin_CTestSchedule" Role="Admin_CTestSchedule" Multiplicity="1" />
+    <End Type="LAMPModel.Admin_CTestScheduleCustomTime" Role="Admin_CTestScheduleCustomTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_CTestSchedule">
+        <PropertyRef Name="AdminCTestSchID" />
+      </Principal>
+      <Dependent Role="Admin_CTestScheduleCustomTime">
+        <PropertyRef Name="AdminCTestSchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSurveySettings_CTest">
+    <End Type="LAMPModel.CTest" Role="CTest" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSurveySettings" Role="Admin_CTestSurveySettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest">
+        <PropertyRef Name="CTestID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSurveySettings">
+        <PropertyRef Name="CTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_CTestSurveySettings_Survey">
+    <End Type="LAMPModel.Survey" Role="Survey" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_CTestSurveySettings" Role="Admin_CTestSurveySettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="SurveyID" />
+      </Principal>
+      <Dependent Role="Admin_CTestSurveySettings">
+        <PropertyRef Name="SurveyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_SurveySchedule_Repeat">
+    <End Type="LAMPModel.Repeat" Role="Repeat" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_SurveySchedule" Role="Admin_SurveySchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repeat">
+        <PropertyRef Name="RepeatID" />
+      </Principal>
+      <Dependent Role="Admin_SurveySchedule">
+        <PropertyRef Name="RepeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_SurveySchedule_Slot">
+    <End Type="LAMPModel.Slot" Role="Slot" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_SurveySchedule" Role="Admin_SurveySchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="Admin_SurveySchedule">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_SurveySchedule_Survey">
+    <End Type="LAMPModel.Survey" Role="Survey" Multiplicity="0..1" />
+    <End Type="LAMPModel.Admin_SurveySchedule" Role="Admin_SurveySchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="SurveyID" />
+      </Principal>
+      <Dependent Role="Admin_SurveySchedule">
+        <PropertyRef Name="SurveyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_SurveyScheduleCustomTime_Admin_SurveySchedule">
+    <End Type="LAMPModel.Admin_SurveySchedule" Role="Admin_SurveySchedule" Multiplicity="1" />
+    <End Type="LAMPModel.Admin_SurveyScheduleCustomTime" Role="Admin_SurveyScheduleCustomTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_SurveySchedule">
+        <PropertyRef Name="AdminSurveySchID" />
+      </Principal>
+      <Dependent Role="Admin_SurveyScheduleCustomTime">
+        <PropertyRef Name="AdminSurveySchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_3DFigureResult_CTest_3DFigure">
+    <End Type="LAMPModel.CTest_3DFigure" Role="CTest_3DFigure" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_3DFigureResult" Role="CTest_3DFigureResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_3DFigure">
+        <PropertyRef Name="C3DFigureID" />
+      </Principal>
+      <Dependent Role="CTest_3DFigureResult">
+        <PropertyRef Name="C3DFigureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_3DFigureResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_3DFigureResult" Role="CTest_3DFigureResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_3DFigureResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_CatAndDogNewResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_CatAndDogNewResult" Role="CTest_CatAndDogNewResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_CatAndDogNewResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_CatAndDogNewResultDtl_CTest_CatAndDogNewResult">
+    <End Type="LAMPModel.CTest_CatAndDogNewResult" Role="CTest_CatAndDogNewResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_CatAndDogNewResultDtl" Role="CTest_CatAndDogNewResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_CatAndDogNewResult">
+        <PropertyRef Name="CatAndDogNewResultID" />
+      </Principal>
+      <Dependent Role="CTest_CatAndDogNewResultDtl">
+        <PropertyRef Name="CatAndDogNewResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_CatAndDogResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_CatAndDogResult" Role="CTest_CatAndDogResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_CatAndDogResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_DigitSpanResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_DigitSpanResult" Role="CTest_DigitSpanResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_DigitSpanResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_JewelsTrailsAResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_JewelsTrailsAResult" Role="CTest_JewelsTrailsAResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_JewelsTrailsAResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_JewelsTrailsAResultDtl_CTest_JewelsTrailsAResult">
+    <End Type="LAMPModel.CTest_JewelsTrailsAResult" Role="CTest_JewelsTrailsAResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_JewelsTrailsAResultDtl" Role="CTest_JewelsTrailsAResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_JewelsTrailsAResult">
+        <PropertyRef Name="JewelsTrailsAResultID" />
+      </Principal>
+      <Dependent Role="CTest_JewelsTrailsAResultDtl">
+        <PropertyRef Name="JewelsTrailsAResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_JewelsTrailsBResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_JewelsTrailsBResult" Role="CTest_JewelsTrailsBResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_JewelsTrailsBResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_JewelsTrailsBResultDtl_CTest_JewelsTrailsBResult">
+    <End Type="LAMPModel.CTest_JewelsTrailsBResult" Role="CTest_JewelsTrailsBResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_JewelsTrailsBResultDtl" Role="CTest_JewelsTrailsBResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_JewelsTrailsBResult">
+        <PropertyRef Name="JewelsTrailsBResultID" />
+      </Principal>
+      <Dependent Role="CTest_JewelsTrailsBResultDtl">
+        <PropertyRef Name="JewelsTrailsBResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_NBackNewResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_NBackNewResult" Role="CTest_NBackNewResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_NBackNewResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_NBackResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_NBackResult" Role="CTest_NBackResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_NBackResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_ScratchImageResult_CTest_ScratchImage">
+    <End Type="LAMPModel.CTest_ScratchImage" Role="CTest_ScratchImage" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_ScratchImageResult" Role="CTest_ScratchImageResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_ScratchImage">
+        <PropertyRef Name="ScratchImageID" />
+      </Principal>
+      <Dependent Role="CTest_ScratchImageResult">
+        <PropertyRef Name="ScratchImageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_ScratchImageResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_ScratchImageResult" Role="CTest_ScratchImageResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_ScratchImageResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_Serial7Result_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_Serial7Result" Role="CTest_Serial7Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_Serial7Result">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_SimpleMemoryResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_SimpleMemoryResult" Role="CTest_SimpleMemoryResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_SimpleMemoryResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_SpatialResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_SpatialResult" Role="CTest_SpatialResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_SpatialResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_SpatialResultDtl_CTest_SpatialResult">
+    <End Type="LAMPModel.CTest_SpatialResult" Role="CTest_SpatialResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_SpatialResultDtl" Role="CTest_SpatialResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_SpatialResult">
+        <PropertyRef Name="SpatialResultID" />
+      </Principal>
+      <Dependent Role="CTest_SpatialResultDtl">
+        <PropertyRef Name="SpatialResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TemporalOrderResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TemporalOrderResult" Role="CTest_TemporalOrderResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_TemporalOrderResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBDotTouchResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TrailsBDotTouchResult" Role="CTest_TrailsBDotTouchResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBDotTouchResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBDotTouchResultDtl_CTest_TrailsBDotTouchResult">
+    <End Type="LAMPModel.CTest_TrailsBDotTouchResult" Role="CTest_TrailsBDotTouchResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TrailsBDotTouchResultDtl" Role="CTest_TrailsBDotTouchResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_TrailsBDotTouchResult">
+        <PropertyRef Name="TrailsBDotTouchResultID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBDotTouchResultDtl">
+        <PropertyRef Name="TrailsBDotTouchResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBNewResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TrailsBNewResult" Role="CTest_TrailsBNewResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBNewResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBNewResultDtl_CTest_TrailsBNewResult">
+    <End Type="LAMPModel.CTest_TrailsBNewResult" Role="CTest_TrailsBNewResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TrailsBNewResultDtl" Role="CTest_TrailsBNewResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_TrailsBNewResult">
+        <PropertyRef Name="TrailsBNewResultID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBNewResultDtl">
+        <PropertyRef Name="TrailsBNewResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TrailsBResult" Role="CTest_TrailsBResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_TrailsBResultDtl_CTest_TrailsBResult">
+    <End Type="LAMPModel.CTest_TrailsBResult" Role="CTest_TrailsBResult" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_TrailsBResultDtl" Role="CTest_TrailsBResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTest_TrailsBResult">
+        <PropertyRef Name="TrailsBResultID" />
+      </Principal>
+      <Dependent Role="CTest_TrailsBResultDtl">
+        <PropertyRef Name="TrailsBResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTest_VisualAssociationResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.CTest_VisualAssociationResult" Role="CTest_VisualAssociationResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CTest_VisualAssociationResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthKit_BasicInfo_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.HealthKit_BasicInfo" Role="HealthKit_BasicInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="HealthKit_BasicInfo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthKit_DailyValues_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.HealthKit_DailyValues" Role="HealthKit_DailyValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="HealthKit_DailyValues">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthKit_ParamValues_HealthKit_Parameters">
+    <End Type="LAMPModel.HealthKit_Parameters" Role="HealthKit_Parameters" Multiplicity="1" />
+    <End Type="LAMPModel.HealthKit_ParamValues" Role="HealthKit_ParamValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HealthKit_Parameters">
+        <PropertyRef Name="HKParamID" />
+      </Principal>
+      <Dependent Role="HealthKit_ParamValues">
+        <PropertyRef Name="HKParamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HealthKit_ParamValues_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.HealthKit_ParamValues" Role="HealthKit_ParamValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="HealthKit_ParamValues">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HelpCalls_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.HelpCall" Role="HelpCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="HelpCall">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.Location" Role="Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSettings_CognTest_Repeat">
+    <End Type="LAMPModel.Repeat" Role="Repeat" Multiplicity="0..1" />
+    <End Type="LAMPModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repeat">
+        <PropertyRef Name="RepeatID" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="CognTest_RepeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSettings_SympSurvey_Repeat">
+    <End Type="LAMPModel.Repeat" Role="Repeat" Multiplicity="0..1" />
+    <End Type="LAMPModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repeat">
+        <PropertyRef Name="RepeatID" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="SympSurvey_RepeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSettings_CognTest_Slot">
+    <End Type="LAMPModel.Slot" Role="Slot" Multiplicity="0..1" />
+    <End Type="LAMPModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="CognTest_SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSettings_SympSurvey_Slot">
+    <End Type="LAMPModel.Slot" Role="Slot" Multiplicity="0..1" />
+    <End Type="LAMPModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="SlotID" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="SympSurvey_SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestions_Survey">
+    <End Type="LAMPModel.Survey" Role="Survey" Multiplicity="1" />
+    <End Type="LAMPModel.SurveyQuestion" Role="SurveyQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="SurveyID" />
+      </Principal>
+      <Dependent Role="SurveyQuestion">
+        <PropertyRef Name="SurveyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyResult_Survey">
+    <End Type="LAMPModel.Survey" Role="Survey" Multiplicity="0..1" />
+    <End Type="LAMPModel.SurveyResult" Role="SurveyResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="SurveyID" />
+      </Principal>
+      <Dependent Role="SurveyResult">
+        <PropertyRef Name="SurveyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestionOptions_SurveyQuestions">
+    <End Type="LAMPModel.SurveyQuestion" Role="SurveyQuestion" Multiplicity="1" />
+    <End Type="LAMPModel.SurveyQuestionOption" Role="SurveyQuestionOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyQuestion">
+        <PropertyRef Name="QuestionID" />
+      </Principal>
+      <Dependent Role="SurveyQuestionOption">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyResult_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.SurveyResult" Role="SurveyResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SurveyResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyResultDtl_SurveyResult">
+    <End Type="LAMPModel.SurveyResult" Role="SurveyResult" Multiplicity="1" />
+    <End Type="LAMPModel.SurveyResultDtl" Role="SurveyResultDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyResult">
+        <PropertyRef Name="SurveyResultID" />
+      </Principal>
+      <Dependent Role="SurveyResultDtl">
+        <PropertyRef Name="SurveyResultID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDevices_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.UserDevice" Role="UserDevice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserDevice">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSettings_Users">
+    <End Type="LAMPModel.User" Role="User" Multiplicity="1" />
+    <End Type="LAMPModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserSetting">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SaveHealthKitData_sp_v2_Result">
+    <Property Type="Int32" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+</Schema>

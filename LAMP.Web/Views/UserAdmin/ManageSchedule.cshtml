@@ -1,0 +1,136 @@
+﻿@model ScheduleGameSurveyViewModel
+
+@using Newtonsoft.Json
+@{
+    ViewBag.Title = "ManageSchedule.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var previousPage = GetCurrentPage();
+        if (previousPage === "AdminScheduleGame") {
+            $('#liSurvey').removeClass('active');
+            $('#survey').removeClass('active');
+            $('#liBatch').removeClass('active');
+            $('#batch').removeClass('active');
+            $('#liGame').addClass('active');
+            $('#game').addClass('active');
+        }
+        else if (previousPage === "AdminScheduleBatch") {
+            $('#liSurvey').removeClass('active');
+            $('#survey').removeClass('active');
+            $('#liGame').removeClass('active');
+            $('#game').removeClass('active');
+            $('#liBatch').addClass('active');
+            $('#batch').addClass('active');
+        }
+        else {
+            if (previousPage === "AdminScheduleSurvey") {
+                SetCurrentPage('AdminScheduleSurvey');
+            }
+            // Default or AdminScheduleSurvey
+            $('#liGame').removeClass('active');
+            $('#game').removeClass('active');
+            $('#liBatch').removeClass('active');
+            $('#batch').removeClass('active');
+            $('#liSurvey').addClass('active');
+            $('#survey').addClass('active');
+        }
+    });
+
+    function formatDate(date) {
+        // formats a javascript Date object into a 12h AM/PM time string
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var amPM = (hour > 11) ? "PM" : "AM";
+        if (hour > 12) {
+            hour -= 12;
+        } else if (hour == 0) {
+            hour = "12";
+        }
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+        return hour + ":" + minute + amPM;
+    }
+
+    function ConvertToLocalTime(elementId, elementId2, dateTimeString, type) {
+        var surveyDate = new Date((parseFloat(dateTimeString)));
+        var surveySlotTime = formatDate(surveyDate);
+        if (type == 1) {
+            $("#schedule-option_" + elementId + elementId2).text(surveySlotTime);
+        }
+        else {
+            $("#schedule-optionGame_" + elementId + elementId2).text(surveySlotTime);
+        }
+    }
+
+    function ConvertToLocalTimeOption(elementId, dateTimeString, type) {
+        var surveyDate = new Date((parseFloat(dateTimeString)));
+        var surveySlotTime = formatDate(surveyDate);
+        if (type == 1) {
+            $("#schedule-time_" + elementId).text(surveySlotTime);
+        }
+        else {
+            $("#schedule-timeGame_" + elementId).text(surveySlotTime);
+        }
+    }
+
+</script>
+
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Schedule</h4>
+    </div>
+    <div class="main-content">
+        <div class="tab-wrapper">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li id="liSurvey" role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab" id="tab_Survey" onclick="SetCurrentPage('AdminScheduleSurvey');">Survey</a></li>
+                <li id="liGame" role="presentation"><a href="#game" aria-controls="game" role="tab" data-toggle="tab" id="tab_Game" onclick="SetCurrentPage('AdminScheduleGame');">Game</a></li>
+                <li id="liBatch" role="presentation"><a href="#batch" aria-controls="batch" role="tab" data-toggle="tab" id="tab_Batch" onclick="SetCurrentPage('AdminScheduleBatch');">Batch</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane" id="survey">
+                    <div class="text-right">
+                        <button class="btn btn-primary" onclick="location.href='@Url.Action("AdminScheduleSurvey", "UserAdmin")' " title="Add New Survey Schedule"><span class="glyphicon glyphicon-plus"></span>Add New</button>
+                    </div>
+                    <div class="table-responsive" id="divSurveyList">
+                        @{ Html.RenderPartial("_ScheduleSurveyListPartial", Model); }
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="game">
+                    <div class="text-right">
+                        <button class="btn btn-primary" onclick="location.href='@Url.Action("AdminScheduleGame", "UserAdmin")'" title="Add New Game Schedule"><span class="glyphicon glyphicon-plus"></span>Add New</button>
+                    </div>
+                    <div class="table-responsive" id="divGameList">
+                        @{ Html.RenderPartial("_ScheduleGameListPartial", Model); }
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="batch">
+                    <div class="text-right">
+                        <button class="btn btn-primary" onclick="location.href='@Url.Action("AdminScheduleBatch", "UserAdmin")'" title="Add New Game Schedule"><span class="glyphicon glyphicon-plus"></span>Add New</button>
+                    </div>
+                    <div class="table-responsive" id="divBatchList">
+                        @{ Html.RenderPartial("_ScheduleBatchListPartial", Model); }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section page_scripts
+{
+    <script src="~/Scripts/Pages/manageschedule.js"></script>
+}
+
+
+
+
+
+
+

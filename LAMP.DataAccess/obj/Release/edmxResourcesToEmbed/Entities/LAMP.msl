@@ -1,0 +1,1073 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LAMPModelStoreContainer" CdmEntityContainer="LAMPEntities">
+    <FunctionImportMapping FunctionImportName="Admin_GetUserDataToExport_sp" FunctionName="LAMPModel.Store.Admin_GetUserDataToExport_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.Admin_GetUserDataToExport_sp_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="StudyId" ColumnName="StudyId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="RegisteredOn" ColumnName="RegisteredOn" />
+          <ScalarProperty Name="LastSurveyDate" ColumnName="LastSurveyDate" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SaveCTestSchedule_sp" FunctionName="LAMPModel.Store.Admin_SaveCTestSchedule_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.Admin_SaveCTestSchedule_sp_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SaveSurveySchedule_sp" FunctionName="LAMPModel.Store.Admin_SaveSurveySchedule_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.Admin_SaveSurveySchedule_sp_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAdminCTestScheduleByUserID_sp" FunctionName="LAMPModel.Store.GetAdminCTestScheduleByUserID_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.GetAdminCTestScheduleByUserID_sp_Result">
+          <ScalarProperty Name="GameScheduleID" ColumnName="GameScheduleID" />
+          <ScalarProperty Name="CTestId" ColumnName="CTestId" />
+          <ScalarProperty Name="CTestName" ColumnName="CTestName" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAdminSurveyScheduleByUserID_sp" FunctionName="LAMPModel.Store.GetAdminSurveyScheduleByUserID_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.GetAdminSurveyScheduleByUserID_sp_Result">
+          <ScalarProperty Name="SurveyScheduleID" ColumnName="SurveyScheduleID" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetJewelsTrailsAResult_sp" FunctionName="LAMPModel.Store.GetJewelsTrailsAResult_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.GetJewelsTrailsAResult_sp_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TotalJewelsCollected" ColumnName="TotalJewelsCollected" />
+          <ScalarProperty Name="TotalBonusCollected" ColumnName="TotalBonusCollected" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetJewelsTrailsBResult_sp" FunctionName="LAMPModel.Store.GetJewelsTrailsBResult_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.GetJewelsTrailsBResult_sp_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TotalJewelsCollected" ColumnName="TotalJewelsCollected" />
+          <ScalarProperty Name="TotalBonusCollected" ColumnName="TotalBonusCollected" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaveHealthKitData_sp" FunctionName="LAMPModel.Store.SaveHealthKitData_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.SaveHealthKitData_sp_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SaveBatchSchedule_sp" FunctionName="LAMPModel.Store.Admin_SaveBatchSchedule_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.Admin_SaveBatchSchedule_sp_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_GetBatchSchedule_sp" FunctionName="LAMPModel.Store.Admin_GetBatchSchedule_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.Admin_GetBatchSchedule_sp_Result">
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAdminBatchScheduleByUserID_sp" FunctionName="LAMPModel.Store.GetAdminBatchScheduleByUserID_sp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.GetAdminBatchScheduleByUserID_sp_Result">
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="LAMPModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminType" ColumnName="AdminType" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_BatchSchedule">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_BatchSchedule">
+        <MappingFragment StoreEntitySet="Admin_BatchSchedule">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_BatchScheduleCTest">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_BatchScheduleCTest">
+        <MappingFragment StoreEntitySet="Admin_BatchScheduleCTest">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="CTestID" ColumnName="CTestID" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="AdminBatchSchCTestID" ColumnName="AdminBatchSchCTestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_BatchScheduleCustomTime">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_BatchScheduleCustomTime">
+        <MappingFragment StoreEntitySet="Admin_BatchScheduleCustomTime">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="AdminBatchSchCustTimID" ColumnName="AdminBatchSchCustTimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_BatchScheduleSurvey">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_BatchScheduleSurvey">
+        <MappingFragment StoreEntitySet="Admin_BatchScheduleSurvey">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="AdminBatchSchSurveyID" ColumnName="AdminBatchSchSurveyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_CTestSchedule">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_CTestSchedule">
+        <MappingFragment StoreEntitySet="Admin_CTestSchedule">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="CTestID" ColumnName="CTestID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminCTestSchID" ColumnName="AdminCTestSchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_CTestScheduleCustomTime">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_CTestScheduleCustomTime">
+        <MappingFragment StoreEntitySet="Admin_CTestScheduleCustomTime">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="AdminCTestSchID" ColumnName="AdminCTestSchID" />
+          <ScalarProperty Name="AdminCTstSchCustTimID" ColumnName="AdminCTstSchCustTimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_CTestSurveySettings">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_CTestSurveySettings">
+        <MappingFragment StoreEntitySet="Admin_CTestSurveySettings">
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="CTestID" ColumnName="CTestID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminCTestSurveySettingID" ColumnName="AdminCTestSurveySettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_JewelsTrailsASettings">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_JewelsTrailsASettings">
+        <MappingFragment StoreEntitySet="Admin_JewelsTrailsASettings">
+          <ScalarProperty Name="Y_NoOfShapes" ColumnName="Y_NoOfShapes" />
+          <ScalarProperty Name="Y_NoOfChangesInLevel" ColumnName="Y_NoOfChangesInLevel" />
+          <ScalarProperty Name="X_NoOfDiamonds" ColumnName="X_NoOfDiamonds" />
+          <ScalarProperty Name="X_NoOfChangesInLevel" ColumnName="X_NoOfChangesInLevel" />
+          <ScalarProperty Name="NoOfBonusPoints" ColumnName="NoOfBonusPoints" />
+          <ScalarProperty Name="NoOfShapes" ColumnName="NoOfShapes" />
+          <ScalarProperty Name="NoOfDiamonds" ColumnName="NoOfDiamonds" />
+          <ScalarProperty Name="NoOfSeconds_Exp" ColumnName="NoOfSeconds_Exp" />
+          <ScalarProperty Name="NoOfSeconds_Adv" ColumnName="NoOfSeconds_Adv" />
+          <ScalarProperty Name="NoOfSeconds_Int" ColumnName="NoOfSeconds_Int" />
+          <ScalarProperty Name="NoOfSeconds_Beg" ColumnName="NoOfSeconds_Beg" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminJTASettingID" ColumnName="AdminJTASettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_JewelsTrailsBSettings">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_JewelsTrailsBSettings">
+        <MappingFragment StoreEntitySet="Admin_JewelsTrailsBSettings">
+          <ScalarProperty Name="Y_NoOfShapes" ColumnName="Y_NoOfShapes" />
+          <ScalarProperty Name="Y_NoOfChangesInLevel" ColumnName="Y_NoOfChangesInLevel" />
+          <ScalarProperty Name="X_NoOfDiamonds" ColumnName="X_NoOfDiamonds" />
+          <ScalarProperty Name="X_NoOfChangesInLevel" ColumnName="X_NoOfChangesInLevel" />
+          <ScalarProperty Name="NoOfBonusPoints" ColumnName="NoOfBonusPoints" />
+          <ScalarProperty Name="NoOfShapes" ColumnName="NoOfShapes" />
+          <ScalarProperty Name="NoOfDiamonds" ColumnName="NoOfDiamonds" />
+          <ScalarProperty Name="NoOfSeconds_Exp" ColumnName="NoOfSeconds_Exp" />
+          <ScalarProperty Name="NoOfSeconds_Adv" ColumnName="NoOfSeconds_Adv" />
+          <ScalarProperty Name="NoOfSeconds_Int" ColumnName="NoOfSeconds_Int" />
+          <ScalarProperty Name="NoOfSeconds_Beg" ColumnName="NoOfSeconds_Beg" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminJTBSettingID" ColumnName="AdminJTBSettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_Settings">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_Settings">
+        <MappingFragment StoreEntitySet="Admin_Settings">
+          <ScalarProperty Name="ReminderClearInterval" ColumnName="ReminderClearInterval" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminSettingID" ColumnName="AdminSettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_SurveySchedule">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_SurveySchedule">
+        <MappingFragment StoreEntitySet="Admin_SurveySchedule">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminSurveySchID" ColumnName="AdminSurveySchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin_SurveyScheduleCustomTime">
+      <EntityTypeMapping TypeName="LAMPModel.Admin_SurveyScheduleCustomTime">
+        <MappingFragment StoreEntitySet="Admin_SurveyScheduleCustomTime">
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="AdminSurveySchID" ColumnName="AdminSurveySchID" />
+          <ScalarProperty Name="AdminSurvSchCustTimID" ColumnName="AdminSurvSchCustTimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppHelps">
+      <EntityTypeMapping TypeName="LAMPModel.AppHelp">
+        <MappingFragment StoreEntitySet="AppHelp">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="HelpText" ColumnName="HelpText" />
+          <ScalarProperty Name="HelpTitle" ColumnName="HelpTitle" />
+          <ScalarProperty Name="HelpID" ColumnName="HelpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="LAMPModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="BlogText" ColumnName="BlogText" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTests">
+      <EntityTypeMapping TypeName="LAMPModel.CTest">
+        <MappingFragment StoreEntitySet="CTest">
+          <ScalarProperty Name="MaxVersions" ColumnName="MaxVersions" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsDistractionSurveyRequired" ColumnName="IsDistractionSurveyRequired" />
+          <ScalarProperty Name="CTestName" ColumnName="CTestName" />
+          <ScalarProperty Name="CTestID" ColumnName="CTestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_3DFigure">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_3DFigure">
+        <MappingFragment StoreEntitySet="CTest_3DFigure">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FigureName" ColumnName="FigureName" />
+          <ScalarProperty Name="C3DFigureID" ColumnName="3DFigureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_3DFigureResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_3DFigureResult">
+        <MappingFragment StoreEntitySet="CTest_3DFigureResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="DrawnFigFileName" ColumnName="DrawnFigFileName" />
+          <ScalarProperty Name="C3DFigureID" ColumnName="3DFigureID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="C3DFigureResultID" ColumnName="3DFigureResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_CatAndDogNewResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_CatAndDogNewResult">
+        <MappingFragment StoreEntitySet="CTest_CatAndDogNewResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CatAndDogNewResultID" ColumnName="CatAndDogNewResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_CatAndDogNewResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_CatAndDogNewResultDtl">
+        <MappingFragment StoreEntitySet="CTest_CatAndDogNewResultDtl">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="CatAndDogNewResultID" ColumnName="CatAndDogNewResultID" />
+          <ScalarProperty Name="CatAndDogNewResultDtlID" ColumnName="CatAndDogNewResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_CatAndDogResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_CatAndDogResult">
+        <MappingFragment StoreEntitySet="CTest_CatAndDogResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CatAndDogResultID" ColumnName="CatAndDogResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_DigitSpanResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_DigitSpanResult">
+        <MappingFragment StoreEntitySet="CTest_DigitSpanResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DigitSpanResultID" ColumnName="DigitSpanResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_JewelsTrailsAResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_JewelsTrailsAResult">
+        <MappingFragment StoreEntitySet="CTest_JewelsTrailsAResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TotalBonusCollected" ColumnName="TotalBonusCollected" />
+          <ScalarProperty Name="TotalJewelsCollected" ColumnName="TotalJewelsCollected" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="JewelsTrailsAResultID" ColumnName="JewelsTrailsAResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_JewelsTrailsAResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_JewelsTrailsAResultDtl">
+        <MappingFragment StoreEntitySet="CTest_JewelsTrailsAResultDtl">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="Alphabet" ColumnName="Alphabet" />
+          <ScalarProperty Name="JewelsTrailsAResultID" ColumnName="JewelsTrailsAResultID" />
+          <ScalarProperty Name="JewelsTrailsAResultDtlID" ColumnName="JewelsTrailsAResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_JewelsTrailsBResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_JewelsTrailsBResult">
+        <MappingFragment StoreEntitySet="CTest_JewelsTrailsBResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TotalBonusCollected" ColumnName="TotalBonusCollected" />
+          <ScalarProperty Name="TotalJewelsCollected" ColumnName="TotalJewelsCollected" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="JewelsTrailsBResultID" ColumnName="JewelsTrailsBResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_JewelsTrailsBResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_JewelsTrailsBResultDtl">
+        <MappingFragment StoreEntitySet="CTest_JewelsTrailsBResultDtl">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="Alphabet" ColumnName="Alphabet" />
+          <ScalarProperty Name="JewelsTrailsBResultID" ColumnName="JewelsTrailsBResultID" />
+          <ScalarProperty Name="JewelsTrailsBResultDtlID" ColumnName="JewelsTrailsBResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_NBackNewResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_NBackNewResult">
+        <MappingFragment StoreEntitySet="CTest_NBackNewResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="NBackNewResultID" ColumnName="NBackNewResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_NBackResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_NBackResult">
+        <MappingFragment StoreEntitySet="CTest_NBackResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="NBackResultID" ColumnName="NBackResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_ScratchImage">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_ScratchImage">
+        <MappingFragment StoreEntitySet="CTest_ScratchImage">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FigureName" ColumnName="FigureName" />
+          <ScalarProperty Name="ScratchImageID" ColumnName="ScratchImageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_ScratchImageResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_ScratchImageResult">
+        <MappingFragment StoreEntitySet="CTest_ScratchImageResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="DrawnFigFileName" ColumnName="DrawnFigFileName" />
+          <ScalarProperty Name="ScratchImageID" ColumnName="ScratchImageID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ScratchImageResultID" ColumnName="ScratchImageResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_Serial7Result">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_Serial7Result">
+        <MappingFragment StoreEntitySet="CTest_Serial7Result">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Serial7ResultID" ColumnName="Serial7ResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_SimpleMemoryResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_SimpleMemoryResult">
+        <MappingFragment StoreEntitySet="CTest_SimpleMemoryResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SimpleMemoryResultID" ColumnName="SimpleMemoryResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_SpatialResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_SpatialResult">
+        <MappingFragment StoreEntitySet="CTest_SpatialResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SpatialResultID" ColumnName="SpatialResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_SpatialResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_SpatialResultDtl">
+        <MappingFragment StoreEntitySet="CTest_SpatialResultDtl">
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="GameIndex" ColumnName="GameIndex" />
+          <ScalarProperty Name="SpatialResultID" ColumnName="SpatialResultID" />
+          <ScalarProperty Name="SpatialResultDtlID" ColumnName="SpatialResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_SpinWheelResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_SpinWheelResult">
+        <MappingFragment StoreEntitySet="CTest_SpinWheelResult">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+          <ScalarProperty Name="StrakSpin" ColumnName="StrakSpin" />
+          <ScalarProperty Name="DayStreak" ColumnName="DayStreak" />
+          <ScalarProperty Name="CollectedStars" ColumnName="CollectedStars" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SpinWheelResultID" ColumnName="SpinWheelResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TemporalOrderResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TemporalOrderResult">
+        <MappingFragment StoreEntitySet="CTest_TemporalOrderResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="WrongAnswers" ColumnName="WrongAnswers" />
+          <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TemporalOrderResultID" ColumnName="TemporalOrderResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TrailsBDotTouchResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TrailsBDotTouchResult">
+        <MappingFragment StoreEntitySet="CTest_TrailsBDotTouchResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TrailsBDotTouchResultID" ColumnName="TrailsBDotTouchResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TrailsBDotTouchResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TrailsBDotTouchResultDtl">
+        <MappingFragment StoreEntitySet="CTest_TrailsBDotTouchResultDtl">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="Alphabet" ColumnName="Alphabet" />
+          <ScalarProperty Name="TrailsBDotTouchResultID" ColumnName="TrailsBDotTouchResultID" />
+          <ScalarProperty Name="TrailsBDotTouchResultDtlID" ColumnName="TrailsBDotTouchResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TrailsBNewResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TrailsBNewResult">
+        <MappingFragment StoreEntitySet="CTest_TrailsBNewResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TrailsBNewResultID" ColumnName="TrailsBNewResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TrailsBNewResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TrailsBNewResultDtl">
+        <MappingFragment StoreEntitySet="CTest_TrailsBNewResultDtl">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="Alphabet" ColumnName="Alphabet" />
+          <ScalarProperty Name="TrailsBNewResultID" ColumnName="TrailsBNewResultID" />
+          <ScalarProperty Name="TrailsBNewResultDtlID" ColumnName="TrailsBNewResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TrailsBResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TrailsBResult">
+        <MappingFragment StoreEntitySet="CTest_TrailsBResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TrailsBResultID" ColumnName="TrailsBResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_TrailsBResultDtl">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_TrailsBResultDtl">
+        <MappingFragment StoreEntitySet="CTest_TrailsBResultDtl">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="Alphabet" ColumnName="Alphabet" />
+          <ScalarProperty Name="TrailsBResultID" ColumnName="TrailsBResultID" />
+          <ScalarProperty Name="TrailsBResultDtlID" ColumnName="TrailsBResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTest_VisualAssociationResult">
+      <EntityTypeMapping TypeName="LAMPModel.CTest_VisualAssociationResult">
+        <MappingFragment StoreEntitySet="CTest_VisualAssociationResult">
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalAttempts" ColumnName="TotalAttempts" />
+          <ScalarProperty Name="TotalQuestions" ColumnName="TotalQuestions" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="VisualAssocResultID" ColumnName="VisualAssocResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthKit_BasicInfo">
+      <EntityTypeMapping TypeName="LAMPModel.HealthKit_BasicInfo">
+        <MappingFragment StoreEntitySet="HealthKit_BasicInfo">
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="HKBasicInfoID" ColumnName="HKBasicInfoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthKit_DailyValues">
+      <EntityTypeMapping TypeName="LAMPModel.HealthKit_DailyValues">
+        <MappingFragment StoreEntitySet="HealthKit_DailyValues">
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Segment" ColumnName="Segment" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FlightClimbed" ColumnName="FlightClimbed" />
+          <ScalarProperty Name="Steps" ColumnName="Steps" />
+          <ScalarProperty Name="Sleep" ColumnName="Sleep" />
+          <ScalarProperty Name="RespiratoryRate" ColumnName="RespiratoryRate" />
+          <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
+          <ScalarProperty Name="HeartRate" ColumnName="HeartRate" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="HKDailyValueID" ColumnName="HKDailyValueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthKit_Parameters">
+      <EntityTypeMapping TypeName="LAMPModel.HealthKit_Parameters">
+        <MappingFragment StoreEntitySet="HealthKit_Parameters">
+          <ScalarProperty Name="HKParamName" ColumnName="HKParamName" />
+          <ScalarProperty Name="HKParamID" ColumnName="HKParamID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthKit_ParamValues">
+      <EntityTypeMapping TypeName="LAMPModel.HealthKit_ParamValues">
+        <MappingFragment StoreEntitySet="HealthKit_ParamValues">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="HKParamID" ColumnName="HKParamID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="HKParamValueID" ColumnName="HKParamValueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HelpCalls">
+      <EntityTypeMapping TypeName="LAMPModel.HelpCall">
+        <MappingFragment StoreEntitySet="HelpCalls">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CallDuraion" ColumnName="CallDuraion" />
+          <ScalarProperty Name="CallDateTime" ColumnName="CallDateTime" />
+          <ScalarProperty Name="CalledNumber" ColumnName="CalledNumber" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="HelpCallID" ColumnName="HelpCallID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="LAMPModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repeats">
+      <EntityTypeMapping TypeName="LAMPModel.Repeat">
+        <MappingFragment StoreEntitySet="Repeat">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="RepeatInterval" ColumnName="RepeatInterval" />
+          <ScalarProperty Name="RepeatID" ColumnName="RepeatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slots">
+      <EntityTypeMapping TypeName="LAMPModel.Slot">
+        <MappingFragment StoreEntitySet="Slot">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="SlotName" ColumnName="SlotName" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Surveys">
+      <EntityTypeMapping TypeName="LAMPModel.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyQuestionOptions">
+      <EntityTypeMapping TypeName="LAMPModel.SurveyQuestionOption">
+        <MappingFragment StoreEntitySet="SurveyQuestionOptions">
+          <ScalarProperty Name="OptionText" ColumnName="OptionText" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyQuestions">
+      <EntityTypeMapping TypeName="LAMPModel.SurveyQuestion">
+        <MappingFragment StoreEntitySet="SurveyQuestions">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="AnswerType" ColumnName="AnswerType" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyResults">
+      <EntityTypeMapping TypeName="LAMPModel.SurveyResult">
+        <MappingFragment StoreEntitySet="SurveyResult">
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="SpinWheelScore" ColumnName="SpinWheelScore" />
+          <ScalarProperty Name="AdminBatchSchID" ColumnName="AdminBatchSchID" />
+          <ScalarProperty Name="IsNotificationGame" ColumnName="IsNotificationGame" />
+          <ScalarProperty Name="IsDistraction" ColumnName="IsDistraction" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+          <ScalarProperty Name="SurveyType" ColumnName="SurveyType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SurveyResultID" ColumnName="SurveyResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyResultDtls">
+      <EntityTypeMapping TypeName="LAMPModel.SurveyResultDtl">
+        <MappingFragment StoreEntitySet="SurveyResultDtl">
+          <ScalarProperty Name="ClickRange" ColumnName="ClickRange" />
+          <ScalarProperty Name="TimeTaken" ColumnName="TimeTaken" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="EnteredAnswer" ColumnName="EnteredAnswer" />
+          <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="SurveyResultID" ColumnName="SurveyResultID" />
+          <ScalarProperty Name="SurveyResultDtlID" ColumnName="SurveyResultDtlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tips">
+      <EntityTypeMapping TypeName="LAMPModel.Tip">
+        <MappingFragment StoreEntitySet="Tips">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TipText" ColumnName="TipText" />
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDevices">
+      <EntityTypeMapping TypeName="LAMPModel.UserDevice">
+        <MappingFragment StoreEntitySet="UserDevices">
+          <ScalarProperty Name="LastLoginOn" ColumnName="LastLoginOn" />
+          <ScalarProperty Name="DeviceToken" ColumnName="DeviceToken" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserDeviceID" ColumnName="UserDeviceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LAMPModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="APPVersion" ColumnName="APPVersion" />
+          <ScalarProperty Name="SessionToken" ColumnName="SessionToken" />
+          <ScalarProperty Name="StatusEditedOn" ColumnName="StatusEditedOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DeletedOn" ColumnName="DeletedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="RegisteredOn" ColumnName="RegisteredOn" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Ethucity" ColumnName="Ethucity" />
+          <ScalarProperty Name="Race" ColumnName="Race" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="MR" ColumnName="MR" />
+          <ScalarProperty Name="StudyId" ColumnName="StudyId" />
+          <ScalarProperty Name="StudyCode" ColumnName="StudyCode" />
+          <ScalarProperty Name="PhysicianLastName" ColumnName="PhysicianLastName" />
+          <ScalarProperty Name="PhysicianFirstName" ColumnName="PhysicianFirstName" />
+          <ScalarProperty Name="IsGuestUser" ColumnName="IsGuestUser" />
+          <ScalarProperty Name="ClinicalProfileURL" ColumnName="ClinicalProfileURL" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSettings">
+      <EntityTypeMapping TypeName="LAMPModel.UserSetting">
+        <MappingFragment StoreEntitySet="UserSettings">
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="ProtocolDate" ColumnName="ProtocolDate" />
+          <ScalarProperty Name="TipsViewedOn" ColumnName="TipsViewedOn" />
+          <ScalarProperty Name="BlogsViewedOn" ColumnName="BlogsViewedOn" />
+          <ScalarProperty Name="Protocol" ColumnName="Protocol" />
+          <ScalarProperty Name="EditedOn" ColumnName="EditedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="PrefferedCognitions" ColumnName="PrefferedCognitions" />
+          <ScalarProperty Name="PrefferedSurveys" ColumnName="PrefferedSurveys" />
+          <ScalarProperty Name="PersonalHelpline" ColumnName="PersonalHelpline" />
+          <ScalarProperty Name="C24By7ContactNo" ColumnName="24By7ContactNo" />
+          <ScalarProperty Name="CognTest_RepeatID" ColumnName="CognTest_RepeatID" />
+          <ScalarProperty Name="CognTest_Time" ColumnName="CognTest_Time" />
+          <ScalarProperty Name="CognTest_SlotID" ColumnName="CognTest_SlotID" />
+          <ScalarProperty Name="SympSurvey_RepeatID" ColumnName="SympSurvey_RepeatID" />
+          <ScalarProperty Name="SympSurvey_Time" ColumnName="SympSurvey_Time" />
+          <ScalarProperty Name="SympSurvey_SlotID" ColumnName="SympSurvey_SlotID" />
+          <ScalarProperty Name="AppColor" ColumnName="AppColor" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserSettingID" ColumnName="UserSettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SaveHealthKitData_sp_v2" FunctionName="LAMPModel.Store.SaveHealthKitData_sp_v2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LAMPModel.SaveHealthKitData_sp_v2_Result">
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="Column2" ColumnName="Column2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/Content/Default/images/favicon.png" type="image/png">
+    <title>LAMP</title>
+    @Styles.Render("~/Content/Default/css/public_lampcss")
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+    </style>
+</head>
+<body class="error-bdy">
+    <div class="error-wrapper">
+        <div class="center">
+            <img src="~/Content/Default/images/error.png" alt="" />
+            <h2>Something Went Wrong!</h2>
+            <h4>An unexpected error has occurred. Please try again later.</h4><br />
+            <a href="~/Account" class="btn btn-sm btn-theme">Go to Login Page</a>
+        </div>
+    </div>
+</body>
+</html>

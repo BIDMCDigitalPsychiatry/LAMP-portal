@@ -1,0 +1,36 @@
+2018-10-30 15:15:20,230 [7] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Input string was not in a correct format.
+----------
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at LAMP.Service.SurveyService.<>c__DisplayClassd1.<GetGameHighAndLowScoreforGraph>b__b8(CTest_JewelsTrailsAResult g) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\SurveyService.cs:line 1816
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at LAMP.Service.SurveyService.GetGameHighAndLowScoreforGraph(GameGraphRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\SurveyService.cs:line 1815
+----------
+
+
+2018-10-30 15:36:13,947 [5] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Input string was not in a correct format.
+----------
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at LAMP.Service.SurveyService.<GetGameHighAndLowScoreforGraph>b__ba(GameHigh_LowDetails game) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\SurveyService.cs:line 1851
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at LAMP.Service.SurveyService.GetGameHighAndLowScoreforGraph(GameGraphRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\SurveyService.cs:line 1846
+----------
+
+
+2018-10-30 15:41:49,762 [7] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - GetGameHighAndLowScoreforGraph- Game id:17 low score:100 high score:100 Day score:,0,0,0,0,0,0,0
+
+2018-10-30 15:50:38,523 [6] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - GetGameHighAndLowScoreforGraph- Game id:17 low score:100 high score:100 Day score:,0,0,0,0,0,0,0
+
+2018-10-30 17:13:18,381 [7] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - GetGameHighAndLowScoreforGraph- Game id:5 low score:-1 high score:100 Day score:,0,0,0,0,0,0,0
+
+2018-10-30 17:24:24,391 [5] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - GetGameHighAndLowScoreforGraph- userid:15 Game id:5 low score:-1 high score:100 Day score:,0,0,0,0,0,0,0
+

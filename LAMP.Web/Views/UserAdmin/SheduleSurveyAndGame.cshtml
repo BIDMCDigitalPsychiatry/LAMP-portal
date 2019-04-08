@@ -1,0 +1,198 @@
+﻿@model ScheduleViewModel
+@using Newtonsoft.Json
+@{
+    ViewBag.Title = "SheduleSurveyAndGame";
+    Layout = "~/Views/Shared/_LayoutSchedule.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Survey and Game Schedule</h4>
+        <a href="@Url.Action("BackToUsers", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @if (TempData["DistractionSurveyStatus"] != null)
+        {
+            if (TempData["DistractionSurveyMessage"] != null)
+            {
+                var message = TempData["DistractionSurveyMessage"] as string;
+                if (((short)TempData["DistractionSurveyStatus"] == 0))
+                {
+                    <div class="alert alert-success" role="alert" id="divNewSuccess">@message</div>
+                }
+                else if ((short)TempData["DistractionSurveyStatus"] > 0)
+                {
+                    <div class="alert alert-danger show" role="alert">@message</div>
+                }
+            }
+        }
+        @using (Html.BeginForm("SaveSheduleSurveyAndGame", "UserAdmin", FormMethod.Post, new { id = "scheduleEntryForm" }))
+        {
+            <input type="hidden" name="CTesTArrayString" value="@Model.CTesTArrayString" id="CTesTArrayString">
+            <input type="hidden" name="SurveyArrayString" value="@Model.SurveyArrayString" id="SurveyArrayString">
+            @Html.HiddenFor(model => Model.UserId, new { @id = "UserId", @name = "UserId" })
+            @Html.HiddenFor(model => Model.UserSettingID, new { @id = "UserSettingID", @name = "UserSettingID" })
+            <div class="game-schedule">
+                <h4>Symptom Survey</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Select a Slot</label>
+                            @Html.DropDownListFor(m => Model.SurveySlotId, Model.SlotList, new { @class = "selectpicker", @id = "ddlSurveySlotID", })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Slot Time</label>
+                            <div class='input-group date' id='Timer1'>
+                                @Html.TextBoxFor(model => Model.SurveySlotTimeString, new { @class = "form-control", @id = "txtSurveySlotTime", @readonly = true })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                            <span class="error-message" id="SurveySlotTimeValidation" style="display:none">Please select a survey time slot.</span>
+                            <span class="error-message" id="surveyTimeValidation" style="display:none"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Repeat</label>
+                            @Html.DropDownListFor(m => Model.SurveyRepeatId, Model.RepeatList, new { @class = "selectpicker", @id = "ddlSurveyRepeatId" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Select Survey</label>
+                            @Html.DropDownListFor(m => Model.SurveyId, Model.SurveyList, new { @class = "selectpicker", @id = "ddlSurveyId", multiple = "multiple" })
+                            <span class="error-message" id="surveyValidation" style="display:none">Please select at least one survey.</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h4>Cognition Test</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Select a Slot</label>
+                            @Html.DropDownListFor(m => Model.CognitionTestSlotId, Model.SlotList, new { @class = "selectpicker", @id = "ddlCognitionTestSlotID" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Slot Time</label>
+                            <div class='input-group date' id='Timer2'>
+                                @Html.TextBoxFor(model => Model.CognitionTestSlotTimeString, new { @class = "form-control", @id = "txtCognitionTestSlotTime", @readonly = true })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                            <span class="error-message" id="CognitionSlotTimeValidation" style="display:none">Please select a cognition time slot.</span>
+                            <span class="error-message" id="cognitionTimeValidation" style="display:none"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Repeat</label>
+                            @Html.DropDownListFor(m => Model.CognitionTestRepeatId, Model.RepeatList, new { @class = "selectpicker", @id = "ddlCognitionTestRepeatId" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Select Cognition</label>
+                            @Html.DropDownListFor(m => Model.CognitionTesttId, Model.CognitionTestList, new { @class = "selectpicker", @id = "ddlCognitionTestId", multiple = "multiple" })
+                            <span class="error-message" id="cognitionValidation" style="display:none">Please select at least one cognition.</span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary submit" onclick="return saveschedule();" title="Submit">Submit</button>
+            </div>
+        }
+    </div>
+</div>
+
+@section page_scripts
+{
+    <script src="~/Scripts/Pages/schedule.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @if (Model.UserSettingID > 0)
+        {
+            @: var surveyArray = [];
+                                                                @:  var ctestArray = [];
+                                                                if ( Model.SurveyArray!=null)
+            {
+                foreach (var d in Model.SurveyArray)
+                {
+                    @:surveyArray.push([@d]);
+                                                                    }
+
+                @: $('#ddlSurveyId').val(surveyArray);
+                                                                }
+            if (Model.CTesTArray!=null)
+            {
+                foreach (var d in Model.CTesTArray)
+                {
+                    @:ctestArray.push([@d]);
+                                                                    }
+
+                @:  $('#ddlCognitionTestId').val(ctestArray);
+                                                                }
+        }
+
+            @if (@Model.Status == 0 && @Model.IsSaved==true)
+          {
+              @:$('#divSuccess').show();
+                                                                  @:CallTimerForBackToUsers();
+                                                              }
+          else
+          {
+          }
+
+            @if (TempData["DistractionSurveyStatus"] != null)
+          {
+              if (TempData["IsSaved"] != null)
+              {
+
+                  if (((short)TempData["DistractionSurveyStatus"] == 0) && (bool)TempData["IsSaved"] == true)
+                  {
+                      @:$('#divNewSuccess').show();
+                                                                          @:CallTimerForBackToUsers();
+                                                                      }
+              else
+              {
+                    }
+          }
+    }
+            function Clear() {
+                var url = '@Url.Action("SheduleSurveyAndGame", "UserAdmin")' + '?userId=' + $('#UserId').val();
+                window.location.href = url;
+            }
+
+            function CallTimerForBackToUsers() {
+                setTimeout(function () { CallBackToUsers(); }, 2000);
+            }
+
+            function CallBackToUsers() {
+                var url = '@Url.Action("SheduleSurveyAndGame", "UserAdmin")' + '?userId=' + $('#UserId').val();
+                window.location.href = url;
+            }
+        });
+    </script>
+}
+
+
+
+
+

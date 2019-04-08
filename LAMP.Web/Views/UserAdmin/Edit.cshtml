@@ -1,0 +1,240 @@
+﻿@model UserViewModel
+@{
+    ViewBag.Title = "Add User";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Add New user</h4>
+        <a href="@Url.Action("BackToUsers", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @if (Model.IsSaved == true && Model.Status == 0 && Model.Message.Length > 0)
+        {
+            <div class="alert alert-success" role="alert" id="divSuccess">@Model.Message</div>
+        }
+        else if (Model.Status > 0 && Model.Message.Length > 0)
+        {
+            <div class="alert alert-danger show" role="alert">@Model.Message</div>
+        }
+        @using (Html.BeginForm("Edit", "UserAdmin", FormMethod.Post, new { enctype = "multipart/form-data", id = "userEntryForm" }))
+        {
+            <div class="sec-patient form-user">
+                <h5>Patient General Information</h5>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email", maxlength = 100 })
+                @Html.ValidationMessageFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password", placeholder = "Password", maxlength = 250 })
+                @Html.ValidationMessageFor(m => m.Password)
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", placeholder = "Mobile Number", maxlength = 15 })
+                @Html.ValidationMessageFor(m => m.Phone)
+                <ul class="city-list">
+                    <li>
+                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", placeholder = "Zip Code", maxlength = 10 })
+                        @Html.ValidationMessageFor(m => m.ZipCode)
+                    </li>
+                    <li>
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "City", maxlength = 50 })
+                        @Html.ValidationMessageFor(m => m.City)
+                    </li>
+                    <li>
+                        @Html.TextBoxFor(m => m.State, new { @class = "form-control", placeholder = "State", maxlength = 50 })
+                        @Html.ValidationMessageFor(m => m.State)
+                    </li>
+                </ul>
+                <div class="gender clearfix">
+                    <div class="rd-list">
+                        <label class="mar-r-15">
+                            @Html.RadioButtonFor(model => Model.Gender, "Male", new { id = "rdGender", name = "rbGender" }) Male
+                        </label>
+                    </div>
+                    <div class="rd-list">
+                        <label class="mar-r-15">
+                            @Html.RadioButtonFor(model => Model.Gender, "Female", new { id = "rdGender1", name = "rbGender" }) Female
+                        </label>
+                    </div>
+                </div>
+                <ul class="age-list">
+                    <li>
+                        @Html.TextBoxFor(m => m.Age, new { @Value = (Model.Age > 0 ? Model.Age.ToString() : string.Empty), @onkeypress = "return OnlyNumeric(event)", @class = "form-control", placeholder = "Age", maxlength = 3 })
+                        @Html.ValidationMessageFor(m => m.Age)
+                    </li>
+                    <li>
+                        @Html.TextBoxFor(m => m.BirthDateString, new { @class = "form-control calendar1", placeholder = "Date of Birth", id = "popupDatepicker", maxlength = 12 })
+                        @Html.ValidationMessageFor(m => m.BirthDateString)
+                    </li>
+                </ul>
+                <div class="upload-block clearfix">
+                    <input id="uploadFile" placeholder="Choose Clinical Profile" class="form-control" readonly="readonly" />
+                    <div class="fileUpload btn btn-primary">
+                        <span>Upload</span>
+                        <input type="file" style="margin-right: 5px;" name="profile" class="upload" onchange="document.getElementById('uploadFile').value = this.value" />
+                    </div>
+                </div>
+                <div class="button-block" style="width:660px;">
+                    <button type="button" data-toggle="Cancel" class="btn btn-default1" onclick="Clear();" title="Cancel">Cancel</button>
+                    <input type="submit" value="Save" title="Save" class="btn btn-primary" style="margin-left: 0px;" onclick="javascript:return ValidateUser();" />    @**@
+                </div>
+            </div>
+            <div class="sec-physician form-user">
+                <h5>Physician Details</h5>
+                @Html.TextBoxFor(m => m.PhysicianFirstName, new { @class = "form-control userInput1", placeholder = "First Name", maxlength = 100 })                
+                <span class="field-validation-error">
+                    <span for=" physicianfirstname" class="hide" id="spValPhysicianFirstName">Specify physician first name.</span>
+                </span>
+                @Html.TextBoxFor(m => m.PhysicianLastName, new { @class = "form-control userInput1", placeholder = "Last Name", maxlength = 100 })
+                <span class="field-validation-error">
+                    <span for=" physicianfirstname" class="hide" id="spValPhysicianLastName">Specify physician first name.</span>
+                </span>
+                @Html.TextBoxFor(m => m.StudyCode, new { @class = "form-control userInput1", placeholder = "Study Code", maxlength = 50 })
+                <span class="field-validation-error">
+                    <span for=" physicianfirstname" class="hide" id="spValStudyCode">Specify physician first name.</span>
+                </span>
+                @Html.TextBoxFor(m => m.FormattedStudyId, new { @class = "study", @readonly = true, @Value = "Auto GeNERATED STUDY ID : " + Model.FormattedStudyId, maxlength = 41 })
+            </div>
+            @Html.HiddenFor(model => Model.StudyId, new { @id = "StudyId", @name = "StudyId" })
+            @Html.HiddenFor(model => Model.UserID, new { @id = "UserID", @name = "UserID" })
+            @Html.HiddenFor(model => Model.IsGuestUser, new { @id = "GuestUser", @name = "GuestUser" })
+        }
+    </div>
+</div>
+
+@section page_scripts
+{
+    @Scripts.Render("~/Content/Default/javascripts")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.dropdown-toggle').dropdown();
+            $('#popupDatepicker').datepick({
+                changeMonth: true, //need month change
+                changeYear: true, // need year change
+                onSelect: function (date) {
+                    var dob = new Date(date);
+                    var today = new Date();
+                    var sum = today.getFullYear() - dob.getFullYear();
+                    $('#Age').val(sum); // and show age in a text box
+                }
+            });
+            @if (@Model.IsSaved == true && @Model.Status == 0)
+            {
+            @:$('#divSuccess').show();
+                                                                                                                                                                            @:CallTimerForBackToUsers();
+                                                                                                                                                                                                            }
+        else
+        {
+             @:$('html,body').scrollTop($(document)).height(); return true;
+                                                                                                                                                                                                                        }
+        });
+
+        function Clear() {
+            var url = '@Url.Action("Users", "UserAdmin")' + '?model=null&userId=1';
+            window.location.href = url;
+        }
+
+        function CallTimerForBackToUsers() {
+            setTimeout(function () { CallBackToUsers(); }, 2000);
+        }
+
+        function CallBackToUsers() {
+            var url = '@Url.Action("Users", "UserAdmin")' + '?model=null&userId=1';
+            window.location.href = url;
+        }
+
+        $(".userInput1").blur(function (e) {
+            if (e.target.id === "PhysicianFirstName") {
+                var val = $.trim($('#PhysicianFirstName').val());
+                if (val.length == 0) {
+                    if ($('#GuestUser').val() == "False") {
+                        $('#spValPhysicianFirstName').removeClass("hide");
+                        $('#spValPhysicianFirstName').text("Specify physician first name.");
+                    }
+                }
+                else if (val.indexOf("<") != -1 || val.indexOf(">") != -1) {
+                    $('#spValPhysicianFirstName').removeClass("hide");
+                    $('#spValPhysicianFirstName').text("Invalid physician first name.");
+                }
+                else {
+                    $('#spValPhysicianFirstName').addClass("hide");
+                }
+
+            }
+            else if (e.target.id === "PhysicianLastName") {
+                var val = $.trim($('#PhysicianLastName').val());
+                if (val.length == 0) {
+                    if ($('#GuestUser').val() == "False") {
+                        $('#spValPhysicianLastName').removeClass("hide");
+                        $('#spValPhysicianLastName').text("Specify physician last name.");
+                    }
+                }
+                else if (val.indexOf("<") != -1 || val.indexOf(">") != -1) {
+                    $('#spValPhysicianLastName').removeClass("hide");
+                    $('#spValPhysicianLastName').text("Invalid physician last name.");
+                }
+                else {
+                    $('#spValPhysicianLastName').addClass("hide");
+                }
+            }
+            else if (e.target.id === "StudyCode") {
+                var val = $.trim($('#StudyCode').val());
+                if (val.length == 0) {
+                    if ($('#GuestUser').val() == "False") {
+                        $('#spValStudyCode').removeClass("hide");
+                        $('#spValStudyCode').text("Specify study code.");
+                    }
+                }
+                else if (val.indexOf("<") != -1 || val.indexOf(">") != -1) {
+                    $('#spValStudyCode').removeClass("hide");
+                    $('#spValStudyCode').text("Invalid study code.");
+                }
+                else {
+                    $('#spValStudyCode').addClass("hide");
+                }
+            }
+        });
+
+        function ValidateUser() {
+            var error = false;
+            if ($('#GuestUser').val() == "False") {
+                if ($.trim($('#PhysicianFirstName').val()).length == 0) {
+                    error = true;
+                    $('#spValPhysicianFirstName').removeClass("hide");
+                }
+                else {
+                    $('#spValPhysicianFirstName').addClass("hide");
+                }
+
+                if ($.trim($('#PhysicianLastName').val()).length == 0) {
+                    error = true;
+                    $('#spValPhysicianLastName').removeClass("hide");
+                }
+                else {
+                    $('#spValPhysicianLastName').addClass("hide");
+                }
+
+                if ($.trim($('#StudyCode').val()).length == 0) {
+                    error = true;
+                    $('#spValStudyCode').removeClass("hide");
+                }
+                else {
+                    $('#spValStudyCode').addClass("hide");
+                }
+
+
+            }
+
+            if (error == true) {
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+
+
+    </script>
+}

@@ -1,0 +1,25 @@
+﻿@model SurveyQuestionViewModel
+
+<div class="form-group">
+    <label>Question</label>
+    @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.QuestionText)
+</div>
+
+<div class="form-group">
+    <label>Answer Type</label>
+    @Html.DropDownListFor(model => model.AnswerType, EnumHelper.GetSelectList(typeof(SurveyQuestionTypes)), "Select")
+</div>
+
+<div class="form-group">
+    <label>Options</label>
+    <div class="add-sec">
+        <input type="text" class="form-control">
+        <button class="glyphicon add-icn">&#x2b;</button>
+    </div>
+    <div class="add-sec">
+        <input type="text" class="form-control">
+        <button class="glyphicon add-icn">&#x2b;</button>
+    </div>
+</div>
+

@@ -1,0 +1,52 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<div class="table-responsive survey" style="margin-bottom:20px;">
+    <table class="table table-bordered" style="margin-bottom:0;">
+        <tr>
+            <th>Call Type</th>
+            <th>Help Call History</th>
+            <th>Date and Time</th>
+            <th>duration</th>
+        </tr>
+        @if (Model.CallHistoryList != null && Model.CallHistoryList.Count > 0)
+        {
+            foreach (UserCallHistory call in Model.CallHistoryList)
+            {
+                <tr>
+                    <td>@(call.Type == 1 ? "Emergency" : "Personal Helpline")</td>
+                    <td>@call.CalledNumber</td>
+                    <td>@call.Date_Time</td>
+                    <td>@call.Duration</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">
+                    <div class="" style="">No records found.</div>
+                </td>
+            </tr>
+        }
+    </table>
+    @if (Model.PagedCallList != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.PagedCallList.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.PagedCallList, page => Url.Action("SearchCallList", new { page, userId = Model.UserID, pageSize = Model.CallHistorySortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divCallList" }))
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+    @Html.HiddenFor(model => Model.CallHistorySortPageOptions.CurrentPage, new { @id = "CurrentPageForCall", @name = "CurrentPageForCall" })
+    @Html.HiddenFor(model => Model.CallHistorySortPageOptions.PageSize, new { @id = "PageSizeForCall", @name = "PageSizeForCall" })
+</div>

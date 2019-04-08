@@ -1,0 +1,9 @@
+2018-10-16 17:05:33,762 [24] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:126) - Sequence contains no elements
+----------
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Max(IEnumerable`1 source)
+   at System.Linq.Enumerable.Max[TSource](IEnumerable`1 source, Func`2 selector)
+   at LAMP.Service.SurveyService.GetGameHighAndLowScoreforGraph(GameGraphRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\SurveyService.cs:line 1375
+----------
+
+

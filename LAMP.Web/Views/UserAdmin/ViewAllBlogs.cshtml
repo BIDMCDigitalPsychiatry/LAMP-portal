@@ -1,0 +1,69 @@
+﻿@model TipsBlogsViewModel
+@using LAMP.Utility
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ViewAllBlogs";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    @using (Ajax.BeginForm("SearchAllBlogs", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divUserList", InsertionMode = InsertionMode.Replace }, new { id = "userListForm", @class = "form-horizontal", pageSize = Model.SortPageOptions.PageSize }))
+    {
+        <div class="title-sub clearfix">
+            <h4>Articles</h4>
+            <a href="@Url.Action("AddTipsAndBlogs", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+        </div>
+        <div class="main-content clearfix" id="divUserList">
+            @{ Html.RenderPartial("_BlogListPartial", Model); }
+        </div>
+    }
+</div>
+@section page_scripts{
+    <script type="text/javascript">
+        function ShowDeleteUserConfirmationPopup(blogId, toDo) {
+            $('#btnDelete').hide();
+            switch (toDo) {
+                case 'Delete': $('#confirmMessage').text("Are you sure you want to delete this article permanently?");
+                    $('#btnDelete').show();
+                    break;
+            }
+            $('#DeleteUserPopupConfirmation').modal('show');
+            $('#currentUserId').val(blogId);
+            return false;
+        }
+        function DeleteUser() {
+            var messagehtml = "<div class=\"icon\"><i class=\"fa fa-check-circle\" style=\"cursor:pointer;\" onclick=\"$('#msgsuccess').hide();\"></i></div>";
+            messagehtml = messagehtml + "The article has been deleted.<br/>";
+            var url = appPath + 'UserAdmin/DeleteBlog/';
+            $.ajax({
+                async: false,
+                cache: false,
+                type: 'POST',
+                url: url,
+                data: { blogId: $('#currentUserId').val() },
+                success: function (result) {
+                    $('#DeleteUserPopupConfirmation').modal('hide');
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                    $('#msgsuccess').show();
+                    $("#msgsuccess").html(messagehtml);
+                    setTimeout(function () { $("#msgsuccess").hide(); location.reload(true); }, 2000);
+                },
+                error: function (data) {
+                    alert('Error');
+                }
+            });
+        }
+        function PagerScrollTop() {
+            $("#loaderImage").hide();
+            $('body,html').animate({
+                scrollTop: 0
+            }, 300);
+        }
+
+        function BeginPaginaionBlogs() {
+            $('#loaderImage').show();
+        }
+    </script>
+}
+
+

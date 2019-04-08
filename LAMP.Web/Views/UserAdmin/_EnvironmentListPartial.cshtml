@@ -1,0 +1,57 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<div class="table-responsive survey">
+    <div class="panel-heading clearfix">
+        <h4>
+            <span>Environment</span>
+        </h4>
+    </div>
+    <table class="table table-bordered" style="margin-bottom:0px;">
+        @if (Model._EnvironmentList != null && Model._EnvironmentList.Count > 0)
+        {
+            <tr>
+                <th>Location</th>
+                <th>Actual address</th>
+                <th>date &amp; time</th>
+            </tr>
+            foreach (UserEnvironment location in Model._EnvironmentList)
+            {
+                <tr>
+                    <td>@location.Location</td>
+                    <td>@location.Address</td>
+                    <td>@location.Date_Time</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">
+                    <div class="" style="">No records found.</div>
+                </td>
+            </tr>
+        }
+    </table>
+    @if (Model.PagedEnvironmentList != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.PagedEnvironmentList.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.PagedEnvironmentList, page => Url.Action("SearchEnvironmentList", new { page, userId = Model.UserID, pageSize = Model.EnvironmentSortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divEnvironmentList" }))
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+    @Html.HiddenFor(model => Model.EnvironmentSortPageOptions.CurrentPage, new { @id = "CurrentPageForEnvironment", @name = "CurrentPageForEnvironment" })
+    @Html.HiddenFor(model => Model.EnvironmentSortPageOptions.PageSize, new { @id = "PageSizeForEnvironment", @name = "PageSizeForEnvironment" })
+
+</div>
+

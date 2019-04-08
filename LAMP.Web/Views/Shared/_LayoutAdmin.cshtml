@@ -1,0 +1,258 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/Content/Default/images/favicon.png" type="image/png">
+    <title>LAMP</title>
+    @Styles.Render("~/Content/Default/css/lampcss")
+    @RenderSection("page_css", required: false)
+    <script>
+        var appPath = '@Url.Content("~/")';
+    </script>
+</head>
+<body>
+    <div class="loader-overlay" style="display:none" id="loaderImage">
+        <div class="sk-circle">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+        </div>
+    </div>
+    <nav class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="@Url.Action("Users", "UserAdmin")" class="logo"><img src="~/Content/Default/images/logo_inner.png" alt="Lamp"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" id="menu">
+                <li id="Menu1"><a href="~/UserAdmin/Users">Users</a></li>
+                <li id="Menu2"><a href="~/Survey/Index">Surveys</a></li>
+                <li id="Menu6"><a href="~/UserAdmin/ManageSchedule">Schedule</a></li>
+                <li id="Menu4"><a href="~/UserAdmin/AddTipsAndBlogs">Articles &amp; Tips</a></li>
+                <li id="Menu5"><a href="~/UserAdmin/ViewAllAppHelp">How to use this app</a></li>
+                <li id="Menu3"><a href="~/UserAdmin/Settings">Settings</a></li>
+                <li class="user-drop">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <p><span>Welcome</span>@ViewBag.Name</p> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="~/Account/ChangePassword"><i class="password"></i>Change Password</a></li>
+                        <li><a href="~/Account/LogOut"><i class="logout"></i>Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-content">
+        @RenderBody()
+    </div>
+    <footer><p class="copy">© 2017 LAMP. All rights reserved.</p></footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/javascripts")
+    <script src="~/Scripts/Pages/Common.js"></script>
+    @RenderSection("page_scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*******For making menu headings underline****/
+            var path = window.location.pathname;
+            // console.log(path);
+            if (path.indexOf('/UserAdmin/Users') > -1 ||
+                path.indexOf('/UserAdmin/UserActivities') > -1 || path.indexOf('/UserAdmin/SurveyDetails') > -1 ||
+                path.indexOf('/UserAdmin/BackToUserActivities') > -1 || path.indexOf('/UserAdmin/Cognition_') > -1) {
+                $('#Menu1').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/BackToUsers') > -1) {
+                $('#Menu1').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/BackToAdmins') > -1) {
+                $('#Menu1').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/Edit') > -1) {
+                $('#Menu1').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/UserProfile') > -1) {
+                $('#Menu1').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/AddTipsAndBlogs') > -1) {
+                $('#Menu4').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/ViewAllAppHelp') > -1) {
+                $('#Menu5').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/HowToUseThisApp') > -1) {
+                $('#Menu5').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/BackToAppHelp') > -1) {
+                $('#Menu5').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/EditBlog') > -1) {
+                $('#Menu4').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/ViewAllBlogs') > -1) {
+                $('#Menu4').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/Settings') > -1) {
+                $('#Menu3').addClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/SheduleSurveyAndGame') > -1) {
+                $('#Menu1').addClass('active');
+                $('#Menu2').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/Survey/Index') > -1) {
+                $('#Menu2').addClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/Survey/AddSurvey') > -1) {
+                $('#Menu2').addClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/Survey/EditSurvey') > -1) {
+                $('#Menu2').addClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/Survey') > -1) {
+                $('#Menu2').addClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu6').removeClass('active');
+            }
+            else if (path.indexOf('/UserAdmin/ManageSchedule') > -1 ||
+                path.indexOf('/UserAdmin/AdminScheduleSurvey') > -1 || path.indexOf('/UserAdmin/EditSurveySchedule') > -1 ||
+                path.indexOf('/UserAdmin/AdminScheduleGame') > -1 || path.indexOf('/UserAdmin/EditGameSchedule') > -1 ||
+                path.indexOf('/UserAdmin/AdminScheduleBatch') > -1 || path.indexOf('/UserAdmin/EditBatchSchedule') > -1) {
+                $('#Menu6').addClass('active');
+                $('#Menu1').removeClass('active');
+                $('#Menu3').removeClass('active');
+                $('#Menu4').removeClass('active');
+                $('#Menu5').removeClass('active');
+                $('#Menu2').removeClass('active');
+            }
+
+        });
+
+    </script>
+    @*---------------------- Start LAMP Alert ---------------------------*@
+    <div id="popupAlert" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 centered text-center">
+                            <p id="alertMessage"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="OK" data-dismiss="modal" class="btn btn-default" id="btnCancel">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*---------------------- End LAMP Alert ---------------------------*@
+</body>
+</html>
+
+

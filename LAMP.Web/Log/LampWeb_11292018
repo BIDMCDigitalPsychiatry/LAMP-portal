@@ -1,0 +1,152 @@
+2018-11-29 09:03:25,558 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-29 09:03:25,578 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-11-29 09:03:25,906 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:126) - The underlying provider failed on ConnectionString.
+----------
+System.Data.Entity.Core.EntityException: The underlying provider failed on ConnectionString. ---> System.ArgumentException: Keyword not supported: 'port'.
+   at System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   at System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   at System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   at System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   at System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<SetConnectionString>b__18(DbConnection t, DbConnectionPropertyInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.SetConnectionString(DbConnection connection, DbConnectionPropertyInterceptionContext`1 interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.ChangeConnectionString(String newConnectionString)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.ChangeConnectionString(String newConnectionString)
+   at System.Data.Entity.Core.EntityClient.EntityConnection..ctor(String connectionString)
+   at System.Data.Entity.Internal.LazyInternalConnection.InitializeFromConnectionStringSetting(ConnectionStringSettings appConfigConnection)
+   at System.Data.Entity.Internal.LazyInternalConnection.TryInitializeFromAppConfig(String name, AppConfig config)
+   at System.Data.Entity.Internal.LazyInternalConnection.Initialize()
+   at System.Data.Entity.Internal.LazyInternalConnection.CreateObjectContextFromConnectionModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LAMP.Service.AdminService.AuthenticateUser(LoginViewModel loginViewModel, String returnUrl) in e:\Working Folder\LAMP\Source\LAMP.Service\Admin\Concrete\AdminService.cs:line 81
+----------
+
+
+2018-11-29 09:03:25,930 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /
+
+2018-11-29 10:19:56,253 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-29 10:19:56,286 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-11-29 10:19:56,573 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-29 10:19:57,696 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-11-29 10:21:02,129 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-29 10:21:02,131 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-11-29 10:21:02,536 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-29 10:21:03,762 [9] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-11-29 10:24:33,050 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-29 10:24:33,067 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-11-29 10:24:33,390 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-29 10:24:34,603 [8] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-11-29 10:25:31,990 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 119
+
+2018-11-29 10:25:32,148 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-11-29 10:25:33,222 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back last date: 01-01-1900 00:00:00 new date: 11-01-2018 08:34:47
+
+2018-11-29 10:25:33,225 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 08:34:47
+
+2018-11-29 10:25:34,010 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: n-Back New last date: 11-01-2018 08:34:47 new date: 11-01-2018 08:57:31
+
+2018-11-29 10:25:34,012 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 08:57:31
+
+2018-11-29 10:25:34,829 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Serial 7s last date: 11-01-2018 08:57:31 new date: 11-01-2018 08:44:48
+
+2018-11-29 10:25:34,831 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 08:57:31
+
+2018-11-29 10:25:35,637 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Simple memory last date: 11-01-2018 08:57:31 new date: 11-01-2018 09:00:37
+
+2018-11-29 10:25:35,639 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:00:37
+
+2018-11-29 10:25:36,449 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Digit Span last date: 11-01-2018 09:00:37 new date: 11-01-2018 08:47:21
+
+2018-11-29 10:25:36,450 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:00:37
+
+2018-11-29 10:25:37,268 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Digit Span last date: 11-01-2018 09:00:37 new date: 11-01-2018 08:50:06
+
+2018-11-29 10:25:37,270 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:00:37
+
+2018-11-29 10:25:38,093 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b last date: 11-01-2018 09:00:37 new date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:38,094 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:38,904 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b New last date: 11-01-2018 09:06:28 new date: 11-01-2018 09:02:44
+
+2018-11-29 10:25:38,906 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:39,715 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Trails-b DotTouch last date: 11-01-2018 09:06:28 new date: 11-01-2018 09:03:47
+
+2018-11-29 10:25:39,717 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:40,528 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Jewels Trails A last date: 11-01-2018 09:06:28 new date: 11-01-2018 09:05:24
+
+2018-11-29 10:25:40,529 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:41,340 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Jewels Trails B last date: 11-01-2018 09:06:28 new date: 11-01-2018 09:05:52
+
+2018-11-29 10:25:41,342 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:42,152 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Visual Association Task last date: 11-01-2018 09:06:28 new date: 11-01-2018 08:46:10
+
+2018-11-29 10:25:42,154 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:06:28
+
+2018-11-29 10:25:43,368 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: 3D Figure last date: 11-01-2018 09:06:28 new date: 11-01-2018 09:07:22
+
+2018-11-29 10:25:43,370 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:07:22
+
+2018-11-29 10:25:44,182 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Spatial Span last date: 11-01-2018 09:07:22 new date: 11-01-2018 08:40:13
+
+2018-11-29 10:25:44,184 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:07:22
+
+2018-11-29 10:25:44,995 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Cats and Dogs New last date: 11-01-2018 09:07:22 new date: 11-01-2018 08:53:35
+
+2018-11-29 10:25:44,997 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:07:22
+
+2018-11-29 10:25:45,809 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Temporal Order last date: 11-01-2018 09:07:22 new date: 11-01-2018 08:56:17
+
+2018-11-29 10:25:45,811 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:07:22
+
+2018-11-29 10:25:47,035 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() gameName: Spin Wheel last date: 11-01-2018 09:07:22 new date: 11-01-2018 09:08:03
+
+2018-11-29 10:25:47,037 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - CreateGame() last date: 11-01-2018 09:08:03
+
+2018-11-29 10:28:37,311 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-11-29 15:26:54,120 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login: Superadmin@Lamp.com : User123!
+
+2018-11-29 15:26:54,138 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - AuthenticateUser...
+
+2018-11-29 15:26:54,145 [6] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Login Error: 0 :  : /UserAdmin/Users
+
+2018-11-29 15:26:54,291 [7] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - Users: 
+
+2018-11-29 15:27:15,331 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 292
+
+2018-11-29 15:27:15,471 [5] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+
+2018-11-29 15:29:48,300 [5] LAMP.Utility.LogUtil.Info(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:60) - UserActivities: 291
+
+2018-11-29 15:29:48,301 [5] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:113) - GetUserActivities()====================================
+

@@ -1,0 +1,46 @@
+﻿@model LAMP.ViewModel.ProtocolViewModel
+<!--Start Modal Protocol-->
+<div class="modal fade" id="ProtocolModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Protocol Date</h4>
+            </div>
+            <div class="modal-body">
+                <div class="schedule-form">
+                    <form id="frmProtocol">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Protocol Date</label>
+                                    <div class='input-group' id='schedulepick1'>
+                                        @Html.TextBoxFor(x => x.DatePart, new { @class = "form-control", @placeholder = "Protocol Date", @onkeydown = "return false;" })
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                    @Html.ValidationMessageFor(x => x.DatePart)
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Protocol Time</label>
+                                    <div class='input-group date' id='Timer1'>
+                                        @Html.TextBoxFor(x => x.TimePart, new { @class = "form-control", @placeholder = "Protocol Time", @onkeydown = "return false;" })
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
+                                    @Html.ValidationMessageFor(x => x.TimePart)
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <button onclick="SetProtocolDate()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Modal Schedule-->

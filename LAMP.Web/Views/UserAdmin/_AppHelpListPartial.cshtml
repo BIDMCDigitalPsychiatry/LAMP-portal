@@ -1,0 +1,88 @@
+﻿@model AppHelpViewModelList
+@using PagedList.Mvc;
+@using System.Configuration;
+@using LAMP.Utility
+@{
+    Layout = null;
+}
+<input type="hidden" name="currentUserId" id="currentUserId" />
+<div id="msgsuccess" class="alert alert-success alert-white rounded" style="display:none;"></div>
+@if (Model.TotalRows > 0)
+{
+    foreach (AppHelpViewModel appHelp in Model.AppHelpList)
+    {
+        string fileName = appHelp.ImageURL;
+        var filepath = ConfigurationManager.AppSettings["AppHelpImagePath"] + "\\" + fileName;
+        filepath = filepath.Replace("~", "");
+        var Content = appHelp.Content ?? "";
+        Content = HttpUtility.HtmlDecode(Content).Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n\n", "</p><p>");
+        appHelp.Content = Content;
+        <div class="blog-sec">
+            <div class="blog-actions">
+                <a href="@Url.Action("GetAppHelpDetails", "UserAdmin", new { helpId = @appHelp.HelpID })" title="View"><i class="glyphicon glyphicon-eye-open"></i></a>
+                @if (Model.AdminLoggedInId == 1)
+                {
+                    <a href="#" onclick="ShowDeleteAppHelpConfirmationPopup('@appHelp.HelpID','Delete')" title="Delete"><i class="delete"></i></a>
+                }
+            </div>
+            <h5>@appHelp.AdminFullName : @(appHelp.CreatedOnString == string.Empty ? "Nil" : appHelp.CreatedOnString)</h5>
+            @if (appHelp.ImageURL != null)
+            {
+                <div class="blog-img clearfix"><div class="img-block"><img src="@filepath" alt=""></div></div>
+            }
+            else
+            {
+                <div class="blog-img clearfix"><div class="img-block"><img src="~/Content/Default/images/no-image.png" alt=""></div></div>
+            }
+            <p>@Html.Raw(appHelp.Content)</p>
+        </div>
+    }
+}
+else
+{
+    <div id="divAppHelpList" class="" style="">No app help to display.</div>
+}
+@Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPage", @name = "CurrentPage" })
+@Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSize", @name = "PageSize" })
+@Html.HiddenFor(model => Model.SortPageOptions.SortField, new { @id = "SortField", @name = "SortField" })
+@Html.HiddenFor(model => Model.SortPageOptions.SortOrder, new { @id = "SortOrder", @name = "SortOrder" })
+@if (Model.PagedAppHelpList != null)
+{
+    <div class="row col-sm-12">
+        <div class="pull-right">
+            <div class="dataTables_paginate paging_bs_normal">
+                @if (Model.PagedAppHelpList.Count != 0)
+                {
+                    <div>
+                        @Html.PagedListPager(Model.PagedAppHelpList, page => Url.Action("SearchAllAppHelp", new { page, sortColumn = Model.SortPageOptions.SortField, sortOrder = Model.SortPageOptions.SortOrder, pageSize = Model.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divAppHelpList", OnSuccess = "PagerScrollTop", OnBegin = "BeginPaginaionAppHelp" }))
+                    </div>
+                }
+            </div>
+        </div><div class="clearfix"></div>
+    </div>
+}
+<!-- Start DeleteAppHelpPopupConfirmation -->
+<div id="DeleteAppHelpPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 centered text-center">
+                            <p id="confirmMessage"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteAppHelp()" class="btn btn-primary" id="btnDelete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End DeleteAppHelpPopupConfirmation -->

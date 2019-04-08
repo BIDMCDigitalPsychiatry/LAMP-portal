@@ -1,0 +1,265 @@
+﻿@model SurveyViewModel
+@{
+    ViewBag.Title = "AddSurvey";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Add New Survey</h4>
+        <a href="@Url.Action("Index", "Survey")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @if (Model.Status == 0 && Model.Message.Length > 0)
+        {
+            <div class="alert alert-success" role="alert" id="divSuccess">@Model.Message</div>
+        }
+        else if (Model.Status > 0 && Model.Message.Length > 0)
+        {
+            <div class="alert alert-danger show" role="alert">@Model.Message</div>
+        }
+        <div id="msgsuccess" class="alert alert-success alert-white rounded" style="display:none;"></div>
+        <div id="msgFailure" class="alert alert-danger" style="display:none;"></div>
+        @using (Html.BeginForm("SaveSurvey", "Survey", FormMethod.Post, new { enctype = "multipart/form-data", id = "AddSurvey" }))
+        {
+            <div class="sec-question">
+                <div class="form-group">
+                    <label>Survey Name</label>
+                    @Html.TextBoxFor(m => m.SurveyName, new { @class = "form-control", placeholder = "Survey Name", maxlength = 60, onkeypress = "GetValueKeyPress(this, 'surveyname')", onkeyup = "GetValueKeyPress(this, 'surveyname')" })
+                    <span class="error-message" id="surveyNameValidator" style="display:none">Specify Survey Name.</span>
+                </div>
+                <div class="form-group">
+                    <label>Language</label>
+                    @Html.DropDownListFor(model => Model.LanguageCode, new SelectList(Model.LanguageList, "Value", "Text"), new { id = "languageListDropdownId", name = "languageListDropdownId", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Question</label>
+                    @{
+            if (Model.IsEdit == true)
+            {
+                <label class="pull-right"><a id="addQuestionButton" class="add-quest" href="#" title="Add Question" onclick="AddQuestion()">Add Question</a></label>
+            }
+
+                    }
+
+                    @{
+            if (@Model.IsEdit == false)
+            {
+                @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control", @id = "QuestionText", @maxlength = 100, onkeypress = "GetValueKeyPress(this, 'question')", onkeyup = "GetValueKeyPress(this, 'question')" })
+            }
+            else
+            {
+                @Html.TextAreaFor(m => m.QuestionText, new { @class = "form-control", @id = "QuestionText", @maxlength = 100, @disabled = "disabled" })
+            }
+
+                    }
+                    <span class="error-message" id="questionValidator" style="display:none">Specify Question.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Answer Type</label>
+
+
+                    <div class="dropdown">
+                        @{if (@Model.IsEdit == false)
+                        {
+                            @Html.DropDownListFor(model => model.AnswerType, EnumHelper.GetSelectList(typeof(SurveyQuestionTypes)), "Select", new { @class = "form-control", @id = "AnswerTypedropdown" })
+                        }
+                        else
+                        {
+                            @Html.DropDownListFor(model => model.AnswerType, EnumHelper.GetSelectList(typeof(SurveyQuestionTypes)), "Select", new { @class = "form-control", @id = "AnswerTypedropdown", @disabled = "disabled" })
+                        }
+                        }
+                    </div>
+
+                    <span class="error-message" id="answertypeValidator" style="display:none">Specify Answer Type.</span>
+                </div>
+
+                @{
+            if (@Model.Options == null || @Model.Options == "")
+            {
+                <div class="form-group" id="optionsDiv" style="display:none">
+                    <label>Options</label>
+                    <div class="add-sec">
+                        <input type="text" class="form-control optInput optionText_0" id="optionTextBox" value="" onkeypress="GetValueKeyPress(this, 'options')" onkeyup="GetValueKeyPress(this, 'options')" maxlength="100">
+                        <input type="hidden" id="optionId" class="optionId" value="0" />
+                        <div class="controls">
+                            <button type="button" class="glyphicon glyphicon-plus add-icn" id="addButton" onclick="return AddOptionRow(this)"></button>
+                            <button type="button" class="glyphicon glyphicon-remove add-icn" id="removeButton" onclick="return RemoveOptionRow(this)" style="display:none"></button>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                string[] options = new string[1];
+                int rowCount = 0;
+                if (@Model.Options.Contains(","))
+                {
+                    options = @Model.Options.Split(",".ToCharArray());
+                }
+                else
+                {
+                    options.SetValue(@Model.Options, 0);
+                }
+                <div class="form-group" id="optionsDiv">
+                    <label>Options</label>
+
+                    @foreach (string item in options)
+                    {
+                        string optionId = item.Split("_".ToCharArray())[0];
+                        string optionText = item.Split("_".ToCharArray())[1];
+
+                        <div class="add-sec">
+                            <input type="text" class="form-control optInput optionText_@rowCount" id="optionTextBox" value="@optionText" onkeypress="GetValueKeyPress(this, 'options')" onkeyup="GetValueKeyPress(this, 'options')" maxlength="100">
+                            <input type="hidden" id="optionId" class="optionId" value="@optionId" />
+                            <div class="controls">
+                                @if (rowCount == options.Length - 1)
+                                {
+                                    <button type="button" class="glyphicon glyphicon-plus add-icn addButton" id="addButton" onclick="return AddOptionRow(this)"></button>
+                                    <button type="button" class="glyphicon glyphicon-remove add-icn removeButton" id="removeButton" onclick="return RemoveOptionRow(this)" style="display:none"></button>
+                                }
+                                else
+                                {
+                                    <button type="button" class="glyphicon glyphicon-plus add-icn addButton" id="addButton" onclick="return AddOptionRow(this)" style="display:none"></button>
+                                    <button type="button" class="glyphicon glyphicon-remove add-icn removeButton" id="removeButton" onclick="return RemoveOptionRow(this)"></button>
+                                }
+
+                            </div>
+                        </div>
+                                rowCount++;
+                    }
+                </div>
+            }
+                }
+
+                <span class="error-message" id="optionsSpan" style="display:none"></span>
+
+                @Html.HiddenFor(model => Model.SurveyID, new { @id = "SurveyId", @name = "SurveyId" })
+                @Html.HiddenFor(model => Model.QuestionID, new { @id = "QuestionId", @name = "QuestionId" })
+                @Html.HiddenFor(model => Model.Options, new { @id = "Options", @name = "Options" })
+
+                <button type="button" data-toggle="Cancel" class="btn btn-default1 btnSurvey" onclick="Cancel();" title="Cancel">Cancel</button>
+                <input id="submitSurveyButton" type="submit" value="Save" title="Save" class="btn btn-primary submit btnSurvey" style="margin-left: 0px;" onclick="return GetAnswerTypeOptions()" />
+
+            </div>
+            <hr>
+
+            <div class="questions-list">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="questionTable">
+                        <tr>
+                            <th>Question</th>
+                            <th>Answer Type</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        @{
+            if (Model.Questions != null)
+            {
+                if (Model.Questions.Count > 0)
+                {
+                    foreach (SurveyQuestionViewModel question in Model.Questions)
+                    {
+                        string answerType = ((SurveyQuestionTypes)question.AnswerType).ToString();
+                        string optionText = "";
+                        SurveyQuestionTypes type = (SurveyQuestionTypes)question.AnswerType;
+
+                        answerType = type.GetType().GetMember(answerType).First().GetCustomAttributesData().FirstOrDefault().NamedArguments[0].TypedValue.Value.ToString();
+
+                        if (question.Options != null)
+                        {
+                            if (question.Options.Count > 0)
+                            {
+                                optionText = "";
+                                foreach (SurveyQuestionOptionsViewModel option in question.Options)
+                                {
+                                    if (optionText == "")
+                                    {
+                                        optionText = option.OptionID + "_" + option.OptionText;
+                                    }
+
+                                    else
+                                    {
+                                        optionText += "," + option.OptionID + "_" + option.OptionText;
+                                    }
+
+                                }
+                            }
+                        }
+
+                        var questionText = question.QuestionText.Length > 50 ? question.QuestionText.Substring(0, 50) + "..." : question.QuestionText;
+
+                        <tr>
+                            <td title="@question.QuestionText">@questionText</td>
+                            <td>@answerType</td>
+                            <td>
+                                <input type="hidden" id="optionsHidden" value='@optionText' />
+                                <a href="#" onclick="EditQuestion(@question.QuestionID)" title="Edit"><i class="edit"></i></a>
+                                <a href="#" onclick="ShowDeleteQuestionConfirmationPopup('@question.QuestionID')" title="Delete"><i class="delete"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+                        }
+
+
+                    </table>
+                    <input type="hidden" id="CurrentQuestionId" />
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- Start Modal 1-->
+<div id="DeleteQuestionPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 centered text-center">
+                            <p id="confirmMessage"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteQuestion()" class="btn btn-primary" id="btnDelete">Delete</button>
+
+                </div>
+                @Html.Hidden("P1C_Type")
+                @Html.Hidden("P1C_Value")
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal 1 -->
+@section page_scripts{
+    <script src='@Url.Content("~/Scripts/Pages/AddSurvey.js")' type='text/javascript'></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @if (@Model.IsSaved == true && @Model.Status == 0)
+            {
+
+                @:$('#divSuccess').show();
+                                                    @:CallTimerForAddSurvey();
+                                                }
+        });
+
+        function CallTimerForAddSurvey() {
+            setTimeout(function () { CallBackToAddSurvey(); }, 2000);
+        }
+
+        function CallBackToAddSurvey() {
+            var url = '@Url.Action("EditSurvey", "Survey")?SurveyId=@Model.SurveyID.ToString()';
+            window.location.href = url;
+        }
+    </script>
+}

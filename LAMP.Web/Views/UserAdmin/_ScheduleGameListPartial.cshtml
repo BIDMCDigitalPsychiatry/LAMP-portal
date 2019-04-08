@@ -1,0 +1,177 @@
+﻿@model ScheduleGameSurveyViewModel
+@using System.Collections;
+@using LAMP.Utility;
+@using System.Globalization;
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+@section page_scripts{
+    <script type="text/javascript">
+        $("#msgsuccessgame").hide();
+        $("#DeleteGamePopupConfirmation").hide();
+        $('#spanTotalUser').text(@Model.ScheduleGameListViewModel.TotalRows.ToString());
+    </script>
+}
+<input type="hidden" name="currentGameId" id="currentGameId" />
+<div id="msgsuccessgame" class="alert alert-success alert-white rounded" style="display:none;"></div>
+<input type="hidden" name="userFunctionalitygame" id="userFunctionalitygame" />
+
+@using (Ajax.BeginForm("SearchScheduleGame", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divGameList", InsertionMode = InsertionMode.Replace, OnBegin = "OnBeginAjaxCall_User()", OnSuccess = "OnSuccessAjaxCall_User();", OnFailure = "OnFailureAjaxCall_User()" },
+        new { id = "gameListForm", @class = "form-horizontal", pageSize = Model.ScheduleGameListViewModel.SortPageOptions.PageSize }))
+{
+    <div class="table-responsive">
+        <table class="table" id="surveyList">
+            <tr>
+                <th class="@(Model.ScheduleGameListViewModel.SortPageOptions.SortField == "GameName" ? "sorting-" + Model.ScheduleGameListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortGameList('GameName')" width="20%"><span>Game Name</span></th>
+
+                <th class="@(Model.ScheduleGameListViewModel.SortPageOptions.SortField == "CreatedOn" ? "sorting-" + Model.ScheduleGameListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortGameList('CreatedOn')" width="10%"><span>Created On</span></th>
+                <th>Slot Time</th>
+                <th>Version</th>
+                <th>Repeat Interval</th>
+                <th>Scheduled Date</th>
+                <th>Actions</th>
+            </tr>
+            @if (Model.ScheduleGameListViewModel.TotalRows > 0)
+            {
+                int j = 0;
+                foreach (AdminCTestScheduleViewModel schedule in Model.ScheduleGameListViewModel.AdminCTestScheduleViewModelList)
+                {
+                    <tr>
+                        <td>@schedule.CTestName</td>
+                        <td>@(schedule.CreatedOnString == string.Empty ? "Nil" : schedule.CreatedOnString)</td>
+                        @if (schedule.RepeatID == 11)
+                        {
+                            <td>
+                                @{int k = 0;}
+                                @foreach (var item in schedule.SlotTimeOptions)
+                                {
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            @{
+                                            <text>
+
+                                            ConvertToLocalTime('@k', '@schedule.AdminCTestSchID', '@item', 2);
+                                            </text>
+                                         }
+
+                                        });
+                                    </script>
+                                    <span id="schedule-optionGame_@k@schedule.AdminCTestSchID"></span>
+
+                                    k++;
+                                }
+                            </td>
+                        }
+                        else if (schedule.RepeatID == 2 || schedule.RepeatID == 3 || schedule.RepeatID == 4)
+                        {
+                            <td>
+                                <span>Nil</span>
+
+                            </td>
+                        }
+                        else
+                        {
+
+                            <td>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        @{
+                                            <text>
+
+                                        ConvertToLocalTimeOption('@schedule.AdminCTestSchID', '@schedule.SlotTimeStamp', 2);
+                                        </text>
+                                         }
+
+                                    });
+                                </script>
+                                <span id="schedule-timeGame_@schedule.AdminCTestSchID"></span>
+                            </td>
+                        }
+                        @if (schedule.Version == -1)
+                        {
+                            <td>No Version</td>
+                        }
+                        else
+                        {
+                            <td>@schedule.Version</td>
+                        }
+                        <td>@schedule.RepeatInterval</td>
+                        <td>
+                            @if (schedule.RepeatID == 11 || schedule.RepeatID == 2 || schedule.RepeatID == 3 || schedule.RepeatID == 4)
+                            {
+                                <text>  Nil    </text>
+                            }
+                            else
+                            {
+                                @Helper.GetDateString(schedule.ScheduleDate, "MM/dd/yyyy")
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditGameSchedule", "UserAdmin", new { adminCTestSchID = @schedule.AdminCTestSchID })" title="Edit"><i class="edit"></i></a>
+                            <a href="#" onclick="ShowDeleteScheduleGamePopupConfirmation('@schedule.AdminCTestSchID','Delete')" title="Delete"><i class="delete"></i></a>
+                        </td>
+                    </tr>
+                            j++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div id="divRegquestGridNone" class="" style="">No schedules found.</div>
+                    </td>
+                </tr>
+            }
+        </table>
+        <input type="hidden" value="@Model.ScheduleGameListViewModel.SearchId" name="searchString" id="searchString" />
+        <input type="hidden" value="@Model.ScheduleGameListViewModel.SortPageOptions.PageSize" name="PageSize" />
+        <input type="hidden" value="@Model.ScheduleGameListViewModel.SortPageOptions.SortField" name="sortColumn" id="SortFieldGame" />
+        <input type="hidden" value="@Model.ScheduleGameListViewModel.SortPageOptions.CurrentPage" name="page" id="page" />
+        <input type="hidden" value="@Model.ScheduleGameListViewModel.SortPageOptions.SortOrder" name="sortOrder" id="SortOrderGame" />
+        <input type="hidden" id="AdminTotalRows" value="@Model.ScheduleGameListViewModel.TotalRows" />
+    </div>
+
+    if (Model.ScheduleGameListViewModel.PagedAdminCTestScheduleViewModelList != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.ScheduleGameListViewModel.PagedAdminCTestScheduleViewModelList.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.ScheduleGameListViewModel.PagedAdminCTestScheduleViewModelList, page => Url.Action("SearchScheduleGame", new { page, searchString = Model.ScheduleGameListViewModel.SearchId, sortColumn = Model.ScheduleGameListViewModel.SortPageOptions.SortField, sortOrder = Model.ScheduleGameListViewModel.SortPageOptions.SortOrder, pageSize = Model.ScheduleGameListViewModel.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divGameList", OnSuccess = "SuccessPaginationUser", OnBegin = "BeginPaginaionUser" }))
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+}
+<!-- Delete Admin Popup Confirmation-->
+<div id="DeleteGamePopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    @*<div class="row">*@
+                    <div class="col-md-12 centered text-center">
+                        <p id="confirmMessageGame"></p>
+                    </div>
+                    @*</div>*@
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteScheduleGame()" class="btn btn-primary" id="btnDelete">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Popup -->

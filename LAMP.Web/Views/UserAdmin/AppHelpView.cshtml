@@ -1,0 +1,37 @@
+﻿@model AppHelpViewModel
+@using LAMP.Utility
+@using System.Configuration;
+@{
+    ViewBag.Title = "AppHelpView";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>App Help</h4>
+        <a href="@Url.Action("BackToAppHelp", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @{
+            string fileName = Model.ImageURL;
+            var filepath = ConfigurationManager.AppSettings["AppHelpImagePath"] + "\\" + fileName;
+            filepath = filepath.Replace("~", "");
+            var Content = Model.Content ?? "";
+            Content = HttpUtility.HtmlDecode(Content).Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n\n", "</p><p>");
+            Model.Content = Content;
+        }
+        <div class="blog-sec">
+
+            <h5>@Model.AdminFullName : @(Model.CreatedOnString == string.Empty ? "Nil" : Model.CreatedOnString)</h5>
+            @if (Model.ImageURL != null)
+            {
+                <div class="blog-img clearfix"><div class="img-block"><img src="@filepath" alt=""></div></div>
+            }
+            else
+            {
+                <div class="blog-img clearfix"><div class="img-block"><img src="~/Content/Default/images/no-image.png" alt=""></div></div>
+            }
+            <p>@Html.Raw(Model.Content)</p>
+        </div>
+    </div>
+</div>
+

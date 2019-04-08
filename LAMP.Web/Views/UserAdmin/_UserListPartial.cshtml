@@ -1,0 +1,165 @@
+﻿@model AdminandUserListViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+@section page_scripts{
+    <script type="text/javascript">
+        $("#msgsuccess").hide();
+        $("#DeleteUserPopupConfirmation").hide();
+        $('#spanTotalUser').text(@Model.UserListViewModel.TotalRows.ToString());
+    </script>
+}
+<input type="hidden" name="currentUserId" id="currentUserId" />
+<div id="msgsuccess" class="alert alert-success alert-white rounded" style="display:none;"></div>
+<input type="hidden" name="userFunctionality" id="userFunctionality" />
+@using (Ajax.BeginForm("SearchUsers", "UserAdmin", new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "divUserList", InsertionMode = InsertionMode.Replace, OnBegin = "OnBeginAjaxCall_User()", OnSuccess = "OnSuccessAjaxCall_User();", OnFailure = "OnFailureAjaxCall_User()" },
+        new { id = "userListForm", @class = "form-horizontal", pageSize = Model.UserListViewModel.SortPageOptions.PageSize }))
+{
+    <div class="table-responsive list-table">
+        @Html.HiddenFor(model => Model.UserTypeDropdownId, new { @id = "UserTypeDropdownId", @name = "UserTypeDropdownId" })
+        <table id="UserList" class="table table-striped">
+            <tr>
+                <th width="2%">&nbsp;</th>
+                <th class="@(Model.UserListViewModel.SortPageOptions.SortField == "StudyId" ? "sorting-" + Model.UserListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('StudyId')" width="5%"><span>Study ID</span></th>
+                <th class="@(Model.UserListViewModel.SortPageOptions.SortField == "RegisteredOn" ? "sorting-" + Model.UserListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('RegisteredOn')" width="6%"><span>Registered On</span></th>
+                <th class="@(Model.UserListViewModel.SortPageOptions.SortField == "Email" ? "sorting-" + Model.UserListViewModel.SortPageOptions.SortOrder : "sorting")"
+                    onclick="SortUserList('Email')" width="5%"><span>Email &amp; Phone</span></th>
+                <th width="5%">Device</th>
+                <th width="5%">Surveys</th>
+                <th width="7%">Last Survey Date</th>
+                <th width="5%">Is Active?</th>
+                <th width="5%">Clinical Profile</th>
+                <th width="13%">&nbsp;</th>
+                <th width="6%">&nbsp;</th>
+            </tr>
+
+            @if (Model.UserListViewModel.TotalRows > 0)
+            {
+                foreach (AdminUser user in Model.UserListViewModel.UserList)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="check" name="check" id="checkAll">
+                        </td>
+                        <td><a href="@Url.Action("UserProfile", "UserAdmin", new { userId = @user.UserID })">@user.StudyId</a></td>
+                        <td style="display:none;">@user.UserID</td>
+                        <td>@(user.RegisteredOnString == string.Empty ? "Nil" : user.RegisteredOnString)</td>
+                        <td>@user.Email <br>@user.Phone</td>
+                        <td>@user.Device</td>
+                        <td>@user.Surveys</td>
+                        <td>@(user.LastSurveyDateString == "01/01/0001" ? "Nil" : user.LastSurveyDateString)</td>
+                        @if (@user.IsActive)
+                        {
+                            <td>Yes</td>}
+                        else
+                        {
+                            <td>No</td>}
+                        @if (@user.ClinicalProfileURL == "" || @user.ClinicalProfileURL == null)
+                        {
+                            <td><a title="Download" class="disabled"><i class="downloadDis"></i></a></td>
+                        }
+                        else
+                        {
+                            <td><a title="Download" href="@Url.Action("Download", "UserAdmin", new { userId = @user.UserID })"><i class="download"></i></a></td>
+                        }
+                        <td>
+                            @if (@user.RegisteredOnString == string.Empty)
+                            {
+                                <button class="view disabled" title="View Survey">View Survey</button>
+                                if (@user.IsActive)
+                                {
+                                    <a href="#" onclick="ShowAlert('@Model.UserListViewModel.UnregisteredUserMessage');" title="Deactivate"><i class="active">Deactivate</i></a>
+                                }
+                                else
+                                {
+                                    <a href="#" onclick="ShowAlert('@Model.UserListViewModel.UnregisteredUserMessage');" title="Activate"><i class="deactive">Activate</i></a>
+                                }
+                            }
+                            else
+                            {
+                                <button class="view" title="View Survey" onclick="location.href='@Url.Action("UserActivities", "UserAdmin", new { userId = @user.UserID, studyId = @user.StudyId })';return false;">View Survey</button>
+                                if (@user.IsActive)
+                                {
+                                    <a href="#" onclick="ShowDeleteUserConfirmationPopup(' @user.UserID','Deactivate')" title="Deactivate"><i class="active">Deactivate</i></a>
+                                }
+                                else
+                                {
+                                    <a href="#" onclick="ShowDeleteUserConfirmationPopup(' @user.UserID','Activate')" title="Activate"><i class="deactive">Activate</i></a>
+                                }
+                            }
+                            <button class="schedule" data-toggle="modal" onclick="SetcurrentUserId(' @user.UserID')" data-target="#ProtocolModal">Protocol Date</button>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditUser", "UserAdmin", new { userId = @user.UserID })" title="Edit"><i class="edit"></i></a>
+                            <a href="#" onclick="ShowDeleteUserConfirmationPopup(' @user.UserID','Delete')" title="Delete"><i class="delete"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <div id="divRegquestGridNone" class="" style="">No records found.</div>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <input type="hidden" value="@Model.UserListViewModel.SearchId" name="searchString" id="searchString" />
+        <input type="hidden" value="@Model.UserListViewModel.SortPageOptions.PageSize" name="PageSize" />
+        <input type="hidden" value="@Model.UserListViewModel.SortPageOptions.SortField" name="sortColumn" id="SortField" />
+        <input type="hidden" value="@Model.UserListViewModel.SortPageOptions.CurrentPage" name="page" id="page" />
+        <input type="hidden" value="@Model.UserListViewModel.SortPageOptions.SortOrder" name="sortOrder" id="SortOrder" />
+        <input type="hidden" id="UsersTotalRows" value="@Model.UserListViewModel.TotalRows" />
+    </div>
+
+    if (Model.UserListViewModel.PagedUserList != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.UserListViewModel.PagedUserList.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.UserListViewModel.PagedUserList, page => Url.Action("SearchUsers", new { page, searchString = Model.UserListViewModel.SearchId, sortColumn = Model.UserListViewModel.SortPageOptions.SortField, sortOrder = Model.UserListViewModel.SortPageOptions.SortOrder, pageSize = Model.UserListViewModel.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divUserList", OnSuccess = "SuccessPaginationUser", OnBegin = "BeginPaginaionUser" }))
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+}
+<!-- Start Modal -->
+<div id="DeleteUserPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 centered text-center">
+                            <p id="confirmMessage"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteUser()" class="btn btn-primary" id="btnDelete">Delete</button>
+                    <button type="button" title="Activate" onclick="ActivateUser()" class="btn btn-primary" id="btnActivate">Activate</button>
+                </div>
+                @Html.Hidden("P1C_Type")
+                @Html.Hidden("P1C_Value")
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal 1 -->
+
+

@@ -1,0 +1,17 @@
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\LAMP.ViewModel.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\LAMP.ViewModel.pdb
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\LAMP.DataAccess.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\PagedList.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\PagedList.Mvc.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\EntityFramework.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\LAMP.DataAccess.pdb
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\PagedList.xml
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\PagedList.Mvc.xml
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\EntityFramework.xml
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\obj\Release\LAMP.ViewModel.csprojResolveAssemblyReference.cache
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\obj\Release\LAMP.ViewModel.dll
+E:\Working Folder\LAMP\Source\LAMP.ViewModel\obj\Release\LAMP.ViewModel.pdb

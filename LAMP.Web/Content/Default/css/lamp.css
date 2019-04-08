@@ -1,0 +1,13 @@
+﻿body {
+}
+.hide
+{
+    display:none;
+}
+.show
+{
+    display:block;
+}
+.margin0 {
+    margin: 0px !important;
+}

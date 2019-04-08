@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAMP.Web", "LAMP.Web\LAMP.Web.csproj", "{C7FD614F-7FD0-4FF0-A4D7-51A41D94E3C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAMP.API", "LAMP.API\LAMP.API.csproj", "{5453F329-94ED-4948-B444-17071566BCF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAMP.DataAccess", "LAMP.DataAccess\LAMP.DataAccess.csproj", "{4AFB7F94-A15C-44F6-8B69-E1399D8855EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAMP.Service", "LAMP.Service\LAMP.Service.csproj", "{984CD966-EF2B-4F46-9134-7B48DB44C100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAMP.Utility", "LAMP.Utility\LAMP.Utility.csproj", "{7DFB4EA1-CAFB-4731-A76E-C085806164DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAMP.ViewModel", "LAMP.ViewModel\LAMP.ViewModel.csproj", "{E4BC69FE-2FC0-4712-9036-3C2C5F7FC90C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://m9:8080/tfs/lamp
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LAMP.Web\\LAMP.Web.csproj
+		SccProjectName1 = LAMP.Web
+		SccLocalPath1 = LAMP.Web
+		SccProjectUniqueName2 = LAMP.API\\LAMP.API.csproj
+		SccProjectName2 = LAMP.API
+		SccLocalPath2 = LAMP.API
+		SccProjectUniqueName3 = LAMP.DataAccess\\LAMP.DataAccess.csproj
+		SccProjectName3 = LAMP.DataAccess
+		SccLocalPath3 = LAMP.DataAccess
+		SccProjectUniqueName4 = LAMP.Service\\LAMP.Service.csproj
+		SccProjectName4 = LAMP.Service
+		SccLocalPath4 = LAMP.Service
+		SccProjectUniqueName5 = LAMP.Utility\\LAMP.Utility.csproj
+		SccProjectName5 = LAMP.Utility
+		SccLocalPath5 = LAMP.Utility
+		SccProjectUniqueName6 = LAMP.ViewModel\\LAMP.ViewModel.csproj
+		SccProjectName6 = LAMP.ViewModel
+		SccLocalPath6 = LAMP.ViewModel
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7FD614F-7FD0-4FF0-A4D7-51A41D94E3C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FD614F-7FD0-4FF0-A4D7-51A41D94E3C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FD614F-7FD0-4FF0-A4D7-51A41D94E3C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FD614F-7FD0-4FF0-A4D7-51A41D94E3C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5453F329-94ED-4948-B444-17071566BCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5453F329-94ED-4948-B444-17071566BCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5453F329-94ED-4948-B444-17071566BCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5453F329-94ED-4948-B444-17071566BCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AFB7F94-A15C-44F6-8B69-E1399D8855EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AFB7F94-A15C-44F6-8B69-E1399D8855EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AFB7F94-A15C-44F6-8B69-E1399D8855EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AFB7F94-A15C-44F6-8B69-E1399D8855EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{984CD966-EF2B-4F46-9134-7B48DB44C100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{984CD966-EF2B-4F46-9134-7B48DB44C100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{984CD966-EF2B-4F46-9134-7B48DB44C100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{984CD966-EF2B-4F46-9134-7B48DB44C100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFB4EA1-CAFB-4731-A76E-C085806164DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFB4EA1-CAFB-4731-A76E-C085806164DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFB4EA1-CAFB-4731-A76E-C085806164DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFB4EA1-CAFB-4731-A76E-C085806164DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4BC69FE-2FC0-4712-9036-3C2C5F7FC90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4BC69FE-2FC0-4712-9036-3C2C5F7FC90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4BC69FE-2FC0-4712-9036-3C2C5F7FC90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4BC69FE-2FC0-4712-9036-3C2C5F7FC90C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

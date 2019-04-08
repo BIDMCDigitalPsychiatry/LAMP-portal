@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72252393476241e0a3dfb2e3c12fefbf" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="LAMPModel.Admin" Width="1.5" PointX="0.75" PointY="86.875" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_BatchSchedule" Width="1.5" PointX="6" PointY="85.5" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_BatchScheduleCTest" Width="1.5" PointX="8.25" PointY="83.625" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_BatchScheduleCustomTime" Width="1.5" PointX="8.25" PointY="182.5" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_BatchScheduleSurvey" Width="1.5" PointX="8.25" PointY="108.625" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_CTestSchedule" Width="1.5" PointX="9" PointY="87.25" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_CTestScheduleCustomTime" Width="1.5" PointX="11.25" PointY="88.375" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_CTestSurveySettings" Width="1.5" PointX="3" PointY="84.125" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_JewelsTrailsASettings" Width="1.5" PointX="3" PointY="105.625" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_JewelsTrailsBSettings" Width="1.5" PointX="3" PointY="101.125" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_Settings" Width="1.5" PointX="3" PointY="110.125" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_SurveySchedule" Width="1.5" PointX="3" PointY="87.375" />
+        <EntityTypeShape EntityType="LAMPModel.Admin_SurveyScheduleCustomTime" Width="1.5" PointX="5.25" PointY="94.375" />
+        <EntityTypeShape EntityType="LAMPModel.AppHelp" Width="1.5" PointX="3" PointY="92.625" />
+        <EntityTypeShape EntityType="LAMPModel.Blog" Width="1.5" PointX="3" PointY="72.875" />
+        <EntityTypeShape EntityType="LAMPModel.CTest" Width="1.5" PointX="0.75" PointY="82.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_3DFigure" Width="1.5" PointX="12" PointY="79.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_3DFigureResult" Width="1.5" PointX="14.25" PointY="93.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_CatAndDogNewResult" Width="1.5" PointX="8.25" PointY="112.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_CatAndDogNewResultDtl" Width="1.5" PointX="10.5" PointY="119.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_CatAndDogResult" Width="1.5" PointX="17.25" PointY="104.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_DigitSpanResult" Width="1.5" PointX="14.25" PointY="110.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_JewelsTrailsAResult" Width="1.5" PointX="20.25" PointY="104.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_JewelsTrailsAResultDtl" Width="1.5" PointX="22.5" PointY="105.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_JewelsTrailsBResult" Width="1.5" PointX="17.25" PointY="93.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_JewelsTrailsBResultDtl" Width="1.5" PointX="19.5" PointY="94.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_NBackNewResult" Width="1.5" PointX="8.25" PointY="103.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_NBackResult" Width="1.5" PointX="11.25" PointY="98.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_ScratchImage" Width="1.5" PointX="15" PointY="90.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_ScratchImageResult" Width="1.5" PointX="17.25" PointY="99.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_Serial7Result" Width="1.5" PointX="14.25" PointY="104.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_SimpleMemoryResult" Width="1.5" PointX="11.25" PointY="92.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_SpatialResult" Width="1.5" PointX="8.25" PointY="97.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_SpatialResultDtl" Width="1.5" PointX="10.5" PointY="83" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_SpinWheelResult" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TemporalOrderResult" Width="1.5" PointX="11.25" PointY="104.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TrailsBDotTouchResult" Width="1.5" PointX="11.25" PointY="114.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TrailsBDotTouchResultDtl" Width="1.5" PointX="13.5" PointY="126.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TrailsBNewResult" Width="1.5" PointX="14.25" PointY="116.25" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TrailsBNewResultDtl" Width="1.5" PointX="16.5" PointY="117.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TrailsBResult" Width="1.5" PointX="11.25" PointY="109.375" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_TrailsBResultDtl" Width="1.5" PointX="13.5" PointY="122.125" />
+        <EntityTypeShape EntityType="LAMPModel.CTest_VisualAssociationResult" Width="1.5" PointX="14.25" PointY="98.25" />
+        <EntityTypeShape EntityType="LAMPModel.HealthKit_BasicInfo" Width="1.5" PointX="5.25" PointY="115.875" />
+        <EntityTypeShape EntityType="LAMPModel.HealthKit_DailyValues" Width="1.5" PointX="5.25" PointY="128.875" />
+        <EntityTypeShape EntityType="LAMPModel.HealthKit_Parameters" Width="1.5" PointX="6" PointY="126.375" />
+        <EntityTypeShape EntityType="LAMPModel.HealthKit_ParamValues" Width="1.5" PointX="8.25" PointY="120" />
+        <EntityTypeShape EntityType="LAMPModel.HelpCall" Width="1.5" PointX="5.25" PointY="112.625" />
+        <EntityTypeShape EntityType="LAMPModel.Location" Width="1.5" PointX="5.25" PointY="133.625" />
+        <EntityTypeShape EntityType="LAMPModel.Repeat" Width="1.5" PointX="3.75" PointY="65.5" />
+        <EntityTypeShape EntityType="LAMPModel.Slot" Width="1.5" PointX="3.75" PointY="80.125" />
+        <EntityTypeShape EntityType="LAMPModel.Survey" Width="1.5" PointX="0.75" PointY="77.375" />
+        <EntityTypeShape EntityType="LAMPModel.SurveyQuestionOption" Width="1.5" PointX="5.25" PointY="77" />
+        <EntityTypeShape EntityType="LAMPModel.SurveyQuestion" Width="1.5" PointX="3" PointY="76.75" />
+        <EntityTypeShape EntityType="LAMPModel.SurveyResult" Width="1.5" PointX="17.25" PointY="110" />
+        <EntityTypeShape EntityType="LAMPModel.SurveyResultDtl" Width="1.5" PointX="19.5" PointY="111" />
+        <EntityTypeShape EntityType="LAMPModel.Tip" Width="1.5" PointX="3" PointY="69.75" />
+        <EntityTypeShape EntityType="LAMPModel.UserDevice" Width="1.5" PointX="5.25" PointY="137.125" />
+        <EntityTypeShape EntityType="LAMPModel.User" Width="1.5" PointX="3" PointY="115.125" />
+        <EntityTypeShape EntityType="LAMPModel.UserSetting" Width="1.5" PointX="5.25" PointY="119.25" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_BatchSchedule_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSchedule_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSurveySettings_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_JewelsTrailsASettings_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_JewelsTrailsBSettings_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_Settings_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_SurveySchedule_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_AppHelp_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Blogs_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Tips_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Users_Admin" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_BatchSchedule_Repeat" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_BatchSchedule_Slot" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_BatchScheduleCTest_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_BatchScheduleCustomTime_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_BatchScheduleSurvey_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_3DFigureResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_CatAndDogNewResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_CatAndDogResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_DigitSpanResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_JewelsTrailsAResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_JewelsTrailsBResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_NBackNewResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_NBackResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_ScratchImageResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_Serial7Result_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_SimpleMemoryResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_SpatialResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_SurveyResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TemporalOrderResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBDotTouchResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBNewResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_VisualAssociationResult_Admin_BatchSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSchedule_CTest" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSchedule_Repeat" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSchedule_Slot" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestScheduleCustomTime_Admin_CTestSchedule" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSurveySettings_CTest" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_CTestSurveySettings_Survey" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_SurveySchedule_Repeat" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_SurveySchedule_Slot" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_SurveySchedule_Survey" />
+        <AssociationConnector Association="LAMPModel.FK_Admin_SurveyScheduleCustomTime_Admin_SurveySchedule" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_3DFigureResult_CTest_3DFigure" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_3DFigureResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_CatAndDogNewResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_CatAndDogNewResultDtl_CTest_CatAndDogNewResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_CatAndDogResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_DigitSpanResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_JewelsTrailsAResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_JewelsTrailsAResultDtl_CTest_JewelsTrailsAResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_JewelsTrailsBResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_JewelsTrailsBResultDtl_CTest_JewelsTrailsBResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_NBackNewResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_NBackResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_ScratchImageResult_CTest_ScratchImage" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_ScratchImageResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_Serial7Result_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_SimpleMemoryResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_SpatialResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_SpatialResultDtl_CTest_SpatialResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TemporalOrderResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBDotTouchResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBDotTouchResultDtl_CTest_TrailsBDotTouchResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBNewResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBNewResultDtl_CTest_TrailsBNewResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_TrailsBResultDtl_CTest_TrailsBResult" />
+        <AssociationConnector Association="LAMPModel.FK_CTest_VisualAssociationResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_HealthKit_BasicInfo_Users" />
+        <AssociationConnector Association="LAMPModel.FK_HealthKit_DailyValues_Users" />
+        <AssociationConnector Association="LAMPModel.FK_HealthKit_ParamValues_HealthKit_Parameters" />
+        <AssociationConnector Association="LAMPModel.FK_HealthKit_ParamValues_Users" />
+        <AssociationConnector Association="LAMPModel.FK_HelpCalls_Users" />
+        <AssociationConnector Association="LAMPModel.FK_Locations_Users" />
+        <AssociationConnector Association="LAMPModel.FK_UserSettings_CognTest_Repeat" />
+        <AssociationConnector Association="LAMPModel.FK_UserSettings_SympSurvey_Repeat" />
+        <AssociationConnector Association="LAMPModel.FK_UserSettings_CognTest_Slot" />
+        <AssociationConnector Association="LAMPModel.FK_UserSettings_SympSurvey_Slot" />
+        <AssociationConnector Association="LAMPModel.FK_SurveyQuestions_Survey" />
+        <AssociationConnector Association="LAMPModel.FK_SurveyResult_Survey" />
+        <AssociationConnector Association="LAMPModel.FK_SurveyQuestionOptions_SurveyQuestions" />
+        <AssociationConnector Association="LAMPModel.FK_SurveyResult_Users" />
+        <AssociationConnector Association="LAMPModel.FK_SurveyResultDtl_SurveyResult" />
+        <AssociationConnector Association="LAMPModel.FK_UserDevices_Users" />
+        <AssociationConnector Association="LAMPModel.FK_UserSettings_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

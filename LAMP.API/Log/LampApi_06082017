@@ -1,0 +1,14 @@
+2017-06-08 17:18:08,384 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Object reference not set to an instance of an object.
+----------
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserService.SendPasswordOnEmail(ForgotPasswordRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 187
+----------
+
+
+2017-06-08 17:18:24,649 [6] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Object reference not set to an instance of an object.
+----------
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at LAMP.Service.UserService.SendPasswordOnEmail(ForgotPasswordRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 187
+----------
+
+

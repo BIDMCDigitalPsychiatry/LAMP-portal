@@ -1,0 +1,59 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<div class="table-responsive survey" style="margin-bottom:20px;">
+    <div class="panel-heading clearfix">
+        <h4>
+            <span>Location</span>
+        </h4>
+    </div>
+    <table class="table table-bordered" style="margin-bottom:0;">
+        @if (Model._LocationList != null && Model._LocationList.Count > 0)
+        {
+            <tr>
+                <th>Actual address</th>
+                <th>date &amp; time</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            foreach (UserEnvironment location in Model._LocationList)
+            {
+                <tr>
+                    <td>@location.Address</td>
+                    <td>@location.Date_Time</td>
+                    <td>@location.Latitude</td>
+                    <td>@location.Longitude</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">
+                    <div class="" style="">No records found.</div>
+                </td>
+            </tr>
+        }
+    </table>
+    @if (Model.PagedLocationList != null)
+    {
+        <div class="row col-sm-12">
+            <div class="pull-right">
+                <div class="dataTables_paginate paging_bs_normal">
+                    @if (Model.PagedLocationList.Count != 0)
+                    {
+                        <div>
+                            @Html.PagedListPager(Model.PagedLocationList, page => Url.Action("SearchLocationList", new { page, userId = Model.UserID, pageSize = Model.LocationSortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divLocationList" }))
+                        </div>
+                    }
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    }
+    @Html.HiddenFor(model => Model.LocationSortPageOptions.CurrentPage, new { @id = "CurrentPageForLocation", @name = "CurrentPageForLocation" })
+    @Html.HiddenFor(model => Model.LocationSortPageOptions.PageSize, new { @id = "PageSizeForLocation", @name = "PageSizeForLocation" })
+
+
+</div>

@@ -1,0 +1,28 @@
+2017-07-03 17:14:15,748 [7] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : jul03@test.com In time: 07-03-2017 11:44:15
+
+2017-07-03 17:15:41,344 [6] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : jul03@test.com Out time: 07-03-2017 11:45:41
+
+2017-07-03 17:17:42,572 [9] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : dd@gmail.com In time: 07-03-2017 11:47:42
+
+2017-07-03 17:18:27,806 [8] LAMP.Utility.LogUtil.Error(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:127) - Sequence contains more than one element
+----------
+System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LAMP.DataAccess.GenericRepository`1.SingleOrDefault(Expression`1 predicate) in e:\Working Folder\LAMP\Source\LAMP.DataAccess\Concrete\GenericRepository.cs:line 47
+   at LAMP.Service.UserService.UserSignIn(UserSignInRequest request) in e:\Working Folder\LAMP\Source\LAMP.Service\API\Concrete\UserService.cs:line 60
+----------
+
+
+2017-07-03 17:18:30,672 [8] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : dd@gmail.com Out time: 07-03-2017 11:48:30
+
+2017-07-03 17:19:50,097 [9] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : dd@gmail.com In time: 07-03-2017 11:49:50
+
+2017-07-03 17:23:09,829 [9] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : dd@gmail.com In time: 07-03-2017 11:53:09
+
+2017-07-03 17:23:41,286 [6] LAMP.Utility.LogUtil.Debug(e:\Working Folder\LAMP\Source\LAMP.Utility\LogManager.cs:75) - SignIn : dd@gmail.com Out time: 07-03-2017 11:53:41
+

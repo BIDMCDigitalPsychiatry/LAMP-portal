@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/Content/Default/images/favicon.png" type="image/png">
+    <title>LAMP</title>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Custom styles for this template -->
+    @Styles.Render("~/Content/Default/css/public_lampcss")
+    @RenderSection("page_css", required: false)
+
+    <style>
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 50px white inset; /* Change the color to your own background color */
+            -webkit-text-fill-color: white;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+            input:-webkit-autofill:focus {
+                -webkit-box-shadow: /*your box-shadow*/,0 0 0 50px white inset;
+                -webkit-text-fill-color: white;
+                transition: background-color 5000s ease-in-out 0s;
+            }
+    </style>
+    <script>
+        var appPath = '@Url.Content("~/")';
+    </script>
+</head>
+<body class="body-login">
+    @RenderBody()
+    @RenderSection("page_bottom_content", required: false)
+    <footer class="footer-login">
+        <p>© 2017 LAMP. All rights reserved.</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/javascripts")
+    @RenderSection("page_scripts", required: false)
+</body>
+</html>

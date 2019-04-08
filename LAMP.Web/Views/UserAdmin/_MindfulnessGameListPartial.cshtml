@@ -1,0 +1,65 @@
+﻿@model UserActivitiesViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<div class="panel-heading clearfix" role="tab" id="headingTwo">
+    <h4>
+        <span>SURVEY</span>
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMindfulnessGame" aria-expanded="false" aria-controls="collapseMindfulnessGame">Mindfulness<i class="acc-arrow"></i></a>
+    </h4>
+    <div class="info">
+        <p class="title">LAST RESULT</p>
+        <p class="status average">-</p>
+        <span>@Model.MindfulnessGameList.LastResultDate</span>
+    </div>
+    <div class="info">
+        <p class="title">OVERALL RATING</p>
+        <p class="status good">-</p>
+        @if (Model.MindfulnessGameList == null || Model.MindfulnessGameList.UserMindfulnessGameList == null)
+        {
+            <span><strong>0</strong> Game</span>
+        }
+        else
+        {
+            <span><strong>@Model.MindfulnessGameList.UserMindfulnessGameList.Count</strong> Game(s)</span>
+        }
+    </div>
+</div>
+<div id="collapseMindfulnessGame" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div class="panel-body">
+        <div class="table-responsive survey cognition acc">
+            <table class="table table-bordered">
+                @if (Model.MindfulnessGameList.UserMindfulnessGameList != null && Model.MindfulnessGameList.UserMindfulnessGameList.Count > 0)
+                {
+                    foreach (UserCognition cognition in Model.MindfulnessGameList.UserMindfulnessGameList)
+                    {
+                        <tr>
+                            <td>@cognition.CognitionName</td>
+                            <td><span class="good">-</span></td>
+                            <td><span class="average">-</span> <strong>@cognition.TotalGames</strong> Game(s)</td>
+                            <td>@string.Format("{0:0} Point(s)", @cognition.EarnedPoints == null ? 0 : cognition.EarnedPoints)</td>
+                            <td>@(cognition.IsNotificationGame == true ? "Notification Game" : "Not Notification Game")</td>                            
+                            @if (@cognition.CognitionType == Convert.ToInt16(19))
+                            {
+                                <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_ScratchImage", "UserAdmin", new { userId = @Model.UserID, adminBatchSchID = 0 })';return false;">View More</button></td>
+                            }
+                            @if (@cognition.CognitionType == Convert.ToInt16(20))
+                            {
+                                <td><button title="View More" class="view" onclick="location.href='@Url.Action("Cognition_SpinWheel", "UserAdmin", new { userId = @Model.UserID })';return false;">View More</button></td>
+                            }
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            <div class="" style="">No records found.</div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

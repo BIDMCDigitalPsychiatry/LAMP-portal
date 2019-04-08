@@ -1,0 +1,397 @@
+﻿@model ScheduleGameSurveyViewModel
+@using LAMP.Utility
+@using System.Web
+@using Newtonsoft.Json
+@{
+    ViewBag.Title = "AdminScheduleSurvey";
+    Layout = "~/Views/Shared/_LayoutSchedule.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    function ConvertToLocalTime(elementId, dateTimeString) {
+        var surveyDate = new Date((parseFloat(dateTimeString)));
+        var surveySlotTime = formatDate(surveyDate);
+        $('.optionText_' + elementId).val(surveySlotTime);
+    }
+</script>
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>Batch Schedule</h4>
+        <a href="@Url.Action("ManageSchedule", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+
+        @if (TempData["BatchStatus"] != null)
+        {
+            if (TempData["BatchMessage"] != null)
+            {
+                var message = TempData["BatchMessage"] as string;
+                if (((short)TempData["BatchStatus"] == 0))
+                {
+                    <div class="alert alert-success" role="alert" id="divNewSuccess">@message</div>
+                }
+                else if ((short)TempData["BatchStatus"] > 0)
+                {
+                    <div class="alert alert-danger show" role="alert">@message</div>
+                }
+            }
+        }
+        @using (Html.BeginForm("AdminScheduleBatch", "UserAdmin", FormMethod.Post, new { id = "scheduleEntryForm" }))
+        {
+            @Html.HiddenFor(model => Model.AdminBatchSchID, new { @id = "AdminBatchSchID", @name = "AdminBatchSchID" })
+            <div class="game-schedule batch-schedule">
+                <h4>Batch creation</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Batch Name</label>
+                                    @Html.TextBoxFor(model => Model.BatchName, new { @class = "form-control optInput", @id = "txtBatchName" })
+                                    @Html.ValidationMessageFor(m => m.BatchName)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" id="divSurvey">
+                                    <label>Select Survey</label>
+                                    <div class="add-sec">
+                                        <div>
+                                            @Html.DropDownList("ddlSurvey", new SelectList(Model.SurveyList, "Value", "Text"), new { @class = "selectpicker" })
+                                        </div>
+
+                                        <div class="controls">
+                                            <button type="button" class="glyphicon glyphicon-plus add-icn addButton" onclick="AddBatchItem(1)" title="Add Survey"></button>
+                                        </div>
+                                    </div>
+                                    <span class="error-message error-control" id="surveyValidation" style="display:none">Please select survey.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="add-sec AddCognition" id="scheduleGame_0">
+                                    <div class="form-group">
+                                        <label id="lblCogTestHeader_0">Select Cognition</label>
+                                        @Html.DropDownList("ddlCognitionTestId_1", new SelectList(Model.CognitionTestList, "Value", "Text"), new { @class = "selectpicker", @onchange = "DropDown.OnGameChange(1)" })
+                                        <span class="error-message error-control" id="cognitionValidation" style="display:none">Please select cognition.</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Select Cognition Version</label>
+                                        @Html.DropDownList("ddlCognitionVersionId_1", new SelectList(Model.CognitionVersionList, "Value", "Text"), new { @class = "selectpicker" })
+                                        <span class="error-message error-control" id="cognitionVersion" style="display:none">Please select cognition version.</span>
+                                    </div>
+                                    <div class="controls">
+                                        <button type="button" class="glyphicon glyphicon-plus add-icn addButton" onclick="AddBatchItem(2)" title="Add Cognition"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-20">
+                                <h5> Survey / Cognition list</h5>
+                                <div class="table-responsive">
+                                    <table class="table" id="tblBatchList">
+                                        <tr>
+                                            <th><span>#</span></th>
+                                            <th><span>Type</span></th>
+                                            <th>Name</th>
+                                            <th>Version</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <span class="error-message error-control" style="display:none" id="spTableErrorMessage">Please select any survey or cognition details.</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Repeat</label>
+                            @Html.DropDownListFor(m => Model.BatchRepeatId, Model.RepeatList, new { @class = "selectpicker", @id = "ddlCognitionTestRepeatId" })
+                        </div>
+                    </div>
+                </div>
+                <div class="datetime-controls">
+                    <div class="form-group" id="scheduleDateDiv">
+                        <label>Select a schedule date</label>
+                        <div class='input-group' id='schedulepick2'>
+                            @Html.TextBoxFor(model => Model.GameScheduleDateString, new { @class = "form-control", @id = "txtGameScheduleDate", @onkeydown = "return false;" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <span class="error-message" id="scheduleDateValidation" style="display:none">Please select a scheduled date.</span>
+                    </div>
+                    <div class="form-group" id="slotTimeDiv">
+                        <label>Slot Time</label>
+                        <div class='input-group date' id='Timer2'>
+                            @Html.TextBoxFor(model => Model.BatchSlotTimeString, new { @class = "form-control", @id = "txtBatchSlotTime", @readonly = true })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                        <span class="error-message" id="CognitionSlotTimeValidation" style="display:none">Please select a cognition time slot.</span>
+                        <span class="error-message" id="cognitionTimeValidation" style="display:none"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (Model.OptionsStringList == null)
+                        {
+                            <div class="form-group" style="display:none" id="optionsDiv">
+                                <label>Time Options</label>
+                                <div class="add-sec">
+                                    <div class='input-group date schedulepick' id='schedulepick0'>
+                                        <input type='text' class="form-control optInput optionText_0" id="optionTextBox" readonly />
+                                        <input type="hidden" id="optionId" class="optionId" value="0" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
+
+                                    <div class="controls">
+                                        <button type="button" class="glyphicon glyphicon-plus add-icn addButton" id="addButton" onclick="return AddOptionRow(this)"></button>
+                                        <button type="button" class="glyphicon glyphicon-remove add-icn removeButton" id="removeButton" onclick="return RemoveOptionRow(this)" style="display:none"></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        else
+                        {
+                            int rowCount = 0;
+                            <div class="form-group" id="optionsDiv">
+                                <label>Time Options</label>
+                                @foreach (string item in Model.OptionsStringList)
+                                {
+                                    <script type="text/javascript">
+                                        $(document).ready(function () {
+                                            @{
+                                            <text>
+                                            ConvertToLocalTime('@rowCount', '@item');
+                                            </text>
+                                         }
+
+                                        });
+                                    </script>
+                                    <div class="add-sec">
+                                        <div class='input-group date schedulepick' id='schedulepick0'>
+                                            <input type="text" class="form-control optInput optionText_@rowCount" id="optionTextBox" readonly>
+                                            <input type="hidden" id="optionId" class="optionId" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
+                                        </div>
+                                        <div class="controls">
+                                            @if (rowCount == Model.OptionsStringList.Count - 1 && rowCount < 9)
+                                            {
+                                                <button type="button" class="glyphicon glyphicon-plus add-icn addButton" id="addButton" onclick="return AddOptionRow(this)"></button>
+                                                <button type="button" class="glyphicon glyphicon-remove add-icn removeButton" id="removeButton" onclick="return RemoveOptionRow(this)" style="display:none"></button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" class="glyphicon glyphicon-plus add-icn addButton" id="addButton" onclick="return AddOptionRow(this)" style="display:none"></button>
+                                                <button type="button" class="glyphicon glyphicon-remove add-icn removeButton" id="removeButton" onclick="return RemoveOptionRow(this)"></button>
+                                            }
+
+                                        </div>
+                                    </div>
+                                            rowCount++;
+                                }
+                            </div>
+                        }
+                        <span class="error-message" id="optionsSpan" style="display:none"></span>
+
+                    </div>
+                </div>
+                @Html.HiddenFor(model => Model.GameScheduleDateValue, new { @id = "GameScheduleDateValue" })
+                @Html.HiddenFor(model => Model.Options, new { @id = "Options", @name = "Options" })
+                @Html.HiddenFor(model => Model.OptionsArray, new { @id = "OptionsArray", @name = "OptionsArray" })
+                @Html.HiddenFor(model => Model.CognitionTestId_Vers, new { @id = "hdnCognitionTestId_Vers", @name = "hdnCognitionTestId_Vers" })
+                <button type="button" class="btn btn-primary submit" onclick="return savebatchschedulegame();" title="Submit">Submit</button> @*saveschedulegame();*@
+                <input type="hidden" id="hdnBatchListRow" value="" />
+                <input type="hidden" id="hdnBatchListType" value="" />
+                @Html.HiddenFor(model => Model.BatchSurveyGames, new { @id = "hdnBatchSurveyGames" })
+            </div>
+        }
+    </div>
+</div>
+@section page_scripts
+{
+    <script src="~/Scripts/Pages/BatchSchedule.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @if (@Model.Status == 0 && @Model.IsSaved==true)
+            {
+                @:$('#divSuccess').show();
+                                                                        @:CallTimerForBackToUsers();
+                                    }
+
+            @if (@Model.Status == 1 && @Model.IsSaved==false)   
+            {
+                @:CallTimerForBackToUsers();
+                                    }
+
+            @if (TempData["BatchStatus"] != null)
+            {
+                if (TempData["IsSaved"] != null)
+                {
+
+                    if (((short)TempData["BatchStatus"] == 0) && (bool)TempData["IsSaved"] == true)
+                    {
+                        @:$('#divNewSuccess').show();
+                                                                                @:CallTimerForBackToUsers();
+                                                                            }
+                else
+                {
+                    }
+            }
+        }
+
+            function Clear() {
+                var url = '@Url.Action("AdminScheduleGame", "UserAdmin")';
+                window.location.href = url;
+            }
+
+            function CallTimerForBackToUsers() {
+                setTimeout(function () { CallBackToUsers(); }, 2000);
+            }
+
+            function CallBackToUsers() {
+                var url = '@Url.Action("ManageSchedule", "UserAdmin")';
+                window.location.href = url;
+            }
+
+            function LoadGameVersion() {
+                $("#ddlCognitionTestId_1").selectpicker('refresh');
+            }
+
+        });
+
+        function HideScheduleBathSurveyAndGameErrorMessages() {
+            $("[id$='surveyValidation']").hide();
+            $("[id$='cognitionValidation']").hide();
+            $("[id$='cognitionVersion']").hide();
+            $("[id$='spTableErrorMessage']").hide();
+        }
+
+        function AddBatchItem(type) {
+            var isSuccess = true;
+            var typeText = "";
+            var name = "";
+            if (type === 1) {
+                var surveyId = $("#ddlSurvey").val();
+                var surveyText = $("[id$=ddlSurvey] option:selected").text();
+                if (surveyId === "0") {
+                    $("[id$='surveyValidation']").show();
+                }
+                else {
+
+                    if ($("[id$='tblBatchList'] tr").length > 1) {
+                        $("[id$='tblBatchList'] tbody tr").each(function (i, row) {
+                            typeText = $(this).find("td").eq(1).html();    // Survey
+                            name = $(this).find("td").eq(2).html(); //Communication
+                            if ("Survey|" + surveyText === typeText + "|" + name) {
+                                if (($("#hdnBatchListType").val() == "1" && row.rowIndex.toString() != $("#hdnBatchListRow").val()) || ($("#hdnBatchListType").val() == "0")) {
+                                    alert("The selected survey name already exists.");
+                                    isSuccess = false;
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+
+                    if (isSuccess == true) {
+                        AddBatchItemToGrid(type.toString(), surveyId, surveyText, 0, 0);
+                        HideScheduleBathSurveyAndGameErrorMessages();
+                        $("#hdnBatchListRow").val("");
+                        $("#hdnBatchListType").val("0");
+                    }
+                }
+            }
+            else {
+                var gameId = $("#ddlCognitionTestId_1").val();
+                var gameText = $("[id$=ddlCognitionTestId_1] option:selected").text();
+                var gameVersionId = $("#ddlCognitionVersionId_1").val();
+                var gameVersionText = $("[id$=ddlCognitionVersionId_1] option:selected").text();
+                if (gameId === "0") {
+                    $("[id$='cognitionValidation']").show();
+                }
+                if (gameVersionId === "0") {
+                    $("[id$='cognitionVersion']").show();
+                }
+                if (gameId !== "0" && gameVersionId !== "0") {
+                    var version = "";
+                    if ($("[id$='tblBatchList'] tr").length > 1) {
+                        $("[id$='tblBatchList'] tbody tr").each(function (i, row) {
+                            typeText = $(this).find("td").eq(1).html();    // Cognition
+                            name = $(this).find("td").eq(2).html(); //Communication
+                            version = $(this).find("td").eq(3).html();
+                            if ("Cognition|" + gameText + "|" + gameVersionText === typeText + "|" + name + "|" + version) {
+                                if (($("#hdnBatchListType").val() == "2" && row.rowIndex.toString() != $("#hdnBatchListRow").val()) || ($("#hdnBatchListType").val() == "0")) {
+                                    alert("The selected cognition details already exist.");
+                                    isSuccess = false;
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+                    if (isSuccess == true) {
+                        AddBatchItemToGrid(type.toString(), gameId, gameText, gameVersionId, gameVersionText);
+                        HideScheduleBathSurveyAndGameErrorMessages();
+                        $("#hdnBatchListRow").val("");
+                        $("#hdnBatchListType").val("0");
+                    }
+                }
+            }
+        }
+
+        function EditItem(row, type, id, version) {
+            $("#hdnBatchListRow").val(row.toString());
+            $("#hdnBatchListType").val(type.toString());
+            if (type === 1) {
+                $("#ddlCognitionTestId_1").val("0").change();
+                $("#ddlCognitionVersionId_1").val("0").change();
+
+                $("#ddlSurvey").val(id).change();
+            }
+            else {
+                $("#ddlSurvey").val("0").change();
+                $("#ddlCognitionTestId_1").val(id).change();
+                setTimeout(function () {
+                    $("#ddlCognitionVersionId_1").val(version).change();
+                }, 1000);
+            }
+        }
+
+        function DeleteItem(id) {
+            if (confirm("Are you sure you want to delete?")) {
+                $("#tblBatchList").find("tr:not(:first)").remove();
+                var arr = $("[id^=hdnBatchSurveyGames]").val().split('|');
+                $.each(arr, function (index, value) {
+                    if (index !== id) {
+                        var items = value.split(':');
+                        var rowCount = $('#tblBatchList tr').length;
+                        if (items[0] === "1") {
+                            // if survey
+                            AddBatchItemToGrid(items[0], items[1], items[2], 0, 0, rowCount);
+                        }
+                        else {
+                            // if game
+                            AddBatchItemToGrid(items[0], items[1], items[2], items[3], items[3], rowCount);
+                        }
+                    }
+                });
+            }
+        }
+
+    </script>
+}

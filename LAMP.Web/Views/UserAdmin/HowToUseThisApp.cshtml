@@ -1,0 +1,255 @@
+﻿@model AppHelpViewModel
+@using System.Configuration
+@using LAMP.Utility;
+@{
+    ViewBag.Title = "HowToUseThisApp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<div class="content-wrapper">
+    <div class="title-sub clearfix">
+        <h4>How To Use This App </h4>
+        <a href="@Url.Action("BackToAppHelp", "UserAdmin")" class="btn btn-primary back" title="Back">Back</a>
+    </div>
+    <div class="main-content clearfix">
+        @if (TempData["AppHelpStatus"] != null)
+        {
+            if (TempData["AppHelpSaveMessage"] != null)
+            {
+                var message = TempData["AppHelpSaveMessage"] as string;
+                if (((short)TempData["AppHelpStatus"] == 0))
+                {
+                    <div class="alert alert-success" role="alert" id="divNewSuccess">@message</div>
+                }
+                else if ((short)TempData["AppHelpStatus"] > 0)
+                {
+                    <div class="alert alert-danger show" role="alert">@message</div>
+                }
+            }
+        }
+        @using (Html.BeginForm("AddAppHelp", "UserAdmin", FormMethod.Post, new { enctype = "multipart/form-data", id = "AppHelpEntryForm" }))
+        {
+            @Html.HiddenFor(model => Model.HelpID, new { @id = "HelpID", @name = "HelpID" })
+            @Html.HiddenFor(model => Model.HelpText, new { @id = "HelpText", @name = "HelpText" })
+            <div class="add-details blog">
+                <div class="blog-title clearfix">
+                    <h5>How To Use This App</h5>
+                </div>
+                <div class="blog-form">
+                    <div class="form-group">
+                        <div class="upload-block clearfix">
+                            <input id="uploadFile" placeholder="Upload Image" class="form-control" disabled="disabled" />
+                            <div class="fileUpload btn btn-primary">
+                                <span>Upload</span>
+                                <input id="uploadBtn" type="file" name="appImage" class="upload" />
+                            </div>
+                        </div>
+                        @if (Model.ImageURL != null && Model.HelpID != 0)
+                        {
+                            var filepath = ConfigurationManager.AppSettings["AppHelpImagePath"] + "\\" + Model.ImageURL;
+                            filepath = filepath.Replace("~", "");
+                            <div class="upload-thumb"><img src="@filepath" alt="" id="appHelpImageShow"></div>
+                        }
+                        else
+                        {
+                            <div class="upload-thumb"><img src="~/Content/Default/images/default-img.png" alt="" id="appHelpImageShow"></div>
+                        }
+                        <span class="error-message" id="imageValidation">@Html.ValidationMessageFor(m => m.ImageURL)</span>
+                        <span class="error-message" id="imageSizeValidation"></span>
+                    </div>
+                </div>
+                <div class="editor clearfix">
+                    @{
+                        var Content = Model.Content ?? "";
+                        Content = HttpUtility.HtmlDecode(Content).Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n\n", "</p><p>");
+                        Model.Content = Content;
+                        var c = @Html.Raw(Model.Content);
+                    }
+                    @Html.TextAreaFor(m => m.Content, new { @class = "CKeditor", placeholder = "App Help Content...", id = "Content" })
+                    <span class="error-message" id="showContentError">@Html.ValidationMessageFor(m => m.Content)</span>
+                    <span class="error-message" id="showHtmlErrorMessage"></span>
+                </div>
+                <button type="submit" class="btn btn-primary submit" id="SaveButton" onclick="return GetContent()" title="Submit">Submit</button>
+            </div>
+        }
+    </div>
+</div>
+
+@section page_scripts
+{
+    <script type="text/javascript">
+        function validateAppHelpContent() {
+            var status = true;
+            var text = CKEDITOR.instances.Content.document.getBody().getText();//for getting blog text
+            $('#HelpText').val(text);
+            var val = $('#HelpText').val();
+            if (val != null) {
+                if (val.match(/[<>]/)) {
+                    status = "false";
+                }
+            }
+            if (status == "false") {
+                $("#showHtmlErrorMessage").show();
+                $("#showHtmlErrorMessage").html("Specify Content without HTML tags.");
+                return false;
+            }
+            else if (status == "true") {
+                $("#showHtmlErrorMessage").hide();
+                return true;
+            }
+        }
+        /*For getting text of ckeditor*/
+        function GetContent() {
+            var text = CKEDITOR.instances.Content.document.getBody().getText();
+            $('#HelpText').val(text);
+            return false;
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#appHelpImageShow').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function ValidateFileUpload() {
+            var FileUploadPath = $('#uploadBtn').val();
+            /*To check if user upload any file*/
+            if (FileUploadPath != '') {
+                var Extension = FileUploadPath.substring(
+                        FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+                /*The file uploaded is an image*/
+                if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+                                    || Extension == "jpeg" || Extension == "jpg") {
+                    var fileUpload = document.getElementById("uploadBtn");
+                    if (typeof (fileUpload.files) != "undefined") {
+                        var size = parseFloat(fileUpload.files[0].size / 1024).toFixed(2);
+                        if (size >= 4000) {
+                            $('#imageSizeValidation').text("Specify an image below 4 MB.");
+                            $('#imageSizeValidation').show();
+                            $('#imageValidation').hide();
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+
+                    }
+                    else {
+                        alert("This browser does not support HTML5 and you will miss some features in this website. Update your browser to the latest version.");
+                        return false;
+                    }
+                }
+                    /*The file upload is NOT an image*/
+                else {
+
+                    $('#imageValidation').text('Upload GIF, PNG, JPG, JPEG or BMP image.');
+                    $('#imageValidation').show();
+                    $('#imageSizeValidation').hide();
+                    return false;
+                }
+            }
+        }
+
+        $(function () {
+            var instance = CKEDITOR.replace("Content", { htmlEncodeOutput: true, toolbar: 'Full' });
+            instance.on('change', function (evt) {
+                $('#showContentError').html('');
+                $('#showContentError').hide();
+            });
+            // Bind CKeditor fields on submit (To avoid problems with the RequiredAttribute)
+            $('#SaveButton').bind('click', function () {
+                for (instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].updateElement();
+                }
+                var messageLength = CKEDITOR.instances['Content'].getData().replace(/<[^>]*>/gi, '').length;
+                var status = true;
+                if (ValidateFileUpload() == false) {
+                    status = false;
+                }
+                if (!messageLength) {
+                    $('#showContentError').html("Specify Help Content.");
+                    $('#showContentError').show();
+                    status = false;
+                }
+                if (validateAppHelpContent() == false) {
+                    status = false;
+                }
+                else {
+                    $("#showHtmlErrorMessage").hide();
+                }
+                if (status == false) {
+                    return false;
+                }
+                else {
+                    $('#AppHelpEntryForm').submit();
+                }
+            });
+        });
+        $('#uploadBtn').change(function () {
+            $('#uploadFile').attr("placeholder", $(this).val());
+            /*validate  after button click*/
+            var FileUploadPath = $('#uploadBtn').val();
+            if (FileUploadPath != '') {
+                var Extension = FileUploadPath.substring(
+                        FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+                /*The file uploaded is an image*/
+                if (Extension == "gif" || Extension == "png" || Extension == "bmp"
+                                    || Extension == "jpeg" || Extension == "jpg") {
+                    readURL(this);
+                    return true;
+                }
+                else {
+                    $('#appHelpImageShow').attr('src', '/Content/Default/images/default-img.png');
+                    $('#imageValidation').text('Upload GIF, PNG, JPG, JPEG or BMP image.');
+                    return false;
+                }
+            }
+        });
+        function clearBlogForm() {
+            $('#Content').val('');
+            $('#uploadFile').val('');
+        }
+        function Clear() {
+            var url = '@Url.Action("HowToUseThisApp", "UserAdmin")';
+            window.location.href = url;
+        }
+        function CallTimerForBackToUsers() {
+            setTimeout(function () { CallBackToUsers(); }, 2000);
+        }
+        function CallBackToUsers() {
+            var url = '@Url.Action("HowToUseThisApp", "UserAdmin")';
+            window.location.href = url;
+        }
+
+        $(document).ready(function () {
+            @if (@Model.Status == 0 && @Model.IsSaved==true)
+          {
+              @:$('#divSuccess').show();
+                          @:CallTimerForBackToUsers();
+                      }
+          else
+          {
+          }
+
+            @if (TempData["AppHelpStatus"] != null)
+          {
+              if (TempData["IsSaved"] != null)
+              {
+
+                  if (((short)TempData["AppHelpStatus"] == 0) && (bool)TempData["IsSaved"] == true)
+                  {
+                      @:$('#divNewSuccess').show();
+                                  @:CallTimerForBackToUsers();
+                              }
+              else
+              {
+                    }
+          }
+    }
+
+        });
+    </script>
+}

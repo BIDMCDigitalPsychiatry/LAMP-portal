@@ -1,0 +1,175 @@
+﻿@model  CognitionSpatialSpanViewModel
+@using System.Globalization;
+@using PagedList.Mvc;
+@using Newtonsoft.Json
+@using LAMP.Utility
+@{
+    Layout = null;
+}
+<!-- box Modal -->
+<div class="modal fade" id="BoxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Type</th>
+        <th>Correct Answers</th>
+        <th>Incorrect Answers</th>
+        <th>Start Time</th>
+        <th>Duration</th>
+        <th>Status</th>
+        <th>View Details</th>
+        <th>Exit / Complete</th>
+    </tr>
+    @if (Model.CTest_SpatialSpanResultList.Count > 0)
+    {
+        foreach (CognitionSpatialSpanDetail CTest in Model.CTest_SpatialSpanResultList)
+        {
+            <tr>
+                <td>@(CTest.Type == 1 ? "Forward" : "Backward")</td>
+                <td>@CTest.CorrectAnswers</td>
+                <td>@CTest.WrongAnswers</td>
+                <td>@CTest.StartTime.ToString("MM/dd/yyyy hh:mm tt", CultureInfo.InvariantCulture)</td>
+                <td>@CTest.DurationString</td>
+                <td><span class="@CTest.Rating.ToLower().Replace(' ','-')">@*@CTest.Rating*@_</span></td>
+                <td><a data-toggle="modal" onclick="showModal(@CTest.SpatialResultID)">View</a></td>
+                <td>@(CTest.Status == 1 ? ExitOrCompleteStatus.Exited : ExitOrCompleteStatus.Completed)</td>
+                <td><a data-toggle="modal" data-target="#BoxModal"><span class="average">Average</span></a></td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="9">
+                <div id="divRegquestGridNone" class="" style="">No records found.</div>
+            </td>
+        </tr>
+    }
+</table>
+@Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPage", @name = "CurrentPage" })
+@Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSize", @name = "PageSize" })
+
+@if (Model.PagedCTest_SpatialSpanDetailList != null)
+{
+    <div class="row col-sm-12">
+        <div class="pull-right">
+            <div class="dataTables_paginate paging_bs_normal">
+                @if (Model.TotalRows > Model.SortPageOptions.PageSize)
+                {
+                    <div>
+                        @Html.PagedListPager(Model.PagedCTest_SpatialSpanDetailList, page => Url.Action("Cognition_SpatialSpan", new { page, pageSize = Model.SortPageOptions.PageSize, userId = Model.UserID, adminBatchSchID = 0 }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divCTestSpatialSpan" }))
+                    </div>
+                }
+            </div>
+        </div><div class="clearfix"></div>
+    </div>
+}
+<script type="text/javascript">
+    var jsonSpatialSpanResultList = @Html.Raw(JsonConvert.SerializeObject(@Model.CTest_SpatialSpanResultList));
+    function showModal(SpatialResultID) {
+        //filetering the result with current TrailsBResultID
+        var spatialSpanResultObject = jsonSpatialSpanResultList.filter(function (obj) {
+            return obj.SpatialResultID == SpatialResultID;
+        })[0];
+        //For Getting sequence array
+        var arrayOfSequence=[];
+        if(spatialSpanResultObject.CognitionSpatialSpanResultDetail.length>0)
+        {
+            for(i=0;i<spatialSpanResultObject.CognitionSpatialSpanResultDetail.length;i++)
+            {
+                arrayOfSequence.push(spatialSpanResultObject.CognitionSpatialSpanResultDetail[i].Sequence);
+            }
+        }
+        Array.prototype.contains = function(v) {
+            for(var i = 0; i < this.length; i++) {
+                if(this[i] === v) return true;
+            }
+            return false;
+        };
+        Array.prototype.unique = function() {
+            var arr = [];
+            for(var i = 0; i < this.length; i++) {
+                if(!arr.contains(this[i])) {
+                    arr.push(this[i]);
+                }
+            }
+            return arr;
+        }
+        //getting unique sequence array
+        var uniqueSequence=[];
+        uniqueSequence = arrayOfSequence.unique();
+        var modalHmtl='<div class="modal-dialog game-modal" role="document"><div class="modal-content"><div class="modal-header">'+
+                       '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+                       '<h4 class="modal-title" id="myModalLabel">Box View</h4>'+
+                       '</div>'+
+                       '<div class="modal-body">';
+
+        if(spatialSpanResultObject.CognitionSpatialSpanResultDetail.length>0)
+        {
+            console.log(uniqueSequence);
+            console.log(uniqueSequence.length);
+
+            var arr = uniqueSequence;
+            uniqueSequence = arr.sort(function (a,b){return a-b;});
+            for(k=0;k<uniqueSequence.length;k++)
+            {
+
+                modalHmtl+='<div class="game-wrap">';
+                modalHmtl+='<h4>Level '+(k+1)+'</h4>';
+                modalHmtl+='<div class="spatial-game clearfix">';
+
+                var itemsInASequence = [];
+                itemsInASequence = $.grep(spatialSpanResultObject.CognitionSpatialSpanResultDetail, function(element){ return element.Sequence == uniqueSequence[k]; })                
+
+                var index=0;
+                console.log(itemsInASequence);
+                for(i=0;i<16;i++)
+                {
+                    // debugger;
+                    if(typeof itemsInASequence[index] !== typeof undefined){
+
+                        if(itemsInASequence[index].GameIndex==i+1)
+                        {
+                            if(itemsInASequence[index].Status==true)
+                            {
+                                modalHmtl+='<div class="cube green">';
+                                modalHmtl+='<p>'+itemsInASequence[index].TimeTaken +' millisec.</p>';
+                                modalHmtl+='<span>'+itemsInASequence[index].GameIndex +'</span>';
+                                modalHmtl+='</div>';
+                            }
+                            else if(itemsInASequence[index].Status==false)
+                            {
+                                modalHmtl+='<div class="cube red">';
+                                modalHmtl+='<p>'+itemsInASequence[index].TimeTaken +' millisec.</p>';
+                                modalHmtl+='<span>'+itemsInASequence[index].GameIndex +'</span>';
+                                modalHmtl+='</div>';
+                            }
+                            index++;
+                        }
+                        else
+                        {
+                            modalHmtl+='<div class="cube">';
+                            modalHmtl+='</div>';
+                        }
+                    }
+                    else
+                    {
+                        modalHmtl+='<div class="cube">';
+                        modalHmtl+='</div>';
+                    }
+                }
+                modalHmtl+='</div></div>';
+            }
+        }
+        else{
+            modalHmtl+='No Data';
+        }
+        modalHmtl+='</div>';
+        modalHmtl+='</div>';
+        modalHmtl+='</div>';
+        modalHmtl+='</div>';
+        $("#BoxModal").html(modalHmtl);
+        $('#BoxModal').modal('show');
+    }
+</script>

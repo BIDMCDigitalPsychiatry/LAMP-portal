@@ -1,0 +1,97 @@
+﻿@model SurveyListViewModel
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<div id="msgsuccess" class="alert alert-success alert-white rounded" style="display:none;"></div>
+<div class="table-responsive list-table">
+    <table id="UserList" class="table table-striped">
+        <tr>
+            <th class="@(Model.SortPageOptions.SortField == "SurveyName" ? "sorting-" + Model.SortPageOptions.SortOrder : "sorting")"
+                onclick="SortSurveyList('SurveyName')"><span>Survey Name</span></th>
+            <th class="@(Model.SortPageOptions.SortField == "CreatedOn" ? "sorting-" + Model.SortPageOptions.SortOrder : "sorting") w120"
+                onclick="SortSurveyList('CreatedOn')"><span>Created On</span></th>
+            <th class="@(Model.SortPageOptions.SortField == "CreatedAdmin" ? "sorting-" + Model.SortPageOptions.SortOrder : "sorting")"
+                onclick="SortSurveyList('CreatedAdmin')"><span>Created By</span></th>
+            <th>&nbsp;</th>
+        </tr>
+
+        @if (Model.SurveyList.Count > 0)
+        {
+            foreach (SurveyForList survey in Model.SurveyList)
+            {
+                <tr>
+                    <td>@survey.SurveyName</td>
+                    <td>@(survey.CreatedOnString == string.Empty ? "Nil" : survey.CreatedOnString)</td>
+                    <td>@survey.CreatedAdmin</td>
+                    <td>
+                        <a href="@Url.Action("EditSurvey", "Survey", new { SurveyId = @survey.SurveyID })" title="Edit"><i class="edit"></i></a>
+                        <a href="#" onclick="ShowDeleteSurveyConfirmationPopup(' @survey.SurveyID')" title="Delete"><i class="delete"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>
+                    <div id="divRegquestGridNone" class="" style="">No surveys found.</div>
+                </td>
+            </tr>
+        }
+    </table>
+    <input type="hidden" id="CurrentSurveyId" />
+
+    @Html.HiddenFor(model => Model.SearchText, new { @id = "SearchText", @name = "SearchText" })
+    @Html.HiddenFor(model => Model.SortPageOptions.CurrentPage, new { @id = "CurrentPage", @name = "CurrentPage" })
+    @Html.HiddenFor(model => Model.SortPageOptions.PageSize, new { @id = "PageSize", @name = "PageSize" })
+    @Html.HiddenFor(model => Model.SortPageOptions.SortField, new { @id = "SortField", @name = "SortField" })
+    @Html.HiddenFor(model => Model.SortPageOptions.SortOrder, new { @id = "SortOrder", @name = "SortOrder" })
+    @Html.HiddenFor(model => Model.SearchText, new { @id = "SearchText", @name = "SearchText" })
+</div>
+
+@if (Model.PagedSurveyList != null)
+{
+    <div class="row col-sm-12">
+        <div class="pull-right">
+            <div class="dataTables_paginate paging_bs_normal">
+                @if (Model.PagedSurveyList.Count != 0)
+                {
+                    <div>
+                        @Html.PagedListPager(Model.PagedSurveyList, page => Url.Action("SearchSurveys", new { page, searchString = Model.SearchText, sortColumn = Model.SortPageOptions.SortField, sortOrder = Model.SortPageOptions.SortOrder, pageSize = Model.SortPageOptions.PageSize }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions { LinkToPreviousPageFormat = String.Format("<"), LinkToNextPageFormat = String.Format(">") }, new AjaxOptions() { HttpMethod = "GET", LoadingElementId = "imgloaderIndex", UpdateTargetId = "divSurveyList", OnSuccess = "PagerScrollTop", OnBegin = "BeginPaginaionSurvey" }))
+
+                    </div>
+                }
+            </div>
+        </div><div class="clearfix"></div>
+    </div>
+}
+
+<!-- Start Modal 1-->
+<div id="DeleteSurveyPopupConfirmation" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form id="deleteUserForm" class="form-horizontal">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="P1C_Title">LAMP</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 centered text-center">
+                            <p id="confirmMessage"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" title="Cancel" data-toggle="Cancel" data-dismiss="modal" class="btn btn-default" id="btnCancel">Cancel</button>
+                    <button type="button" title="Delete" data-toggle="Delete" onclick="DeleteSurvey()" class="btn btn-primary" id="btnDelete">Delete</button>
+
+                </div>
+                @Html.Hidden("P1C_Type")
+                @Html.Hidden("P1C_Value")
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal 1 -->
